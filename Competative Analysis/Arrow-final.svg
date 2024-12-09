@@ -1,0 +1,36 @@
+<svg width="76" height="76" viewBox="0 0 76 76" fill="none" xmlns="http://www.w3.org/2000/svg">
+  
+    <path d="M2 18C2 9.16344 9.16344 2 18 2H58C66.8366 2 74 9.16344 74 18V58C74 66.8366 66.8366 74 58 74H18C9.16344 74 2 66.8366 2 58V18Z" fill="white"/>
+  
+    
+    <path d="M2 18C2 9.16344 9.16344 2 18 2H58C66.8366 2 74 9.16344 74 18V58C74 66.8366 66.8366 74 58 74H18C9.16344 74 2 66.8366 2 58V18Z" 
+          stroke="url(#gradientBorder)" stroke-width="2.5"/>
+  
+    
+    <path d="M30.8333 45.1667L45.1667 30.8333M45.1667 30.8333H30.8333M45.1667 30.8333V45.1667" 
+          stroke="url(#gradientArrow)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  
+    <defs>
+      
+      <linearGradient id="gradientBorder" x1="0%" y1="0%" x2="100%" y2="100%" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="#FF00B5"/> 
+        <stop offset="100%" stop-color="#0099FF"/> 
+        <animateTransform attributeName="gradientTransform"
+                          type="rotate"
+                          from="0 38 38"
+                          to="360 38 38"
+                          dur="2s" repeatCount="indefinite" />
+      </linearGradient>
+  
+      
+      <linearGradient id="gradientArrow" x1="11.4988" y1="28.4998" x2="29.4988" y2="10.9998" gradientUnits="userSpaceOnUse">
+        <stop offset="0.176395" stop-color="#007AFF"/>
+        <stop offset="1" stop-color="#FF008A"/>
+        <animateTransform attributeName="gradientTransform"
+                          type="rotate"
+                          from="0 38 38"
+                          to="360 38 38"
+                          dur="2.1s" repeatCount="indefinite" />
+      </linearGradient>
+    </defs>
+  </svg>
