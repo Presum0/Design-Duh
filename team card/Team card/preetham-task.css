@@ -1,0 +1,234 @@
+body{
+    background-color: black;
+}
+ .team-card{
+    background-color: white;
+    height: 500px;
+    width: 380px;
+    display: flex;
+    align-items: center;
+    align-self: center;
+    border-radius:20px;
+    position: absolute;
+    top: 450px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#pic{
+    position: absolute;
+    width: calc(100% - 40px);
+    height: calc(100% - 40px);
+    object-fit: cover;
+    border-radius: 20px;
+    top: 20px;
+    left: 20px;
+}
+ .arrow-border-two{
+    background-color: white;
+    height: 105px;
+    width: 105px;
+    border-radius: 50%;
+    position: relative; 
+    top: 256px; 
+    left: 35.55%;
+}
+.arrow-border-one{
+    background-color: white;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    position: fixed; 
+    top: 30.5%; 
+    left: 36.6%; 
+    box-shadow: 0px 0px 8px 0px rgba(236, 9, 146, 0.12) inset, 0px 0px 8px 0px rgba(8, 119, 252, 0.12) inset;
+}
+#team-name{
+    position: relative;
+    text-align: start;
+    background-color: rgba(175, 175, 175, 0.9);
+    border: 1px solid white;
+    box-shadow: 0 0 5px white;
+    color: white;
+    height: 40px;
+    width: 270px;
+    position: absolute;
+    bottom: 260px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    border-radius: 40px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    padding-left: 40px;
+    padding-top: 7px;
+    padding-bottom: 20px;
+}
+h5{
+    text-align: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+    padding-top: 7px;
+    padding-bottom: 17px;
+}
+#profile {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    box-shadow: 0 0 5px white;
+}
+
+button {
+    background-color: white;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    position: absolute; 
+    top: 204px; 
+    left: 39.1%; 
+    transform: translate(-50%, -50%); 
+    border: none; 
+    box-shadow: 0px -4px 4px 0px #E3E3E3 inset, 0px -2px 2px 0px #FAFAFA inset, 0px 3px 4px 0px rgba(95, 95, 95, 0.10);
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    border-radius: inherit;
+    padding: 1px; 
+    background: linear-gradient(180deg, #F20790 5%, #0877FC 95%);
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+}
+
+
+.material-icons {
+    color: transparent;
+    background-image: linear-gradient(225deg,#F20790 30%, #0877FC 80%) ;
+    background-clip: text;
+    -webkit-background-clip: text;
+    font-size: 36px;
+    border-radius: 50%;
+    padding: 1px;
+    border: 2px solid transparent;   
+    transition: background-image 0.3s ease, transform 0.3s ease;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: var(--full-radius, 1000px);
+}
+
+
+
+button:hover {
+    .material-icons{
+        color: white;
+        box-shadow: none;
+    }
+    .idk{
+        background-color: #F20790;
+        box-shadow: none;
+        border-color: none;
+    }
+}
+
+button:hover {
+    background: linear-gradient(180deg, #F20790 5%, #0877FC 95%);
+    background-color: white;
+    display: flex;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    box-shadow: none;
+}
+@keyframes arrow-animation {
+    0% {
+        opacity: 1;
+    }
+    65% {
+        opacity: 0;
+    }
+    80% {
+        transform: translateY(-30px) translateX(5px);
+    }
+    100% {
+        opacity: 0;
+    }
+}
+.material-icons {
+    animation: none; 
+}
+button:hover{
+    .material-icons{
+        animation: arrow-animation 0.4s ;
+    }
+}
+
+
+
+/*<span class="material-icons">
+                        arrow_outward
+                        </span>
+                        
+ <stop stop-color="#F20790"/>
+ <stop offset="1" stop-color="#0877FC"/>
+ 
+ stroke="url(#paint0_linear_6314_7162)"
+ 
+ id="paint0_linear_6314_7162"*/
+
+/* Define the gradient in your SVG 
+<svg>
+    <defs>
+        <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#F20790; stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#0877FC; stop-opacity:1" />
+        </linearGradient>
+    </defs>
+</svg>
+
+background-clip: text;
+    -webkit-background-clip: text;
+    
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" class="material-icons">
+                        <path d="M9.34375 22.6663L22.6771 9.33301M22.6771 9.33301H9.34375M22.6771 9.33301V22.6663"  stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <defs>
+                          <linearGradient x1="23" y1="9" x2="9" y2="23" gradientUnits="userSpaceOnUse">
+                            <!----<stop stop-color="#F20790"/>
+                            <stop offset="1" stop-color="#0877FC"/> -->
+                          </linearGradient>
+                        </defs>
+                      </svg>
+                      
+button {
+    background-color: white;
+    border-image: linear-gradient(180deg, #F20790 0%, #0877FC 100%);
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    position: fixed; 
+    top: 35.2%; 
+    left: 39.2%; 
+    transform: translate(-50%, -50%); 
+    border-radius: var(--full-radius, 1000px);
+    border: 1px solid #F20790;
+    box-shadow: 0px -4px 4px 0px #E3E3E3 inset, 0px -2px 2px 0px #FAFAFA inset, 0px 3px 4px 0px rgba(95, 95, 95, 0.10);
+}*/
