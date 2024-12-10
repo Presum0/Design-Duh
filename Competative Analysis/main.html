@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Pages in Iframes</title>
+
+    <style>
+      body {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        margin: 0;
+        padding: 20px;
+        background-color: #f0f0f0;
+      }
+      iframe {
+        width: 420px;
+        height: 378px;
+        border: none; /* Remove border */
+        overflow: visible;
+        border-radius: 4%;
+        justify-content: center;
+        align-items: center;
+        /* Prevent scrolling */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Row 1 -->
+    <iframe
+      src="competative.html"
+      title="Competative"
+      style="border: none; display: block; margin: 0 auto"
+    ></iframe>
+    <iframe src="research.html" title="Research"></iframe>
+    <iframe src="upload.html" title="Upload"></iframe>
+
+    <!-- Row 2 -->
+    <iframe src="interview.html" title="Interview"></iframe>
+    <iframe src="whiteboarding.html" title="Whiteboarding"></iframe>
+    <iframe src="data.html" title="Data" scrolling="no"></iframe>
+  </body>
+</html>
