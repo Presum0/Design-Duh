@@ -1,0 +1,214 @@
+/*.Background-grid {
+    position: fixed; 
+    top: 40%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    width: 100%; 
+    height: auto; 
+    z-index: 1;
+    overflow: hidden; 
+}
+
+
+.AI-star-frame {
+    position: fixed; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    width: 1015px; 
+    height: 599px; 
+    border: none;
+    z-index: 2;
+}
+
+.Design-logo{
+    position: relative;
+    bottom: 580px;
+    left: 20px;
+    z-index: 2;
+}
+
+body{
+    background: linear-gradient(180deg, #FF86CD 0%, #ffe9fc 100%); 
+}
+
+.register{
+    width: 126px;
+    height: 45px;
+    background-color: white;
+    border-radius: 24px;
+    bottom: 760px;
+    left: 1350px;
+    position: relative;
+    border: none;
+    z-index: 2;
+    border-image: linear-gradient(90deg, #F20790 100%, #0D77FB 0% );
+}
+
+.register::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    border-radius: inherit;
+    padding: 1.5px; 
+    background: linear-gradient(270deg, #F20790 15%,#fff , #0877FC 85%);
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+}
+
+h5{
+    position: relative;
+    top: 28%;
+    left: 25%;
+    color: #000;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}*/
+
+/*body {
+    background: radial-gradient(circle at top center, rgba(255, 134, 205, 0.3) 20%, #fff9fe 60%);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    height: 100vh; 
+}
+
+
+html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scrolling 
+    height: 100%; /* Ensure proper gradient coverage 
+}*/
+
+/*body {
+    background: radial-gradient(circle at top center, rgba(255, 134, 205, 0.3) 5%, #fff9fe 60%);
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Ensure full height 
+    overflow-x: hidden; /* Prevent horizontal scrolling 
+}*/
+
+
+body {
+    background: 
+        radial-gradient(circle at top center, rgba(255, 134, 205, 0.3) 20%, #fff9fe 60%), 
+        #fff9fe; 
+    margin: 0;
+    padding: 0;
+    height: 100%; 
+    overflow-x: hidden; 
+    background-size: 100% 100vh; 
+    background-repeat: no-repeat; 
+}
+
+
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%; 
+}
+
+
+.cards{
+    width: 465px;
+    height: 430px;
+    border: none; 
+    overflow: visible;
+    border-radius: 4%;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+}
+
+
+.Background-grid {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 100vh; /* Ensure it fits the viewport height */
+    overflow: hidden;
+    z-index: 1;
+}
+
+
+
+
+
+.AI-star-frame {
+    position: fixed; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    width: 1015px; 
+    height: 599px; 
+    border: none;
+    z-index: 2;
+}
+
+.Design-logo {
+    position: relative;
+    bottom: 580px;
+    left: 20px;
+    z-index: 2;
+}
+
+.register {
+    width: 126px;
+    height: 45px;
+    background-color: white;
+    border-radius: 24px;
+    bottom: 760px;
+    left: 1370px;
+    position: relative;
+    border: none;
+    z-index: 2;
+    border-image: linear-gradient(90deg, #F20790 100%, #0D77FB 0%);
+}
+
+.register::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    border-radius: inherit;
+    padding: 1.5px; 
+    background: linear-gradient(270deg, #F20790 15%, #fff, #0877FC 85%);
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+}
+
+h5 {
+    position: relative;
+    top: 28%;
+    left: 25%;
+    color: #000;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
