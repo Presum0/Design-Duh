@@ -7,39 +7,54 @@
 
     <style>
       body {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* Three equal columns */
+        gap: 20px; /* Equal gap between frames */
+        margin: 0;
+        padding: 20px 40px; /* Padding for corners */
+        background-color: #f0f0f0;
+      }
+      iframe {
+        width: 100%; /* Let the iframe take full column width */
+        height: 418px; /* Maintain the height */
+        border: none; /* Remove border */
+        border-radius: 4%; /* Add rounded corners */
+        overflow: hidden;
+      }
+      /*
+      body {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 20px;
+        gap: 0px;
         margin: 0;
         padding: 20px;
         background-color: #f0f0f0;
       }
       iframe {
-        width: 420px;
-        height: 378px;
-        border: none; /* Remove border */
+        width: 463px;
+        height: 418px;
+        border: none; 
         overflow: visible;
         border-radius: 4%;
         justify-content: center;
         align-items: center;
-        /* Prevent scrolling */
-      }
+      */
     </style>
   </head>
   <body>
     <!-- Row 1 -->
-    <iframe
-      src="competative.html"
-      title="Competative"
-      style="border: none; display: block; margin: 0 auto"
-    ></iframe>
-    <iframe src="research.html" title="Research"></iframe>
-    <iframe src="upload.html" title="Upload"></iframe>
+    <iframe src="competative.html" title="Competative" scrolling="no"></iframe>
+    <iframe src="research.html" title="Research" scrolling="no"></iframe>
+    <iframe src="upload.html" title="Upload" scrolling="no"></iframe>
 
     <!-- Row 2 -->
-    <iframe src="interview.html" title="Interview"></iframe>
-    <iframe src="whiteboarding.html" title="Whiteboarding"></iframe>
+    <iframe src="interview.html" title="Interview" scrolling="no"></iframe>
+    <iframe
+      src="whiteboarding.html"
+      title="Whiteboarding"
+      scrolling="no"
+    ></iframe>
     <iframe src="data.html" title="Data" scrolling="no"></iframe>
   </body>
 </html>
