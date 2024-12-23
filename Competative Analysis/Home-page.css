@@ -99,3 +99,21 @@ h5 {
   font-weight: 500;
   line-height: normal;
 }
+
+.code-wizard {
+  text-align: center;
+  font-family: Poppins;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.overtime-artist {
+  text-align: center;
+  font-family: Poppins;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
