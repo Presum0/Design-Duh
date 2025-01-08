@@ -117,3 +117,21 @@ h5 {
   font-weight: 400;
   line-height: normal;
 }
+.embedded-folder {
+  display: flex;
+  flex-wrap: nowrap; /* Ensures items stay on one line */
+  gap: 40px; /* Adds space between frames */
+  justify-content: center; /* Centers the frames horizontally */
+  align-items: center; /* Aligns the frames vertically */
+
+  align-self: stretch;
+  background-color: transparent;
+}
+
+.embedded-folder iframe {
+  flex: 0 0 300px; /* Sets a fixed width for each iframe */
+  height: 400px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  background-color: transparent;
+}
