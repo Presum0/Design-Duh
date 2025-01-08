@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Team card</title>
+    <link rel="stylesheet" href="teamcard.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Clicker+Script&family=Poppins:wght@200;300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="frame-container">
+      <div
+        class="frame"
+        onmouseover="changeImage(true)"
+        onmouseout="changeImage(false)"
+      >
+        <div class="rectangle">
+          <div class="emojicircle"></div>
+          <div class="text-container">
+            <span class="nametext">Nancy</span>
+            <span class="seeking">Seeking for an opportunity</span>
+          </div>
+        </div>
+        <img src="Bg.svg" alt="card" class="card" id="cardImage" />
+        <img src="Nancy.svg" alt="top image" class="top-image" />
+        <img src="Name Tag.png" alt="name" class="name" />
+      </div>
+      <div class="circle">
+        <div class="inner-circle">
+          <div class="star-container">
+            <img src="star.svg" alt="star" class="star" />
+            <img src="blanckcircle.svg" alt="bcircle" class="bcircle" />
+            <img src="colorarrow.png" alt="arrow" class="arrow" />
+            <img src="colorcircle.svg" alt="ccircle" class="ccircle" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
