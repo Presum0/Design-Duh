@@ -111,17 +111,6 @@ body {
   align-items: center;
 }
 
-.bcircle {
-  margin-top: 0px;
-  position: absolute;
-  justify-content: center;
-  align-items: center;
-  width: 45px;
-  height: 45px;
-  display: none;
-  transition: opacity 0.3s ease;
-}
-
 .star {
   margin-top: -4px;
   position: absolute;
@@ -130,6 +119,18 @@ body {
   width: 42px;
   height: 42px;
   transition: transform 0.1s ease, opacity 0.3s ease;
+}
+.bcircle {
+  margin-top: 0px;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: 45px;
+  display: none;
+  opacity: 5; /* Start invisible */
+  transform: scale(1); /* Normal size */
+  transition: opacity 0.3s ease, transform 0.5s ease;
 }
 .arrow {
   display: none;
@@ -189,11 +190,23 @@ body {
   transition-delay: 0.5s;
 }
 
+.circle:hover .bcircle {
+  display: block; /* Ensure it's visible */
+  opacity: 6; /* Fade in */
+  transform: scale(1.2); /* Scale up */
+  transition: opacity 0.3s ease 0.5s, transform 0.5s ease 0.5s; /* Delay to synchronize with arrow */
+}
+
 .circle:hover .arrow {
   animation: arrow-move 0.5s ease forwards,
     arrow-fade-out 0.1s ease 0.15s forwards;
 }
 
+.circle:hover .bcircle-fade-out {
+  opacity: 6; /* Fade out on cursor removal */
+  transform: scale(1); /* Reset scale */
+  transition: opacity 0.3s ease, transform 0.5s ease;
+}
 /* Keyframes for arrow movement */
 @keyframes arrow-move {
   0% {
