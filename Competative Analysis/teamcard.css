@@ -1,15 +1,25 @@
+* {
+  background-color: transparent;
+}
 body {
   margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: rgb(43, 43, 43); /* Background color for visibility */
+  background: radial-gradient(
+      circle at top center,
+      rgba(255, 134, 205, 0.3) 20%,
+      #fff9fe 60%
+    ),
+    #fff9fe;
+
   position: relative;
 }
 
 .frame-container {
   position: relative;
+  background-color: transparent;
 }
 
 .frame {
@@ -22,7 +32,7 @@ body {
   z-index: 1; /* Ensure it is below the circle */
   border-radius: 24px;
   border: 1px solid #fff;
-  background: linear-gradient(224deg, #f7f5fe 10.35%, #f7f5fe 97.41%);
+  background: transparent;
   box-shadow: 0px 0px 1.676px 0px rgba(102, 112, 133, 0.24);
   transition: box-shadow 0.3s ease, border 0.3s ease;
 }
@@ -101,17 +111,6 @@ body {
   align-items: center;
 }
 
-.bcircle {
-  margin-top: 0px;
-  position: absolute;
-  justify-content: center;
-  align-items: center;
-  width: 45px;
-  height: 45px;
-  display: none;
-  transition: opacity 0.3s ease;
-}
-
 .star {
   margin-top: -4px;
   position: absolute;
@@ -120,6 +119,18 @@ body {
   width: 42px;
   height: 42px;
   transition: transform 0.1s ease, opacity 0.3s ease;
+}
+.bcircle {
+  margin-top: 0px;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: 45px;
+  display: none;
+  opacity: 5; /* Start invisible */
+  transform: scale(1); /* Normal size */
+  transition: opacity 0.3s ease, transform 0.5s ease;
 }
 .arrow {
   display: none;
@@ -155,7 +166,10 @@ body {
   transform: translate(0, 0);
 }
 .circle:hover .arrow {
-  transform: translate(5px, -5px);
+  display: block;
+  opacity: 1;
+  transform: translate(20px, -20px); /* Move arrow to the end */
+  transition: transform 0.5s ease, opacity 0.5s ease;
 }
 .circle:hover .ccircle {
   visibility: visible;
@@ -173,11 +187,45 @@ body {
 }
 .circle:hover .bcircle,
 .circle:hover .arrow {
-  transition-delay: 1s;
+  transition-delay: 0.5s;
+}
+
+.circle:hover .bcircle {
+  display: block; /* Ensure it's visible */
+  opacity: 6; /* Fade in */
+  transform: scale(1.2); /* Scale up */
+  transition: opacity 0.3s ease 0.5s, transform 0.5s ease 0.5s; /* Delay to synchronize with arrow */
 }
 
 .circle:hover .arrow {
-  transition-delay: 0.3s;
+  animation: arrow-move 0.5s ease forwards,
+    arrow-fade-out 0.1s ease 0.15s forwards;
+}
+
+.circle:hover .bcircle-fade-out {
+  opacity: 6; /* Fade out on cursor removal */
+  transform: scale(1); /* Reset scale */
+  transition: opacity 0.3s ease, transform 0.5s ease;
+}
+/* Keyframes for arrow movement */
+@keyframes arrow-move {
+  0% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(20px, -20px);
+  }
+}
+
+/* Keyframes for arrow fading out */
+@keyframes arrow-fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 .rectangle {
