@@ -37,6 +37,7 @@
       </div>
       <img src="Arrow-final.svg" alt="" class="arrow" />
     </div>
+    <button class="open-btn" onclick="parent.showPopup()"></button>
     <style>
       .star {
         filter: drop-shadow(0px 0px 2px white);
@@ -142,6 +143,7 @@
         border-radius: 16px;
         flex-direction: column;
         margin: 16px;
+        z-index: 0;
       }
       .main-background {
         position: relative;
@@ -268,6 +270,21 @@
         visibility: visible;
         opacity: 1;
         transition: opacity 0.4s ease;
+      }
+      .open-btn {
+        display: flex;
+        width: 420px;
+        height: 375px;
+
+        background-color: transparent;
+
+        position: fixed;
+        top: 11%;
+        left: 9%;
+        border-radius: 16px;
+        border: none;
+        cursor: pointer;
+        z-index: 30;
       }
     </style>
   </body>

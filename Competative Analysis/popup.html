@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Popup from Bottom</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+      }
+
+      .popup-container {
+        position: fixed;
+        bottom: -100%; /* Start hidden below the screen */
+        left: 0;
+        width: 100%;
+        background-color: #f1f1f1;
+        box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.2);
+        transition: bottom 0.5s ease; /* Smooth slide-in effect */
+        padding: 20px;
+        z-index: 1000;
+      }
+
+      .popup-container.active {
+        bottom: 0; /* Slide into view */
+      }
+
+      .popup-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .popup-header h3 {
+        margin: 0;
+      }
+
+      .popup-content {
+        margin-top: 15px;
+      }
+
+      .close-btn {
+        background: #ff4d4d;
+        color: white;
+        border: none;
+        padding: 8px 12px;
+        cursor: pointer;
+        border-radius: 4px;
+        font-size: 14px;
+      }
+
+      .open-btn {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 20px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="open-btn" onclick="showPopup()">Open Popup</button>
+
+    <div class="popup-container" id="popup">
+      <div class="popup-header">
+        <h3>Popup Header</h3>
+        <button class="close-btn" onclick="closePopup()">Close</button>
+      </div>
+      <div class="popup-content">
+        <p>This is a popup window that slides in from the bottom!</p>
+      </div>
+    </div>
+
+    <script>
+      const popup = document.getElementById("popup");
+
+      function showPopup() {
+        popup.classList.add("active"); // Add the "active" class to make the popup visible
+      }
+
+      function closePopup() {
+        popup.classList.remove("active"); // Remove the "active" class to hide the popup
+      }
+    </script>
+  </body>
+</html>

@@ -131,7 +131,47 @@ h5 {
 .embedded-folder iframe {
   flex: 0 0 300px; /* Sets a fixed width for each iframe */
   height: 400px;
-  border: 2px solid #ccc;
+  border: none;
   border-radius: 5px;
   background-color: transparent;
+}
+/*POPUP*/
+.popup-container {
+  position: fixed;
+  bottom: -100%;
+  left: 0;
+  width: 100%;
+  background-color: #f1f1f1;
+  box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.2);
+  transition: bottom 0.5s ease;
+  padding: 20px;
+  z-index: 1000;
+}
+
+.popup-container.active {
+  bottom: 0;
+}
+
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.popup-header h3 {
+  margin: 0;
+}
+
+.popup-content {
+  margin-top: 15px;
+}
+
+.close-btn {
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 14px;
 }
