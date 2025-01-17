@@ -36,8 +36,9 @@
         </div>
       </div>
       <img src="Arrow-final.svg" alt="" class="arrow" />
+      <button class="open-btn" onclick="parent.showPopup()"></button>
     </div>
-    <button class="open-btn" onclick="parent.showPopup()"></button>
+
     <style>
       .star {
         filter: drop-shadow(0px 0px 2px white);
@@ -275,9 +276,7 @@
         display: flex;
         width: 420px;
         height: 375px;
-
         background-color: transparent;
-
         position: fixed;
         top: 11%;
         left: 9%;
@@ -285,7 +284,13 @@
         border: none;
         cursor: pointer;
         z-index: 30;
+        pointer-events: auto; /* Ensure pointer events are enabled */
       }
     </style>
+    <script>
+      function showPopup() {
+        alert("Popup triggered!");
+      }
+    </script>
   </body>
 </html>

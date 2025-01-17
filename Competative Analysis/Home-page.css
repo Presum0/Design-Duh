@@ -138,18 +138,24 @@ h5 {
 /*POPUP*/
 .popup-container {
   position: fixed;
-  bottom: -100%;
-  left: 0;
-  width: 100%;
-  background-color: #f1f1f1;
-  box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.2);
-  transition: bottom 0.5s ease;
+  bottom: -100%; /* Initially hidden below the viewport */
+  left: 0.1%;
+  width: 97%;
+  height: 97%;
+  flex-shrink: 0;
+  max-height: 85vh; /* Ensures it doesn't exceed 95% of the viewport height */
+  overflow-y: auto; /* Adds scrolling if content exceeds the height */
+  background: linear-gradient(180deg, #fff 0.4%, #7bb9f7 0%, #fff 56.73%);
+  transition: bottom 0.5s ease; /* Smooth transition */
   padding: 20px;
-  z-index: 1000;
+  z-index: 100;
+  border-radius: 12px; /* Rounded corners on all sides for a polished look */
+  display: none;
 }
 
 .popup-container.active {
-  bottom: 0;
+  display: block; /* Show the popup */
+  bottom: 0; /* Adjust to the desired position */
 }
 
 .popup-header {
@@ -158,20 +164,156 @@ h5 {
   align-items: center;
 }
 
-.popup-header h3 {
-  margin: 0;
-}
-
 .popup-content {
   margin-top: 15px;
 }
+.popup-content {
+  position: relative;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end; /* Start the Whitestar at the bottom */
+}
+
+/* Whitestar Animation */
+.Whitestar {
+  width: 80px;
+  height: auto;
+  position: absolute;
+}
+.Whitestar {
+  bottom: 0;
+  animation: moveUpWhitestar 1.5s forwards ease-out;
+}
+
+@keyframes moveUpWhitestar {
+  from {
+    bottom: 0;
+  }
+  to {
+    bottom: 80%;
+  }
+}
 
 .close-btn {
-  background: #ff4d4d;
-  color: white;
+  display: flex;
+  width: 36px;
+  height: 36px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 1000px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  background: linear-gradient(180deg, #fff 0%, #f5f5f5 100%);
+  box-shadow: 0px 6px 6px -3px rgba(70, 70, 70, 0.04),
+    0px 16px 16px -8px rgba(70, 70, 70, 0.04), 0px 5px 5px 0px #fff inset,
+    0px -4px 3px 0px rgba(250, 250, 250, 0.65) inset,
+    0px -10px 18px 0px rgba(91, 91, 91, 0.08) inset;
+  z-index: 200;
+}
+
+.close-btn:hover {
+  border-radius: 1000px;
+  border: 1px solid rgba(240, 68, 56, 0.06);
+  background: linear-gradient(180deg, #fff 0%, #feedec 100%);
+  box-shadow: 0px 6px 6px -3px rgba(70, 70, 70, 0.04),
+    0px 16px 16px -8px rgba(70, 70, 70, 0.04), 0px 5px 5px 0px #fff inset,
+    0px -4px 3px 0px rgba(240, 68, 56, 0.1) inset,
+    0px -10px 18px 0px rgba(240, 68, 56, 0.04) inset;
+  background: url("x-markred.svg") no-repeat center center;
+  z-index: 1000;
+}
+
+.chat-box {
+  position: relative;
+  width: 1002px;
+  height: 144px;
+  left: 5%;
+  top: 60%;
+  animation: moveUp 1s ease forwards;
+  animation-delay: 5s;
+  animation-fill-mode: forwards;
+}
+
+.chat-box-1 {
+  position: relative;
+  width: 1002px;
+  height: 80px;
+  flex-shrink: 0;
+  border-radius: 24px 24px 0px 0px;
+  left: 15%;
+  top: 75%;
+  border: 2px solid rgba(228, 228, 228, 0.5);
+  border-bottom: none;
+  background-color: white;
+  display: flex;
+  align-items: center;
+}
+.chat-box-2 {
+  position: relative;
+  width: 1002px;
+  height: 64px;
+  left: 15%;
+  top: 75%;
+  border: 2px solid rgba(228, 228, 228, 0.5);
+  border-top: 1px solid rgba(250, 250, 250, 0.1);
+  border-radius: 0px 0px 24px 24px;
+  background: linear-gradient(
+    180deg,
+    rgba(209, 215, 219, 0) 0%,
+    #fff 2%,
+    #fcfcfc 40%,
+    #f1f3f4 100%
+  );
+}
+
+.chat-box-icon {
+  position: relative;
+  margin-right: 25px;
+  left: 20px;
+  top: 3px;
+}
+
+.chat-input {
+  width: 100%;
+  height: 100%;
   border: none;
-  padding: 8px 12px;
-  cursor: pointer;
-  border-radius: 4px;
-  font-size: 14px;
+  outline: none;
+  padding: 10px;
+  border-radius: 24px 24px 0px 0px;
+  background-color: transparent;
+}
+
+.attachment {
+  font-family: poppins;
+  position: relative;
+  border: 1px solid rgba(228, 228, 228, 0.5);
+  left: 77%;
+  top: 10px;
+  width: 121px;
+  height: 40px;
+  border-radius: 24px;
+  display: flex;
+  padding: 2px 12px;
+  align-items: center;
+  gap: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  background: linear-gradient(180deg, #fff 0%, #f5f5f5 100%);
+  box-shadow: 0px 6px 6px -3px rgba(70, 70, 70, 0.04),
+    0px 16px 16px -8px rgba(70, 70, 70, 0.04), 0px 5px 5px 0px #fff inset,
+    0px -4px 3px 0px rgba(250, 250, 250, 0.65) inset,
+    0px -10px 18px 0px rgba(91, 91, 91, 0.08) inset;
+}
+
+@keyframes moveUp {
+  from {
+    top: 60%;
+  }
+  to {
+    top: 30%;
+  }
+}
+
+.chat-box.visible {
+  opacity: 1;
 }
