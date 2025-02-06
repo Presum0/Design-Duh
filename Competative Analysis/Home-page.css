@@ -11,6 +11,7 @@ body {
   overflow-x: hidden;
   background-size: 100% 100vh;
   background-repeat: no-repeat;
+  transition: all 0.5s ease-in-out;
 }
 
 html {
@@ -138,24 +139,27 @@ h5 {
 /*POPUP*/
 .popup-container {
   position: fixed;
-  bottom: -100%; /* Initially hidden below the viewport */
-  left: 0.1%;
-  width: 97%;
-  height: 97%;
+  bottom: -100%;
+  left: 0.15%;
+  width: 1425.9px;
+  height: 896px;
   flex-shrink: 0;
-  max-height: 85vh; /* Ensures it doesn't exceed 95% of the viewport height */
-  overflow-y: auto; /* Adds scrolling if content exceeds the height */
+  max-height: 85vh;
+  overflow-y: auto;
   background: linear-gradient(180deg, #fff 0.4%, #7bb9f7 0%, #fff 56.73%);
-  transition: bottom 0.5s ease; /* Smooth transition */
+  transition: bottom 0.5s ease; /* Only transition the bottom property */
   padding: 20px;
   z-index: 100;
-  border-radius: 12px; /* Rounded corners on all sides for a polished look */
-  display: none;
+  border-radius: 3.5%;
+  display: block;
+}
+
+.popup-container.white-background {
+  background: white; /* Change background to white instantly */
 }
 
 .popup-container.active {
-  display: block; /* Show the popup */
-  bottom: 0; /* Adjust to the desired position */
+  bottom: 0;
 }
 
 .popup-header {
@@ -167,9 +171,11 @@ h5 {
 .popup-content {
   margin-top: 15px;
 }
+
+/* Other styles remain unchanged */
 .popup-content {
   position: relative;
-  height: 100%;
+  height: 15%;
   display: flex;
   justify-content: center;
   align-items: flex-end; /* Start the Whitestar at the bottom */
@@ -177,21 +183,220 @@ h5 {
 
 /* Whitestar Animation */
 .Whitestar {
-  width: 80px;
-  height: auto;
+  width: 130px;
+  height: 130px;
   position: absolute;
-}
-.Whitestar {
-  bottom: 0;
+  bottom: -100vh;
   animation: moveUpWhitestar 1.5s forwards ease-out;
 }
-
+.silverstar {
+  width: 43px;
+  height: 43px;
+  position: absolute;
+  left: 50%; /* Center horizontally relative to Whitestar */
+  transform: translate(-50%, -100%); /* Adjust horizontal centering */
+  bottom: -100vh;
+  animation: moveUpWhitestar 1.5s forwards ease-out;
+}
 @keyframes moveUpWhitestar {
   from {
-    bottom: 0;
+    bottom: -100vh;
   }
   to {
-    bottom: 80%;
+    bottom: -5vh;
+  }
+}
+
+.circle-container {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  left: 50%;
+  top: 80px;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle-container img {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.001s ease-in-out; /* Smooth fade-in and fade-out */
+}
+.line {
+  width: 2px; /* Thin vertical line */
+  height: 595px; /* Adjust height as needed */
+  background: white;
+  position: absolute;
+  bottom: -100vh; /* Start far below */
+  left: 50%;
+  transform: translateX(-50%);
+  animation: moveUpLine 1.5s forwards ease-out,
+    glowEffect 3s 1.5s forwards ease-in;
+}
+
+/* Move the Line Upward Along with Stars */
+@keyframes moveUpLine {
+  from {
+    bottom: -200vh; /* Start far below */
+  }
+  to {
+    bottom: -71vh; /* Align exactly with the White Star */
+  }
+}
+
+/* Glowing Effect on the Line */
+@keyframes glowEffect {
+  0% {
+    background: white;
+    border-radius: 0px;
+    filter: blur(0);
+    opacity: 0.6;
+  }
+  100% {
+    background: linear-gradient(
+      180deg,
+      #0d77fb 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    border-radius: 24px;
+    filter: blur(8px);
+    opacity: 0.4;
+  }
+}
+@keyframes moveUpAndDisappear {
+  from {
+    bottom: -5vh; /* Current position */
+  }
+  to {
+    bottom: 100vh; /* Move above the viewport */
+    opacity: 0; /* Fade out */
+  }
+}
+
+/* Apply the animation to stars and line */
+.Whitestar,
+.silverstar,
+.line {
+  animation: moveUpAndDisappear 1s ease forwards;
+  animation-delay: 1s; /* Start after 1 second */
+}
+.pulse {
+  display: flex;
+  width: 1500px;
+  height: 916px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  position: absolute;
+  top: -80px;
+  left: -55px; /* Adjust position as needed */
+  transform: translate(0%, 0%); /* Center alignment */
+  opacity: 1; /* Ensure visibility */
+  animation: pulseEffect 1s ease-in forwards, fadeOut 5s ease-in forwards 1s; /* Trigger animations sequentially */
+  z-index: 3000; /* Ensure it's above other elements */
+}
+
+/* Pulse animation (inward movement with ease-in) */
+@keyframes pulseEffect {
+  0% {
+    transform: scale(1.5) translate(0%, 0%); /* Start large */
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) translate(0%, 0%); /* Shrink inward */
+    opacity: 1;
+  }
+}
+
+/* Fade out animation */
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0; /* Fully disappear */
+    display: none; /* Optional: remove from layout after fading */
+  }
+}
+
+.creativity-text {
+  position: absolute;
+  top: calc(50% + 120px); /* Adjusted below the circle container */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  height: 50px; /* Adjust as needed */
+  font-size: 28px;
+}
+
+.creativity-text img {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
+}
+
+.creativity-description {
+  position: absolute;
+  top: calc(50% + 150px); /* Adjusted below creativity-text */
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--Text-Primary-TextColor, #191919);
+  text-align: center;
+  font-family: Poppins;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.2; /* Adjusted for better spacing */
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.5s ease-in; /* Smooth fade-in effect */
+}
+
+.first-line,
+.second-line {
+  display: flex;
+  align-items: center; /* Ensures vertical alignment */
+  justify-content: center;
+  flex-wrap: nowrap; /* Prevents words from breaking into a new line */
+  white-space: nowrap; /* Keeps text in a single line */
+}
+
+.magical {
+  width: 250px; /* Adjust based on your image size */
+  height: auto;
+  vertical-align: middle; /* Aligns with text */
+  margin: 0 5px;
+}
+
+.text-animation {
+  color: var(--Text-Primary-TextColor, #191919);
+  font-family: Poppins;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-left: 10px; /* Optional: Adds inner spacing */
+  display: inline-block; /* Ensures spacing applies correctly */
+}
+
+.cursor-img {
+  display: inline-flex;
+  height: 28px;
+  justify-content: center;
+  align-items: flex-end;
+  flex-shrink: 0;
+  animation: blink 0.7s infinite;
+  margin-right: 10px;
+  display: inline-block; /* Ensures spacing applies correctly */
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
   }
 }
 
@@ -204,58 +409,171 @@ h5 {
   flex-shrink: 0;
   border-radius: 1000px;
   border: 1px solid rgba(0, 0, 0, 0.06);
-  background: linear-gradient(180deg, #fff 0%, #f5f5f5 100%);
+  background: linear-gradient(
+    180deg,
+    #fff 0%,
+    #f5f5f5 100%
+  ); /* White background */
   box-shadow: 0px 6px 6px -3px rgba(70, 70, 70, 0.04),
     0px 16px 16px -8px rgba(70, 70, 70, 0.04), 0px 5px 5px 0px #fff inset,
     0px -4px 3px 0px rgba(250, 250, 250, 0.65) inset,
     0px -10px 18px 0px rgba(91, 91, 91, 0.08) inset;
   z-index: 200;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+  position: relative; /* Needed for absolute positioning of the icon */
 }
 
+/* Default x-mark icon */
+.close-btn::before {
+  content: "";
+  position: absolute;
+  width: 16px; /* Adjust size as needed */
+  height: 16px; /* Adjust size as needed */
+  background-image: url("x-mark.svg"); /* Default x-mark */
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain; /* Ensure the icon fits */
+  transition: background-image 0.2s ease;
+}
+
+/* Hover state */
 .close-btn:hover {
-  border-radius: 1000px;
   border: 1px solid rgba(240, 68, 56, 0.06);
-  background: linear-gradient(180deg, #fff 0%, #feedec 100%);
+  background: linear-gradient(
+    180deg,
+    #fff 0%,
+    #feedec 100%
+  ); /* Light red background */
   box-shadow: 0px 6px 6px -3px rgba(70, 70, 70, 0.04),
     0px 16px 16px -8px rgba(70, 70, 70, 0.04), 0px 5px 5px 0px #fff inset,
     0px -4px 3px 0px rgba(240, 68, 56, 0.1) inset,
     0px -10px 18px 0px rgba(240, 68, 56, 0.04) inset;
-  background: url("x-markred.svg") no-repeat center center;
-  z-index: 1000;
+  z-index: 3000;
+}
+
+/* Change the x-mark icon on hover */
+.close-btn:hover::before {
+  background-image: url("x-markred.svg"); /* Red x-mark on hover */
 }
 
 .chat-box {
   position: relative;
   width: 1002px;
   height: 144px;
-  left: 5%;
-  top: 60%;
-  animation: moveUp 1s ease forwards;
-  animation-delay: 5s;
-  animation-fill-mode: forwards;
+  left: -10%;
+  top: 550%; /* Only 20% of the chatbox is visible initially */
+  opacity: 1; /* Ensure it's visible */
+  animation: moveChatboxUp 2s ease forwards;
+  animation-delay: 25s; /* Start after stars and line disappear (1s delay for background change + 1s for stars/line animation) */
 }
 
+/* Animation to move the chatbox up */
+@keyframes moveChatboxUp {
+  from {
+    top: 550%; /* Initial position (20% visible) */
+  }
+  to {
+    top: 300%; /* Move up to this position (adjust as needed) */
+  }
+}
+
+.chat-box.visible {
+  opacity: 1;
+}
 .chat-box-1 {
   position: relative;
   width: 1002px;
-  height: 80px;
+  height: 144px;
   flex-shrink: 0;
-  border-radius: 24px 24px 0px 0px;
+  border-radius: 24px 24px 24px 24px;
   left: 15%;
-  top: 75%;
-  border: 2px solid rgba(228, 228, 228, 0.5);
-  border-bottom: none;
+  top: 70%;
   background-color: white;
   display: flex;
+
+  /* Default border */
+  border: 1.5px solid rgba(228, 228, 228, 0.5);
+  transition: border 0.3s ease; /* Smooth transition for border change */
+}
+
+/* Gradient border added on hover */
+.chat-box-1::before {
+  content: "";
+  position: absolute;
+  inset: -1.5px; /* Border thickness same as the default */
+  border-radius: 24px 24px 24px 24px;
+  background: linear-gradient(92deg, #f20790, #007aff);
+  z-index: -1; /* Place it behind the box */
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.3s ease; /* Smooth transition for opacity */
+}
+
+/* Show the gradient border and remove the default gray border on hover */
+.chat-box-1:hover {
+  border: none; /* Remove the default gray border */
+}
+
+.chat-box-1:hover::before {
+  opacity: 1; /* Make the gradient border visible */
+  animation: gradientRotate 4s infinite linear;
+}
+@keyframes gradientRotate {
+  0% {
+    background: linear-gradient(90deg, #f20790, #007aff);
+  }
+  25% {
+    background: linear-gradient(180deg, #f20790, #007aff);
+  }
+  50% {
+    background: linear-gradient(270deg, #f20790, #007aff);
+  }
+  75% {
+    background: linear-gradient(360deg, #f20790, #007aff);
+  }
+  100% {
+    background: linear-gradient(90deg, #f20790, #007aff);
+  }
+}
+.chat-box-icon {
+  display: flex;
+  width: 32px;
+  height: 32px;
+  padding: 4px;
+  justify-content: center;
   align-items: center;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.chat-input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  margin-top: -40px;
+  margin-left: 10px;
+  border-radius: 24px 24px 0px 0px;
+  background-color: transparent;
+}
+.chat-input::placeholder {
+  color: var(--Text-Teritary-Text-Color, rgba(25, 25, 25, 0.5));
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }
 .chat-box-2 {
   position: relative;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 4px;
   width: 1002px;
   height: 64px;
   left: 15%;
-  top: 75%;
-  border: 2px solid rgba(228, 228, 228, 0.5);
+  top: 25%;
+  margin-right: 20px;
   border-top: 1px solid rgba(250, 250, 250, 0.1);
   border-radius: 0px 0px 24px 24px;
   background: linear-gradient(
@@ -266,54 +584,122 @@ h5 {
     #f1f3f4 100%
   );
 }
-
-.chat-box-icon {
-  position: relative;
-  margin-right: 25px;
-  left: 20px;
-  top: 3px;
-}
-
-.chat-input {
-  width: 100%;
-  height: 100%;
-  border: none;
-  outline: none;
-  padding: 10px;
-  border-radius: 24px 24px 0px 0px;
-  background-color: transparent;
-}
-
 .attachment {
-  font-family: poppins;
+  font-family: Poppins, sans-serif;
   position: relative;
   border: 1px solid rgba(228, 228, 228, 0.5);
-  left: 77%;
-  top: 10px;
-  width: 121px;
+  width: 135px;
   height: 40px;
   border-radius: 24px;
   display: flex;
-  padding: 2px 12px;
+  padding: 8px 12px;
   align-items: center;
   gap: 4px;
-  border: 1px solid rgba(0, 0, 0, 0.06);
   background: linear-gradient(180deg, #fff 0%, #f5f5f5 100%);
   box-shadow: 0px 6px 6px -3px rgba(70, 70, 70, 0.04),
     0px 16px 16px -8px rgba(70, 70, 70, 0.04), 0px 5px 5px 0px #fff inset,
     0px -4px 3px 0px rgba(250, 250, 250, 0.65) inset,
     0px -10px 18px 0px rgba(91, 91, 91, 0.08) inset;
+  border: none;
 }
 
-@keyframes moveUp {
-  from {
-    top: 60%;
+/* Hide hover-img & uploadimage initially */
+.attachment img.hover-img,
+.attachment img.uploadimage {
+  display: none;
+}
+
+/* Show hover image and upload image when hovering */
+.attachment:hover {
+  font-size: 14px;
+  font-weight: 500;
+  background: linear-gradient(92deg, #ff009a -0.57%, #0877fc 99.15%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border-radius: 1000px;
+  border: 1px solid rgba(242, 7, 144, 0.1);
+  box-shadow: 0px 6px 6px -3px rgba(70, 70, 70, 0.04),
+    0px 16px 16px -8px rgba(70, 70, 70, 0.04), 0px 5px 5px 0px #fff inset,
+    0px -4px 3px 0px #d9eaff inset, 0px -10px 18px 0px #c3deff inset;
+}
+
+/* Position upload image correctly */
+.uploadimage {
+  display: none;
+  padding: 12px 16px;
+  flex-direction: column;
+  align-items: flex-start;
+  position: absolute;
+  left: -230px;
+  top: -90px;
+}
+
+/* Swap images on hover */
+.attachment:hover img.default-img {
+  display: none;
+}
+
+.attachment:hover img.hover-img,
+.attachment:hover img.uploadimage {
+  display: inline;
+}
+
+.attachment-line {
+  width: 2px;
+  height: 30px;
+  background-color: rgba(0, 0, 0, 0.2); /* Light gray line */
+  margin: 0 8px; /* Add margin to center the line between the buttons */
+}
+
+@keyframes borderPulse {
+  0% {
+    inset: -2px;
   }
-  to {
-    top: 30%;
+  50% {
+    inset: -4px;
+  }
+  100% {
+    inset: -2px;
   }
 }
 
-.chat-box.visible {
-  opacity: 1;
+.send-btn {
+  display: flex;
+  width: 36px;
+  height: 36px;
+  padding: 12px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  position: relative; /* Needed for proper layering */
+  border: 2px solid transparent; /* Transparent border to avoid shifting */
+  background: linear-gradient(92deg, #f20790 1.88%, #007aff 94.66%);
+  box-shadow: 0px -6px 2px 0px rgba(0, 0, 0, 0.1) inset;
+  z-index: 2; /* Ensure button stays on top */
+}
+
+/* Gradient Border Effect Behind the Button */
+.send-btn::before {
+  content: "";
+  position: absolute;
+  inset: -4px; /* Starting thickness */
+  border-radius: 50%;
+  background: linear-gradient(92deg, #f20790 1.88%, #007aff 94.66%);
+  z-index: -1; /* Send it behind */
+  opacity: 0.6;
+  animation: borderPulse 1.5s infinite ease-in-out;
+}
+
+.sendicon {
+  width: 20px;
+  height: 20px;
+  align-items: center;
+}
+
+/* Prevent scrolling when popup is open */
+body.no-scroll,
+html.no-scroll {
+  overflow: hidden;
+  height: 100%;
 }

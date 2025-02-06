@@ -1,0 +1,10 @@
+<svg width="250" height="250" viewBox="0 0 250 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="125" cy="125" r="75.7621" stroke="white" stroke-opacity="0.6" stroke-width="0.475831"/>
+<path d="M221 125C221 178.019 178.019 221 125 221C71.9807 221 29 178.019 29 125C29 71.9807 71.9807 29 125 29C178.019 29 221 71.9807 221 125ZM40.2251 125C40.2251 171.82 78.1801 209.775 125 209.775C171.82 209.775 209.775 171.82 209.775 125C209.775 78.1801 171.82 40.2251 125 40.2251C78.1801 40.2251 40.2251 78.1801 40.2251 125Z" fill="url(#paint0_radial_12151_23635)"/>
+<defs>
+<radialGradient id="paint0_radial_12151_23635" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(125 125) rotate(90) scale(96)">
+<stop offset="0.87" stop-color="white" stop-opacity="0"/>
+<stop offset="1" stop-color="white" stop-opacity="0.5"/>
+</radialGradient>
+</defs>
+</svg>

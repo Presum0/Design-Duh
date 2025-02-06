@@ -1,0 +1,12 @@
+<svg width="160" height="160" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="80" cy="80" r="31.8792" stroke="white" stroke-opacity="0.6" stroke-width="0.241692"/>
+<circle cx="80" cy="80" r="79.8792" stroke="white" stroke-opacity="0.6" stroke-width="0.241692"/>
+<circle cx="80" cy="80" r="63.8792" stroke="white" stroke-opacity="0.6" stroke-width="0.241692"/>
+<path d="M128 80C128 106.51 106.51 128 80 128C53.4903 128 32 106.51 32 80C32 53.4903 53.4903 32 80 32C106.51 32 128 53.4903 128 80ZM37.6126 80C37.6126 103.41 56.5901 122.387 80 122.387C103.41 122.387 122.387 103.41 122.387 80C122.387 56.5901 103.41 37.6126 80 37.6126C56.5901 37.6126 37.6126 56.5901 37.6126 80Z" fill="url(#paint0_radial_12151_23394)"/>
+<defs>
+<radialGradient id="paint0_radial_12151_23394" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(80 80) rotate(90) scale(48)">
+<stop offset="0.87" stop-color="white" stop-opacity="0"/>
+<stop offset="1" stop-color="white" stop-opacity="0.5"/>
+</radialGradient>
+</defs>
+</svg>
