@@ -953,3 +953,7 @@ html.no-scroll {
   -webkit-line-clamp: 3; /* Limits text to 3 lines */
   -webkit-box-orient: vertical;
 }
+
+test{
+  color: wheat;
+}
