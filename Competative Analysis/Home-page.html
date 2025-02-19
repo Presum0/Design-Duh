@@ -55,6 +55,10 @@
         </button>
       </div>
       <div class="popup-content">
+        <div class="sidebar-iconcontainer">
+          <img src="Sidebar-icon.svg" alt="" class="sidebar-icon">
+          <div class="chat-name"></div>
+        </div>
         <img class="Whitestar" src="Whitestar.svg" alt="Whitestar" />
         <img class="silverstar" src="star.svg" alt="silverstar" />
         
@@ -93,8 +97,9 @@
         <p class="text">Our</p>
         <div class="chat-box">
           <div class="chat-box-1">
+            <div id="suggestions" class="suggestions"></div>
             <img src="chat-box-icon.svg" alt="" class="chat-box-icon" />
-            <input type="text" class="chat-input" placeholder="Enter your prompt here" />
+            <input type="text" class="chat-input" id="chatbox" placeholder="Enter your prompt here" oninput="showSuggestions()"/>
           </div>
           <div class="chat-box-2">
             <button class="attachment">
@@ -141,5 +146,6 @@
       <img src="Running on.svg" alt="" /><br/><br/>
     </div>
     <script src="script.js"></script>
+    <script src="chat-box-reccomendations.js"></script>
   </body>
 </html>
