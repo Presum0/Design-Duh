@@ -10,6 +10,9 @@ const creativityText = document.querySelector(".creativity-text");
 const creativityDescription = document.querySelector(".creativity-description");
 const textElement = document.querySelector(".text-animation");
 const cursorElement = document.querySelector(".cursor-img");
+const chatBox = document.querySelector(".chat-box");
+const dragCard = document.querySelector(".drag-card");
+const dragCardContainer = document.querySelector(".drag-card-container");
 
 const words = [" desired ", " design ", " desired ", " design "];
 let index = 0;
@@ -65,6 +68,10 @@ function resetElements() {
       img.style.opacity = "0";
     }
   });
+
+  // Hide the drag-card initially
+  dragCard.style.opacity = "0";
+  dragCard.classList.remove("visible"); // Remove visible class
 }
 
 function animateStars() {
@@ -146,20 +153,57 @@ function typeEffect() {
       // Change background to white
       popup.classList.add("white-background");
 
-      // After 1 second, trigger the animations for stars, line, and chatbox
+      // After 1 second, trigger animations for stars, line, and chatbox
       setTimeout(() => {
         // Add animation classes to stars and line
         whitestar.style.animation = "moveUpAndDisappear 1s ease forwards";
         silverstar.style.animation = "moveUpAndDisappear 1s ease forwards";
         line.style.animation = "moveUpAndDisappear 1s ease forwards";
 
-        // Add animation class to chatbox
-        const chatBox = document.querySelector(".chat-box");
+        // Move chatbox up
         chatBox.style.animation = "moveChatboxUp 2s ease forwards";
-      }, 1000); // 1 second delay
+
+        // After chatbox moves up, show drag-card
+        setTimeout(() => {
+          dragCard.style.opacity = "1";
+          dragCard.classList.add("visible"); // Add visible class
+        }, 2000); // Show dragCard after chatbox animation finishes
+      }, 1000);
       return;
     }
   }
 
   setTimeout(typeEffect, isDeleting ? speed / 2 : speed);
 }
+
+// 🔹 Add Scroll Blur Effect for .drag-card
+function updateBlurEffect() {
+  if (dragCard.style.opacity === "1") {
+    // Ensure drag-card is visible
+    if (dragCard.scrollLeft > 0) {
+      dragCardContainer.classList.add("show-left-blur");
+    } else {
+      dragCardContainer.classList.remove("show-left-blur");
+    }
+
+    if (dragCard.scrollLeft + dragCard.clientWidth < dragCard.scrollWidth) {
+      dragCardContainer.classList.add("show-right-blur");
+    } else {
+      dragCardContainer.classList.remove("show-right-blur");
+    }
+  } else {
+    dragCardContainer.classList.remove("show-left-blur", "show-right-blur");
+  }
+}
+
+// Attach event listener for scroll blur effect
+dragCard.addEventListener("scroll", updateBlurEffect);
+
+// ✅ Ensure blur effect is updated when drag-card becomes visible
+const observer = new MutationObserver(() => {
+  if (dragCard.style.opacity === "1") {
+    updateBlurEffect(); // Apply blur effect when visible
+  }
+});
+
+observer.observe(dragCard, { attributes: true, attributeFilter: ["style"] });
