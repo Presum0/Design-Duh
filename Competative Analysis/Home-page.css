@@ -950,6 +950,10 @@ html.no-scroll {
   /* Ensure text wraps properly */
   white-space: normal;
   display: -webkit-box;
-  -webkit-line-clamp: 3; /* Limits text to 3 lines */
+  -webkit-line-clamp: 3; /* Adjusts text to 3 lines */
   -webkit-box-orient: vertical;
+}
+
+test{
+  columns: 4;
 }
