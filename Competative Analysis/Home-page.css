@@ -952,10 +952,7 @@ html.no-scroll {
   display: -webkit-box;
   -webkit-line-clamp: 3; /* Adjusts text to 3 lines */
   -webkit-box-orient: vertical;
-}
-
-test{
-  columns: 4;
+  line-clamp: 3; /* Standard property for compatibility */
 }
 
 .suggestions {
