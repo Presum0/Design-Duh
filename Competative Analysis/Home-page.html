@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Clicker+Script&family=Poppins:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/bohemian-soul" rel="stylesheet">
     <style>
       .Background-grid {
         position: absolute;
@@ -49,6 +50,9 @@
     
     <!-- Popup -->
     <div class="popup-container" id="popup">
+      
+      
+      
       <div class="popup-header">
         <h3></h3>
         <button class="close-btn" onclick="closePopup()">
@@ -160,15 +164,17 @@
         <div class="chat-box">
           <div class="chat-box-1">
             <img src="chat-box-icon.svg" alt="" class="chat-box-icon" />
-            <input type="text" class="chat-input" placeholder="Enter your prompt here" />
+            <textarea class="chat-input" placeholder="Enter your prompt here"></textarea>
+
           </div>
           <div class="chat-box-2">
             <button class="attachment">
               <img src="paperclip-vertical.svg" alt="Default Icon" class="default-img">
               <img src="paperclip-color.svg" alt="Hover Icon" class="hover-img">
-              Attachment
+              <span>Attachment</span>
               <img src="uploadimage.svg" alt="uploadimage" class="uploadimage">
             </button>
+            
             <div class="attachment-line"></div> <!-- Vertical line -->
             <button class="send-btn">
               <img class="sendicon" src="sendicon.svg" alt="Send">
@@ -176,6 +182,37 @@
           </div>
           
         </div>
+        <div class="rectangle-trey-wrapper">
+          <img src="Rectangle trey.svg" alt="rectangle trey" class="rectangle-trey">
+          <p class="rectangle-text">Untitled chat</p>
+          <div class="icon-wrapper">
+            <img src="downicon.svg" alt="Dropdown Icon" class="dropdown-icon" id="dropdownIcon">
+            <img src="upicon.svg" alt="Close Icon" class="dropdown-icon up-icon" id="upIcon">
+          </div>
+          
+          <div class="dropdown-menu" id="dropdownMenu">
+            <ul>
+              <li class="dropdown-item" data-default="shareicon.svg" data-hover="shareicon-hover.svg">
+                <img src="shareicon.svg" alt="Share Icon" class="dropdown-icon-img">
+                <span>Share</span>
+              </li>
+              <li class="dropdown-item" data-default="hearticon.svg" data-hover="hearticon-hover.svg">
+                <img src="hearticon.svg" alt="Favorites Icon" class="dropdown-icon-img">
+                <span>Favorites</span>
+              </li>
+              <li class="dropdown-item" data-default="arrow-downicon.svg" data-hover="arrow-downicon-hover.svg">
+                <img src="arrow-downicon.svg" alt="Download Icon" class="dropdown-icon-img">
+                <span>Download</span>
+              </li>
+              <li class="dropdown-item" data-default="trashicon.svg" data-hover="trashicon-hover.svg">
+                <img src="trashicon.svg" alt="Delete Icon" class="dropdown-icon-img">
+                <span>Delete</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        
       </div>
       
      
@@ -186,13 +223,20 @@
     <iframe src="interview.html" frameborder="0" class="cards"></iframe>
     <iframe src="whiteboarding.html" frameborder="0" class="cards"></iframe>
     <iframe src="data.html" frameborder="0" class="cards"></iframe><br/>
+    
     <div class="code-wizard">
       <br/><br/>
       <img src="codewizard-left.svg" alt="" />
       <img src="Code Wizards.svg" alt="" />
       <img src="codewizard-right.svg" alt="" /><br/><br/>
-      <img src="Stacking.svg" alt="" /><br/><br/>
+      <p class="coders">
+        <span class="line1">
+          Stacking <span class="highlight">‘Solutions’</span>, snacking on problems, and
+        </span>
+        <span class="line2"> keeping our bugs low-carbs</span>
+      </p>
     </div>
+    
     <div class="embedded-folder">
       <iframe src="teamcard.html" style="width: 100%; height: 400px; "></iframe>
       <iframe src="teamcard.html" style="width: 100%; height: 400px; "></iframe>
@@ -204,7 +248,15 @@
       <img src="codewizard-left.svg" alt="" />
       <img src="Overtime Artists.svg" alt="" />
       <img src="codewizard-right.svg" alt="" /><br/><br/>
-      <img src="Running on.svg" alt="" /><br/><br/>
+      <p class="coders">
+        <span class="line1">
+          Running on 4 hours of sleep and 100% 
+        </span>
+        <span class="line2">determination to ship<span class="highlight"> ‘Perfection’</span></span>
+      </p>
+    </div>
+    <div class="overtime-artist-folder">
+      <img src="colorVector.svg">
     </div>
     <script src="script.js"></script>
   </body>

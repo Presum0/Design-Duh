@@ -155,7 +155,11 @@ h5 {
 }
 
 .popup-container.white-background {
-  background: white; /* Change background to white instantly */
+  background: white; /* White background */
+  background-image: url("popup-grid.svg"); /* Add background image */
+  background-size: 80%;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .popup-container.active {
@@ -359,10 +363,12 @@ h5 {
 .first-line,
 .second-line {
   display: flex;
-  align-items: center; /* Ensures vertical alignment */
+  align-items: center;
   justify-content: center;
-  flex-wrap: nowrap; /* Prevents words from breaking into a new line */
-  white-space: nowrap; /* Keeps text in a single line */
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  min-height: 40px; /* Add fixed height to prevent shifting */
+  line-height: 40px; /* Match the min-height */
 }
 
 .magical {
@@ -381,6 +387,7 @@ h5 {
   line-height: normal;
   margin-left: 10px; /* Optional: Adds inner spacing */
   display: inline-block; /* Ensures spacing applies correctly */
+  vertical-align: baseline; /* Add this to maintain consistent text alignment */
 }
 
 .cursor-img {
@@ -392,6 +399,9 @@ h5 {
   animation: blink 0.7s infinite;
   margin-right: 10px;
   display: inline-block; /* Ensures spacing applies correctly */
+  vertical-align: baseline; /* Add this to maintain consistent cursor alignment */
+  position: relative; /* Add this */
+  top: 2px; /* Fine-tune the cursor position if needed */
 }
 
 @keyframes blink {
@@ -457,23 +467,24 @@ h5 {
 }
 
 .chat-box {
-  position: relative;
+  position: absolute;
   width: 1002px;
   height: 144px;
-  left: -10%;
-  top: 550%; /* Only 20% of the chatbox is visible initially */
+  left: 6%;
+  top: 500%; /* Only 20% of the chatbox is visible initially */
   opacity: 1; /* Ensure it's visible */
   animation: moveChatboxUp 2s ease forwards;
-  animation-delay: 25s; /* Start after stars and line disappear (1s delay for background change + 1s for stars/line animation) */
+  animation-delay: 30s; /* Start after stars and line disappear (1s delay for background change + 1s for stars/line animation) */
+  transition: top 1s ease-in-out;
 }
 
 /* Animation to move the chatbox up */
 @keyframes moveChatboxUp {
   from {
-    top: 550%; /* Initial position (20% visible) */
+    top: 500%; /* Initial position (20% visible) */
   }
   to {
-    top: 300%; /* Move up to this position (adjust as needed) */
+    top: 235%; /* Move up to this position (adjust as needed) */
   }
 }
 
@@ -483,41 +494,45 @@ h5 {
 .chat-box-1 {
   position: relative;
   width: 1002px;
-  height: 144px;
+  min-height: 144px; /* Minimum height */
+  max-height: 400px; /* Set a reasonable max height */
   flex-shrink: 0;
-  border-radius: 24px 24px 24px 24px;
+  border-radius: 24px;
   left: 15%;
   top: 70%;
   background-color: white;
   display: flex;
-
-  /* Default border */
+  flex-direction: column; /* Allows expansion */
+  overflow: hidden; /* Prevents extra scrolling */
+  transition: max-height 0.3s ease-in-out; /* Smooth transition */
   border: 1.5px solid rgba(228, 228, 228, 0.5);
-  transition: border 0.3s ease; /* Smooth transition for border change */
 }
 
-/* Gradient border added on hover */
 .chat-box-1::before {
   content: "";
   position: absolute;
-  inset: -1.5px; /* Border thickness same as the default */
-  border-radius: 24px 24px 24px 24px;
-  background: linear-gradient(92deg, #f20790, #007aff);
-  z-index: -1; /* Place it behind the box */
+  inset: 0; /* Cover full box */
+  border-radius: inherit; /* Same as parent */
+  padding: 1.5px; /* Border thickness */
+  background: linear-gradient(90deg, #f20790, #007aff);
+  -webkit-mask: linear-gradient(white 0 0) content-box,
+    linear-gradient(white 0 0);
+  mask: linear-gradient(white 0 0) content-box, linear-gradient(white 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: 1;
   opacity: 0; /* Initially hidden */
-  transition: opacity 0.3s ease; /* Smooth transition for opacity */
+  transition: opacity 0.3s ease-in-out;
 }
 
-/* Show the gradient border and remove the default gray border on hover */
-.chat-box-1:hover {
-  border: none; /* Remove the default gray border */
-}
-
+/* Show moving border on hover */
 .chat-box-1:hover::before {
-  opacity: 1; /* Make the gradient border visible */
-  animation: gradientRotate 4s infinite linear;
+  opacity: 1;
+  animation: movingBorder 8s infinite linear;
 }
-@keyframes gradientRotate {
+
+/* Keyframes for Moving Gradient */
+@keyframes movingBorder {
   0% {
     background: linear-gradient(90deg, #f20790, #007aff);
   }
@@ -546,15 +561,27 @@ h5 {
 }
 
 .chat-input {
-  width: 100%;
-  height: 100%;
+  width: 90%; /* Adjust width to avoid overflow */
   border: none;
   outline: none;
-  margin-top: -40px;
-  margin-left: 10px;
-  border-radius: 24px 24px 0px 0px;
+  padding: 20px;
+  color: var(--Text-Primary-TextColor, #191919);
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 24px */
+  resize: none; /* Prevents manual resizing */
+  overflow-y: auto; /* Enables scrolling for longer text */
+  white-space: normal; /* Allows text wrapping */
+  word-wrap: break-word; /* Ensures words do not overflow */
   background-color: transparent;
+  margin-left: 40px;
+  margin-top: -50px;
+  margin-bottom: 15px;
 }
+
+/* Fix placeholder overflow issue */
 .chat-input::placeholder {
   color: var(--Text-Teritary-Text-Color, rgba(25, 25, 25, 0.5));
   font-family: Poppins;
@@ -563,16 +590,17 @@ h5 {
   font-weight: 500;
   line-height: normal;
 }
+
 .chat-box-2 {
   position: relative;
   display: flex;
   justify-content: end;
   align-items: center;
   gap: 4px;
-  width: 1002px;
-  height: 64px;
-  left: 15%;
-  top: 25%;
+  width: 1000px;
+  height: 62px;
+  left: 15.25%;
+  top: 25.2%;
   margin-right: 20px;
   border-top: 1px solid rgba(250, 250, 250, 0.1);
   border-radius: 0px 0px 24px 24px;
@@ -580,15 +608,15 @@ h5 {
     180deg,
     rgba(209, 215, 219, 0) 0%,
     #fff 2%,
-    #fcfcfc 40%,
+    #fcfcfc 70%,
     #f1f3f4 100%
   );
 }
+
 .attachment {
   font-family: Poppins, sans-serif;
   position: relative;
-  right: 10px;
-  border: 1px solid rgba(228, 228, 228, 0.5);
+  right: 20px;
   width: 135px;
   height: 40px;
   border-radius: 24px;
@@ -598,61 +626,105 @@ h5 {
   gap: 4px;
   background: linear-gradient(180deg, #fff 0%, #f5f5f5 100%);
   box-shadow: 0px 6px 6px -3px rgba(70, 70, 70, 0.04),
-    0px 16px 16px -8px rgba(70, 70, 70, 0.04), 0px 5px 5px 0px #fff inset,
-    0px -4px 3px 0px rgba(250, 250, 250, 0.65) inset,
-    0px -10px 18px 0px rgba(91, 91, 91, 0.08) inset;
-  border: none;
+    0px 16px 16px -8px rgba(70, 70, 70, 0.04);
+  border: 1px solid rgba(228, 228, 228, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: visible; /* Add this to ensure the upload image shows */
 }
 
-/* Hide hover-img & uploadimage initially */
-.attachment img.hover-img,
-.attachment img.uploadimage {
+/* Default image styling */
+.attachment .default-img {
+  width: 20px;
+  height: 20px;
+  display: block; /* Change to block */
+  position: relative; /* Add this */
+  z-index: 1; /* Add this */
+}
+
+/* Hover image styling */
+.attachment .hover-img {
+  width: 20px;
+  height: 20px;
   display: none;
+  position: absolute;
+  left: 12px;
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%); /* Center vertically */
+  z-index: 2; /* Add this */
 }
 
-/* Show hover image and upload image when hovering */
-.attachment:hover {
+/* Upload image styling */
+.attachment .uploadimage {
+  display: none;
+  position: absolute;
+  left: -220px;
+  top: -80px;
+  z-index: 100;
+  pointer-events: none; /* Add this to prevent interference */
+}
+
+/* Text styling */
+.attachment span {
+  margin-left: 4px;
   font-size: 14px;
   font-weight: 500;
-  background: linear-gradient(92deg, #ff009a -0.57%, #0877fc 99.15%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  border-radius: 1000px;
+  color: #191919;
+  position: relative; /* Add this */
+  z-index: 1; /* Add this */
+}
+
+/* Hover states */
+.attachment:hover {
+  font-family: Poppins, sans-serif;
+  position: relative;
+  width: 135px;
+  height: 40px;
+  border-radius: 24px;
+  display: flex;
+  padding: 8px 12px;
+  align-items: center;
+  gap: 4px;
+  background: linear-gradient(
+      178deg,
+      #fff 1.76%,
+      rgba(255, 193, 229, 0.3) 101.87%
+    ),
+    #fff;
   border: 1px solid rgba(242, 7, 144, 0.1);
   box-shadow: 0px 6px 6px -3px rgba(70, 70, 70, 0.04),
     0px 16px 16px -8px rgba(70, 70, 70, 0.04), 0px 5px 5px 0px #fff inset,
     0px -4px 3px 0px #d9eaff inset, 0px -10px 18px 0px #c3deff inset;
 }
 
-/* Position upload image correctly */
-.uploadimage {
-  display: none;
-  padding: 12px 16px;
-  flex-direction: column;
-  align-items: flex-start;
-  position: absolute;
-  left: -230px;
-  top: -90px;
+.attachment:hover .default-img {
+  display: none !important; /* Add !important */
 }
 
-/* Swap images on hover */
-.attachment:hover img.default-img {
-  display: none;
+.attachment:hover .hover-img {
+  display: block !important; /* Add !important */
 }
 
-.attachment:hover img.hover-img,
-.attachment:hover img.uploadimage {
-  display: inline;
+.attachment:hover .uploadimage {
+  display: block !important; /* Add !important */
 }
 
+.attachment:hover span {
+  margin-left: 28px;
+  font-size: 14px;
+  font-weight: 500;
+  background: linear-gradient(92deg, #ff009a -0.57%, #0877fc 99.15%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 .attachment-line {
   width: 2px;
   height: 30px;
   background-color: rgba(0, 0, 0, 0.2); /* Light gray line */
   margin: 0 8px; /* Add margin to center the line between the buttons */
   position: relative;
-  right: 10px;
+  right: 20px;
 }
 
 @keyframes borderPulse {
@@ -672,12 +744,12 @@ h5 {
   width: 36px;
   height: 36px;
   padding: 12px;
-  right: 10px;
+  right: 20px;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
   position: relative; /* Needed for proper layering */
-  border: 2px solid transparent; /* Transparent border to avoid shifting */
+  border: 0.1px solid transparent; /* Transparent border to avoid shifting */
   background: linear-gradient(92deg, #f20790 1.88%, #007aff 94.66%);
   box-shadow: 0px -6px 2px 0px rgba(0, 0, 0, 0.1) inset;
   z-index: 2; /* Ensure button stays on top */
@@ -701,20 +773,13 @@ h5 {
   align-items: center;
 }
 
-/* Prevent scrolling when popup is open */
-body.no-scroll,
-html.no-scroll {
-  overflow: hidden;
-  height: 100%;
-}
-
 /* Container for scrolling */
 /* Scrollable Container */
 .drag-card-container {
   position: absolute;
   width: 1000px;
   height: 205px;
-  top: 150%;
+  top: 135%;
   left: 16%;
   overflow: hidden;
 }
@@ -764,7 +829,6 @@ html.no-scroll {
   white-space: nowrap;
   padding: 10px;
   opacity: 0; /* Initially hidden */
-  transition: opacity 1s ease, transform 1s ease; /* Smooth transition */
 }
 
 /* Show the drag-card when it becomes visible */
@@ -788,7 +852,7 @@ html.no-scroll {
 
 .objective {
   display: inline-flex;
-  height: 165px;
+  height: 140px;
   width: 374px;
   padding: 12px;
   flex-direction: column;
@@ -925,7 +989,7 @@ html.no-scroll {
   position: relative;
   z-index: 3; /* Ensures text stays above images */
 
-  margin-top: 16px;
+  margin-top: 4px;
 }
 
 .objective:hover .obj-title {
@@ -936,12 +1000,12 @@ html.no-scroll {
 }
 
 .obj-description {
-  max-height: 60px; /* Adjusted for 3 lines */
+  max-height: 64px; /* Adjusted for 3 lines */
   align-self: stretch;
   overflow: hidden;
   color: var(--Text-Secondary-TextColor, rgba(25, 25, 25, 0.6));
   font-family: Poppins;
-  font-size: 13px;
+  font-size: 12px;
   font-style: normal;
   font-weight: 400;
   line-height: 150%; /* 18px per line */
@@ -952,4 +1016,208 @@ html.no-scroll {
   display: -webkit-box;
   -webkit-line-clamp: 3; /* Limits text to 3 lines */
   -webkit-box-orient: vertical;
+}
+
+/* Prevent scrolling when popup is open 
+body.no-scroll,
+html.no-scroll {
+  overflow: hidden;
+  height: 100%;
+}
+*/
+
+.rectangle-trey-wrapper {
+  position: absolute;
+  top: -110px;
+  left: 20%;
+  transform: translateX(-50%);
+  width: 500px; /* Increased width slightly */
+  height: 90px; /* Increased height slightly */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 30px; /* Added padding */
+  position: relative;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+/* Expand the image on hover */
+.rectangle-trey {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Positioning text */
+.rectangle-text {
+  color: #191919;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 130%; /* 20.8px */
+  z-index: 2;
+  text-align: center;
+  transition: transform 0.3s ease; /* Add transition for smooth movement */
+  margin-left: 20px;
+}
+
+/* Hide the up icon by default */
+.up-icon {
+  display: none;
+}
+
+/* Adjust spacing */
+/* Keep the icon wrapper for proper alignment */
+.icon-wrapper {
+  position: relative;
+  width: 20px; /* ✅ Same width */
+  height: 20px; /* ✅ Same height */
+}
+
+/* Default style for both icons */
+
+.up-icon,
+.dropdown-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px; /* ✅ Same width */
+  height: 20px; /* ✅ Same height */
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Initially hide the up icon */
+.up-icon {
+  display: none;
+}
+
+/* Keep arrow visible when dropdown is open */
+.rectangle-trey-wrapper.dropdown-open .dropdown-icon {
+  opacity: 1;
+}
+
+.rectangle-trey-wrapper.dropdown-open .up-icon {
+  display: inline;
+}
+
+/* Prevent arrow from hiding when dropdown is open */
+.rectangle-trey-wrapper:hover .dropdown-icon {
+  opacity: 1;
+}
+/* Shift text left on hover */
+.rectangle-trey-wrapper:hover .rectangle-text {
+  transform: translateX(-12px); /* Move left */
+}
+
+/* Keep text in place when dropdown is open */
+.rectangle-trey-wrapper.dropdown-open .rectangle-text {
+  transform: translateX(-12px); /* Fix text in place */
+}
+
+/* When hovering over wrapper, shift text left and show button */
+/* When hovering over wrapper, shift text left, but NOT when dropdown is open */
+.rectangle-trey-wrapper:not(.dropdown-open):hover .rectangle-text {
+  transform: translateX(-12px); /* Shift text left only on hover */
+}
+
+.dropdown-icon:hover + .dropdown-menu,
+.dropdown-menu:hover {
+  display: block;
+}
+/* Show the rectangle tray when popup is active */
+.popup-container.white-background .rectangle-trey-wrapper {
+  opacity: 1;
+  transition-delay: 5s;
+}
+
+/* Update dropdown-menu positioning */
+.dropdown-menu {
+  display: none; /* Hide by default */
+  position: absolute;
+  top: 80%; /* Ensure it appears below */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 130px;
+  background: #fff;
+  box-shadow: 0px 3px 22px rgba(0, 0, 0, 0.09);
+  border-radius: 8px;
+  padding: 2px 0;
+  border: 1px solid rgba(25, 25, 25, 0.06);
+  z-index: 10;
+}
+
+/* Ensure dropdown items stay inside */
+.dropdown-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Adjust dropdown item spacing */
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  padding: 4px 8px;
+  gap: 15px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+}
+
+/* Hover effect */
+.dropdown-item:hover {
+  background: #f0f0f0;
+}
+
+/* Make sure dropdown menu shows up properly */
+.show-dropdown {
+  display: block !important;
+}
+
+/******  CODERS TEXT  ****/
+.coders {
+  color: var(--Text-Primary-TextColor, #191919);
+  text-align: center;
+  font-family: Poppins;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.line1,
+.line2 {
+  display: block; /* Ensures each line is on a separate row */
+}
+.highlight {
+  background: linear-gradient(90deg, #f20790 23.23%, #007aff 90.22%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: Bohemian Soul;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.overtime-artist-folder {
+  position: relative; /* Ensures child elements can be positioned relative to this */
+  width: 100%; /* Ensures the div spans the full width */
+  height: 100vh; /* Ensures it takes the full viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.overtime-artist-folder img {
+  width: 1296px;
+  height: 972px;
+  stroke-width: 1px;
+  stroke: #f20790;
 }
