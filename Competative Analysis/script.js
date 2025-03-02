@@ -13,6 +13,7 @@ const cursorElement = document.querySelector(".cursor-img");
 const chatBox = document.querySelector(".chat-box");
 const dragCard = document.querySelector(".drag-card");
 const dragCardContainer = document.querySelector(".drag-card-container");
+const chatInput = document.querySelector(".chat-input"); // Select chat input field
 
 const words = [" desired ", " design ", " desired ", " design "];
 let index = 0;
@@ -167,7 +168,7 @@ function typeEffect() {
         setTimeout(() => {
           dragCard.style.opacity = "1";
           dragCard.classList.add("visible"); // Add visible class
-        }, 2000); // Show dragCard after chatbox animation finishes
+        }, 1000); // Show dragCard after chatbox animation finishes
       }, 1000);
       return;
     }
@@ -207,3 +208,223 @@ const observer = new MutationObserver(() => {
 });
 
 observer.observe(dragCard, { attributes: true, attributeFilter: ["style"] });
+
+// 🔹 Remove Placeholder on Click
+chatInput.addEventListener("focus", function () {
+  this.placeholder = ""; // Remove placeholder on focus
+});
+
+chatInput.addEventListener("blur", function () {
+  this.placeholder = "Enter your prompt here"; // Restore placeholder when input loses focus
+});
+
+//CHATBOX BUTTON
+
+document.addEventListener("DOMContentLoaded", function () {
+  const chatBox = document.querySelector(".chat-box-1");
+  const chatInput = document.querySelector(".chat-input");
+  const objButtons = document.querySelectorAll(".obj-btn");
+
+  objButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+      // Find the closest `.objective` and get the description
+      const objDescription = button
+        .closest(".objective")
+        .querySelector(".obj-description").innerText;
+
+      // Insert full text into the chat input
+      chatInput.value = objDescription;
+      chatInput.style.height = "auto"; // Reset height
+      chatInput.style.height = chatInput.scrollHeight + "px"; // Adjust height dynamically
+
+      // Increase chatbox size based on content
+      chatBox.style.maxHeight = chatInput.scrollHeight + 40 + "px";
+    });
+  });
+
+  // Hide text when clicking outside the chatbox
+  document.addEventListener("click", function (event) {
+    if (
+      !chatBox.contains(event.target) &&
+      ![...objButtons].some((btn) => btn.contains(event.target))
+    ) {
+      chatInput.value = ""; // Clear the text
+      chatBox.style.maxHeight = "144px"; // Reset chatbox height
+    }
+  });
+});
+
+//OBJ-BUTTON
+document.addEventListener("DOMContentLoaded", function () {
+  const objButtons = document.querySelectorAll(".obj-btn");
+  const dragContainer = document.querySelector(".drag-card-container");
+  const chatBox = document.querySelector(".chat-box");
+
+  objButtons.forEach((button) => {
+    button.addEventListener("click", function (event) {
+      event.stopPropagation(); // Prevents bubbling
+
+      // Hide drag-container
+      dragContainer.style.display = "none";
+
+      // Move chat-box up smoothly
+      chatBox.style.transform = "translateY(-200px)"; // Adjust value as needed
+      chatBox.style.transition = "transform 0.3s ease-in-out";
+    });
+  });
+
+  // Show drag-container when clicking outside chat-box
+  document.addEventListener("click", function (event) {
+    if (!chatBox.contains(event.target)) {
+      dragContainer.style.display = "block";
+
+      // Reset chat-box position
+      chatBox.style.transform = "translateY(0)";
+    }
+  });
+});
+
+// POPUP-GRID
+function openPopup() {
+  const popup = document.getElementById("popup");
+  popup.classList.add("active");
+
+  // Delay adding white background to allow smooth transition
+  setTimeout(() => {
+    popup.classList.add("white-background");
+  }, 300);
+}
+
+function closePopup() {
+  const popup = document.getElementById("popup");
+  popup.classList.remove("white-background");
+
+  // Delay hiding popup to sync with transition
+  setTimeout(() => {
+    popup.classList.remove("active");
+  }, 300);
+}
+
+// SECOND TIME POPUP OPEN
+
+let isFirstOpen = true; // Flag to track if popup is opened for the first time
+
+function showPopup() {
+  popup.classList.add("active");
+  document.body.classList.add("no-scroll");
+  document.documentElement.classList.add("no-scroll");
+
+  if (isFirstOpen) {
+    // First time: Run animations
+    resetElements();
+
+    setTimeout(() => {
+      animateStars();
+      animateLine();
+
+      setTimeout(() => {
+        animateCircles();
+
+        setTimeout(() => {
+          animatePulse();
+          animateCreativityImages();
+        }, circles.length * 300);
+      }, 1500);
+    }, 10);
+
+    if (!hasCompletedCycle) {
+      typeEffect();
+    }
+
+    isFirstOpen = false; // Set flag to false after first open
+  } else {
+    // Subsequent opens: Skip animations and directly show white background
+    popup.classList.add("white-background");
+
+    // Ensure chatbox and drag-card are visible
+    chatBox.style.animation = "moveChatboxUp 2s ease forwards";
+    dragCard.style.opacity = "1";
+    dragCard.classList.add("visible");
+
+    // Hide elements that are part of the initial animations
+    whitestar.style.display = "none";
+    silverstar.style.display = "none";
+    line.style.display = "none";
+    pulse.style.display = "none";
+    creativityText.style.display = "none";
+    creativityDescription.style.display = "none";
+  }
+}
+
+function closePopup() {
+  popup.classList.remove("active");
+  document.body.classList.remove("no-scroll");
+  document.documentElement.classList.remove("no-scroll");
+  popup.classList.remove("white-background"); // Remove white background
+
+  // Reset hidden elements
+  whitestar.style.display = "block";
+  silverstar.style.display = "block";
+  line.style.display = "block";
+  pulse.style.display = "block";
+  creativityText.style.display = "block";
+  creativityDescription.style.display = "block";
+
+  resetElements();
+}
+
+function toggleAttachment(button) {
+  button.classList.toggle("active");
+}
+
+//RECTANGULAR TREY
+document.addEventListener("DOMContentLoaded", function () {
+  const dropdownIcon = document.getElementById("dropdownIcon");
+  const upIcon = document.getElementById("upIcon");
+  const dropdownMenu = document.getElementById("dropdownMenu");
+  const treyWrapper = document.querySelector(".rectangle-trey-wrapper");
+
+  function toggleDropdown(event) {
+    event.stopPropagation();
+    const isDropdownVisible = dropdownMenu.classList.contains("show-dropdown");
+
+    if (isDropdownVisible) {
+      dropdownMenu.classList.remove("show-dropdown");
+      upIcon.style.display = "none";
+      dropdownIcon.style.display = "inline";
+      treyWrapper.classList.remove("dropdown-open"); // ✅ Allow text animation again
+    } else {
+      dropdownMenu.classList.add("show-dropdown");
+      dropdownIcon.style.display = "none"; // ✅ Hide down icon
+      upIcon.style.display = "inline"; // ✅ Show up icon
+      treyWrapper.classList.add("dropdown-open"); // ❌ Stop text animation
+    }
+  }
+
+  dropdownIcon.addEventListener("click", toggleDropdown);
+  upIcon.addEventListener("click", toggleDropdown);
+
+  document.addEventListener("click", function () {
+    dropdownMenu.classList.remove("show-dropdown");
+    upIcon.style.display = "none";
+    dropdownIcon.style.display = "inline";
+    treyWrapper.classList.remove("dropdown-open"); // ✅ Allow text animation again
+  });
+
+  dropdownMenu.addEventListener("click", function (event) {
+    event.stopPropagation();
+  });
+
+  // ✅ Ensure hover effect doesn't hide the icon when dropdown is open
+  treyWrapper.addEventListener("mouseenter", function () {
+    if (!dropdownMenu.classList.contains("show-dropdown")) {
+      dropdownIcon.style.opacity = "1";
+    }
+  });
+
+  treyWrapper.addEventListener("mouseleave", function () {
+    if (!dropdownMenu.classList.contains("show-dropdown")) {
+      dropdownIcon.style.opacity = "0";
+    }
+  });
+});
