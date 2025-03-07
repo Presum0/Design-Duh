@@ -44,16 +44,26 @@
       <br />
       <img src="Lorem-text.svg" alt="" />
     </div>
-    <iframe src="Fav Logo.svg" frameborder="0" class="Design-logo"></iframe>
-    <div class="register"><h5>Register</h5></div>
-    <iframe src="competative.html" frameborder="0" class="cards" ></iframe>
+    <nav class="navbar">
+      <iframe src="Fav Logo.svg" frameborder="0" class="Design-logo"></iframe>
+      <div class="dynamic-island-landing">
+        <img src="navbarUnion.svg" alt="navbarUnion" class="union">
+        <div class="navbar-center-text">Welcome</div> 
+        <div class="navbar-side-text">Home</div> 
+        <div class="home-button-bg">
+          <button class="home-button">
+            <img src="home-icon.svg" alt="home-icon" class="home-icon">
+          </button>
+        </div>
+      </div>
+    
+      <button class="register">Register</button>
+  </nav>
+  
     
     <!-- Popup -->
     <div class="popup-container" id="popup">
-      
-      
-      
-      <div class="popup-header">
+       <div class="popup-header">
         <h3></h3>
         <button class="close-btn" onclick="closePopup()">
          
@@ -210,6 +220,7 @@
               </li>
             </ul>
           </div>
+          
         </div>
         
         
@@ -218,18 +229,24 @@
      
       </div>
     </div>
-    <iframe src="research.html" frameborder="0" class="cards"></iframe>
-    <iframe src="upload.html" frameborder="0" class="cards"></iframe>
-    <iframe src="interview.html" frameborder="0" class="cards"></iframe>
-    <iframe src="whiteboarding.html" frameborder="0" class="cards"></iframe>
-    <iframe src="data.html" frameborder="0" class="cards"></iframe><br/>
+    <div class="category-cards">
+      <iframe src="competative.html" frameborder="0" class="cards" ></iframe>
+      <iframe src="research.html" frameborder="0" class="cards"></iframe>
+      <iframe src="upload.html" frameborder="0" class="cards"></iframe>
+      <iframe src="interview.html" frameborder="0" class="cards"></iframe>
+      <iframe src="whiteboarding.html" frameborder="0" class="cards"></iframe>
+      <iframe src="data.html" frameborder="0" class="cards"></iframe><br/>
+    </div>
     
-    <div class="code-wizard">
+    
+    <div class="code-wizard-container">
       <br/><br/>
-      <img src="codewizard-left.svg" alt="" />
-      <img src="Code Wizards.svg" alt="" />
-      <img src="codewizard-right.svg" alt="" /><br/><br/>
-      <p class="coders">
+      <div class="code-wizard">
+        <img src="codewizard-left.svg" alt="" />
+        <span class="codewizard-text">Code Wizards</span>
+        <img src="codewizard-right.svg" alt="" />
+      </div>
+       <p class="coders">
         <span class="line1">
           Stacking <span class="highlight">‘Solutions’</span>, snacking on problems, and
         </span>
@@ -237,7 +254,7 @@
       </p>
     </div>
     
-    <div class="embedded-folder">
+    <div class="code-wizard-cards">
       <iframe src="teamcard.html" style="width: 100%; height: 400px; "></iframe>
       <iframe src="teamcard.html" style="width: 100%; height: 400px; "></iframe>
       <iframe src="teamcard.html" style="width: 100%; height: 400px; "></iframe>
@@ -245,9 +262,11 @@
   </div>
     <div class="overtime-artist">
       <br/><br/>
-      <img src="codewizard-left.svg" alt="" />
-      <img src="Overtime Artists.svg" alt="" />
-      <img src="codewizard-right.svg" alt="" /><br/><br/>
+      <div class="code-wizard">
+        <img src="codewizard-left.svg" alt="" />
+        <span class="codewizard-text">Overtime Artists</span>
+        <img src="codewizard-right.svg" alt="" />
+      </div>
       <p class="coders">
         <span class="line1">
           Running on 4 hours of sleep and 100% 
@@ -255,9 +274,20 @@
         <span class="line2">determination to ship<span class="highlight"> ‘Perfection’</span></span>
       </p>
     </div>
-    <div class="overtime-artist-folder">
-      <img src="colorVector.svg">
-    </div>
+   
+    <div class="overtime-artist-cards">
+      <iframe src="teamcard.html" style="width: 100%; height: 400px; "></iframe>
+      <iframe src="teamcard.html" style="width: 100%; height: 400px; "></iframe>
+      <iframe src="teamcard.html" style="width: 100%; height: 400px; "></iframe>
+      <iframe src="teamcard.html" style="width: 100%; height: 400px; "></iframe>
+      <iframe src="teamcard.html" style="width: 100%; height: 400px; "></iframe>
+      <iframe src="teamcard.html" style="width: 100%; height: 400px; "></iframe>
+  </div>
+  <div class="overtime-artist-folder">
+    <img src="colorVector.svg">   
+  </div>
+    
+    
     <script src="script.js"></script>
   </body>
 </html>

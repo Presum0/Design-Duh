@@ -428,3 +428,23 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+// Select all dropdown items
+const dropdownItems = document.querySelectorAll(".dropdown-item");
+
+dropdownItems.forEach((item) => {
+  const icon = item.querySelector(".dropdown-icon-img");
+  const defaultSrc = item.getAttribute("data-default");
+  const hoverSrc = item.getAttribute("data-hover");
+
+  // Change to hover icon on mouseenter
+  item.addEventListener("mouseenter", () => {
+    icon.src = hoverSrc;
+  });
+
+  // Revert to default icon on mouseleave
+  item.addEventListener("mouseleave", () => {
+    icon.src = defaultSrc;
+  });
+});
+
+////*********   NAVBAR   ******////

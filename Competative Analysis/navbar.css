@@ -1,0 +1,234 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 50px;
+  background-color: black; /* Navbar background color */
+  position: fixed; /* Keeps navbar at the top */
+  top: 0%;
+  left: 0px;
+  width: 100%;
+  z-index: 10;
+  transition: background-color 0.3s ease;
+}
+
+/* Logo styles */
+.dd-logo {
+  width: 29.95px;
+  height: 29.654px;
+  position: relative;
+  z-index: 2;
+}
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.vertical-line {
+  width: 2px; /* Line thickness */
+  height: 30px; /* Line height */
+  background-color: #5a5a5a; /* Darker gray line for visibility */
+  margin-left: 15px; /* Space between line and next element */
+  z-index: 2;
+}
+.DD-name {
+  color: #fff;
+  font-family: "Bohemian Soul";
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.13px;
+  margin-left: 15px;
+}
+.dynamic-island-landing {
+  position: relative; /* Ensures the button can be positioned absolutely inside it */
+}
+
+.union {
+  display: block; /* Ensures the image behaves as a block element */
+  width: 100%; /* Adjust as needed */
+  height: auto; /* Maintains aspect ratio */
+}
+.navbar-center-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-60%, -50%);
+  color: #000;
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  z-index: 1; /* Places text above the image but below the button */
+  pointer-events: none; /* Ensures the text doesn't interfere with button clicks */
+}
+.navbar-side-text {
+  position: absolute;
+  top: 50%;
+  left: calc(44% + 70px); /* Positions the side text beside the main text */
+  transform: translateY(-50%);
+  color: #000;
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  z-index: 1;
+  pointer-events: none;
+}
+.home-button-bg {
+  display: flex;
+  padding: 2px;
+  height: 58px;
+  width: 58px;
+  align-items: center;
+  border-radius: var(
+    --full-radius,
+    1000px
+  ); /* Uses a large value for a pill shape */
+  background: linear-gradient(
+    90deg,
+    rgba(242, 7, 144, 0.3) 0%,
+    rgba(0, 122, 255, 0.3) 100%
+  );
+  border: none; /* Removes default button border */
+  position: absolute; /* Positions the button on top of the image */
+  top: 26px; /* Adjust as needed to position vertically */
+  left: 26px; /* Adjust as needed to position horizontally */
+  z-index: 2; /* Ensures the button is above the image */
+}
+.home-button {
+  display: flex;
+  padding: 12px;
+  align-items: center;
+  justify-content: center; /* Centers the content horizontally and vertically */
+  height: 52px; /* Equal height */
+  width: 52px; /* Equal width */
+  border-radius: 50%; /* Makes the button a perfect circle */
+  background: linear-gradient(90deg, #f20790 0%, #007aff 100%);
+  box-shadow: -0.4px -0.2px 0px 0px rgba(255, 255, 255, 0.08) inset,
+    0.4px 0.4px 0px 0px rgba(255, 255, 255, 0.16) inset,
+    -2px -2px 3px 0px rgba(15, 15, 15, 0.24) inset,
+    1px 1px 3px 0px rgba(255, 255, 255, 0.24) inset;
+  border: none; /* Removes default button border */
+  cursor: pointer; /* Changes cursor to pointer on hover */
+  position: absolute; /* Positions the button on top of the image */
+  top: 5px; /* Adjust as needed to position vertically */
+  left: 5px; /* Adjust as needed to position horizontally */
+  z-index: 2; /* Ensures the button is above the image */
+  overflow: hidden; /* Hides the overflow of the pseudo-element */
+}
+
+/* Pseudo-element for the loading effect */
+.home-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%; /* Matches the button's circular shape */
+  background: conic-gradient(
+    transparent 0%,
+    rgba(255, 255, 255, 0.8) 15%,
+    transparent 30%
+  ); /* Creates a thin white conic gradient */
+  mask: radial-gradient(
+    circle,
+    transparent 63%,
+    black 60% 100%
+  ); /* Masks the inner part of the gradient, leaving a 10px-wide strip */
+  animation: rotateLoading 3s linear infinite; /* Continuous rotation animation */
+}
+
+/* Keyframes for the rotating loading effect */
+@keyframes rotateLoading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.home-button img {
+  display: flex;
+  width: 28px;
+  height: 28px;
+  justify-content: center;
+  align-items: center;
+}
+/* Register button styles */
+.register {
+  width: 126px;
+  height: 45px;
+  background-color: white;
+  border-radius: 24px;
+  position: relative;
+  border: none;
+  z-index: 2;
+  cursor: pointer;
+  border-image: linear-gradient(90deg, #f20790 100%, #0d77fb 0%);
+  padding: 0;
+  font-family: Poppins, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #000;
+  transition: 0.3s;
+  right: 30px;
+}
+
+/* Gradient border effect for the button */
+.register::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: linear-gradient(270deg, #f20790 15%, #fff, #0877fc 85%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  z-index: -1;
+}
+
+/* Hover effect for the button */
+.register:hover::before {
+  filter: brightness(1.2); /* Slight glow effect on hover */
+}
+
+/* Centering the text inside the button */
+.register {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Optional: Space out the items in the navbar */
+.navbar > * {
+  margin: 0 10px;
+}
+
+.center-rectangle {
+  display: flex;
+  width: 564px;
+  height: 52px;
+  padding: 0px 12px;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically */
+  align-items: center;
+  border-radius: 1000px; /* Full rounded corners */
+  background: #303030;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 16px rgba(0, 0, 0, 0.24),
+    0px 3px 2.6px #464646 inset;
+  position: absolute; /* Absolute to center it easily */
+  left: 50%; /* Center horizontally */
+  top: -20px;
+  transform: translateX(-50%); /* Correct offset due to absolute positioning */
+  z-index: 5; /* Ensure it's above the navbar background but below other elements */
+}

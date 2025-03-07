@@ -53,26 +53,166 @@ html {
   z-index: 2;
 }
 
-.Design-logo {
-  position: relative;
-  bottom: 580px;
-  left: 20px;
-  z-index: 2;
+/* Navbar styles */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px 20px;
+  background-color: transparent; /* Navbar background color */
+  position: fixed; /* Keeps navbar at the top */
+  top: 0%;
+  width: 100%;
+  z-index: 10;
+  transition: background-color 0.3s ease;
 }
 
+/* Logo styles */
+.Design-logo {
+  width: 50px; /* Adjust size as needed */
+  height: 50px;
+  position: relative;
+  z-index: 2;
+}
+.dynamic-island-landing {
+  position: relative; /* Ensures the button can be positioned absolutely inside it */
+}
+
+.union {
+  display: block; /* Ensures the image behaves as a block element */
+  width: 100%; /* Adjust as needed */
+  height: auto; /* Maintains aspect ratio */
+}
+.navbar-center-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-60%, -50%);
+  color: #000;
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  z-index: 1; /* Places text above the image but below the button */
+  pointer-events: none; /* Ensures the text doesn't interfere with button clicks */
+}
+.navbar-side-text {
+  position: absolute;
+  top: 50%;
+  left: calc(44% + 70px); /* Positions the side text beside the main text */
+  transform: translateY(-50%);
+  color: #000;
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  z-index: 1;
+  pointer-events: none;
+}
+.home-button-bg {
+  display: flex;
+  padding: 2px;
+  height: 58px;
+  width: 58px;
+  align-items: center;
+  border-radius: var(
+    --full-radius,
+    1000px
+  ); /* Uses a large value for a pill shape */
+  background: linear-gradient(
+    90deg,
+    rgba(242, 7, 144, 0.3) 0%,
+    rgba(0, 122, 255, 0.3) 100%
+  );
+  border: none; /* Removes default button border */
+  position: absolute; /* Positions the button on top of the image */
+  top: 26px; /* Adjust as needed to position vertically */
+  left: 26px; /* Adjust as needed to position horizontally */
+  z-index: 2; /* Ensures the button is above the image */
+}
+.home-button {
+  display: flex;
+  padding: 12px;
+  align-items: center;
+  justify-content: center; /* Centers the content horizontally and vertically */
+  height: 52px; /* Equal height */
+  width: 52px; /* Equal width */
+  border-radius: 50%; /* Makes the button a perfect circle */
+  background: linear-gradient(90deg, #f20790 0%, #007aff 100%);
+  box-shadow: -0.4px -0.2px 0px 0px rgba(255, 255, 255, 0.08) inset,
+    0.4px 0.4px 0px 0px rgba(255, 255, 255, 0.16) inset,
+    -2px -2px 3px 0px rgba(15, 15, 15, 0.24) inset,
+    1px 1px 3px 0px rgba(255, 255, 255, 0.24) inset;
+  border: none; /* Removes default button border */
+  cursor: pointer; /* Changes cursor to pointer on hover */
+  position: absolute; /* Positions the button on top of the image */
+  top: 5px; /* Adjust as needed to position vertically */
+  left: 5px; /* Adjust as needed to position horizontally */
+  z-index: 2; /* Ensures the button is above the image */
+  overflow: hidden; /* Hides the overflow of the pseudo-element */
+}
+
+/* Pseudo-element for the loading effect */
+.home-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%; /* Matches the button's circular shape */
+  background: conic-gradient(
+    transparent 0%,
+    rgba(255, 255, 255, 0.8) 15%,
+    transparent 30%
+  ); /* Creates a thin white conic gradient */
+  mask: radial-gradient(
+    circle,
+    transparent 63%,
+    black 60% 100%
+  ); /* Masks the inner part of the gradient, leaving a 10px-wide strip */
+  animation: rotateLoading 3s linear infinite; /* Continuous rotation animation */
+}
+
+/* Keyframes for the rotating loading effect */
+@keyframes rotateLoading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.home-button img {
+  display: flex;
+  width: 28px;
+  height: 28px;
+  justify-content: center;
+  align-items: center;
+}
+/* Register button styles */
 .register {
   width: 126px;
   height: 45px;
   background-color: white;
   border-radius: 24px;
-  bottom: 760px;
-  left: 1370px;
   position: relative;
   border: none;
   z-index: 2;
+  cursor: pointer;
   border-image: linear-gradient(90deg, #f20790 100%, #0d77fb 0%);
+  padding: 0;
+  font-family: Poppins, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #000;
+  transition: 0.3s;
+  right: 30px;
 }
 
+/* Gradient border effect for the button */
 .register::before {
   content: "";
   position: absolute;
@@ -87,55 +227,26 @@ html {
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: destination-out;
   mask-composite: exclude;
+  z-index: -1;
 }
 
-h5 {
-  position: relative;
-  top: 28%;
-  left: 25%;
-  color: #000;
-  font-family: Poppins;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
+/* Hover effect for the button */
+.register:hover::before {
+  filter: brightness(1.2); /* Slight glow effect on hover */
 }
 
-.code-wizard {
-  text-align: center;
-  font-family: Poppins;
-  font-size: 28px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-}
-
-.overtime-artist {
-  text-align: center;
-  font-family: Poppins;
-  font-size: 28px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-}
-.embedded-folder {
+/* Centering the text inside the button */
+.register {
   display: flex;
-  flex-wrap: nowrap; /* Ensures items stay on one line */
-  gap: 40px; /* Adds space between frames */
-  justify-content: center; /* Centers the frames horizontally */
-  align-items: center; /* Aligns the frames vertically */
-
-  align-self: stretch;
-  background-color: transparent;
+  align-items: center;
+  justify-content: center;
 }
 
-.embedded-folder iframe {
-  flex: 0 0 300px; /* Sets a fixed width for each iframe */
-  height: 400px;
-  border: none;
-  border-radius: 5px;
-  background-color: transparent;
+/* Optional: Space out the items in the navbar */
+.navbar > * {
+  margin: 0 10px;
 }
+
 /*POPUP*/
 .popup-container {
   position: fixed;
@@ -1174,10 +1285,83 @@ html.no-scroll {
 .dropdown-item:hover {
   background: #f0f0f0;
 }
+.dropdown-icon-img {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.dropdown-item:hover .dropdown-icon-img {
+  transform: scale(1.1); /* Slight zoom effect on hover */
+}
 
 /* Make sure dropdown menu shows up properly */
 .show-dropdown {
   display: block !important;
+}
+
+/***** TEAM SECTION *****/
+.code-wizard-container {
+  display: flex;
+  flex-direction: column; /* Stacks .code-wizard and .coders vertically */
+  align-items: center; /* Centers content horizontally */
+  text-align: center;
+  margin-bottom: 20px; /* Adds space below for separation (optional) */
+  margin-top: 200px;
+}
+
+.code-wizard {
+  display: flex;
+  flex-direction: row; /* Aligns images and text horizontally */
+  align-items: center; /* Centers items vertically */
+  justify-content: center; /* Centers items horizontally */
+  gap: 8px; /* Space between images and text */
+}
+
+.codewizard-left,
+.codewizard-right {
+  width: 40px; /* Adjust width as needed */
+  height: auto;
+}
+
+.codewizard-text {
+  height: 42px;
+  width: auto; /* Adjusts width based on text length */
+  text-align: center;
+  font-family: Poppins;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  background: linear-gradient(90deg, #f20790 0%, #007aff 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.overtime-artist {
+  text-align: center;
+  font-family: Poppins;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.code-wizard-cards {
+  display: flex;
+  flex-wrap: nowrap; /* Ensures items stay on one line */
+  gap: 40px; /* Adds space between frames */
+  justify-content: center; /* Centers the frames horizontally */
+  align-items: center; /* Aligns the frames vertically */
+
+  align-self: stretch;
+  background-color: transparent;
+}
+
+.code-wizard-cards iframe {
+  flex: 0 0 300px; /* Sets a fixed width for each iframe */
+  height: 400px;
+  border: none;
+  border-radius: 5px;
+  background-color: transparent;
 }
 
 /******  CODERS TEXT  ****/
@@ -1205,19 +1389,86 @@ html.no-scroll {
   font-weight: 400;
   line-height: normal;
 }
-
-.overtime-artist-folder {
-  position: relative; /* Ensures child elements can be positioned relative to this */
-  width: 100%; /* Ensures the div spans the full width */
-  height: 100vh; /* Ensures it takes the full viewport height */
-  display: flex;
+.overtime-artist-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns to align side cards */
+  grid-template-rows: 400px 350px 400px; /* Reduced middle row height for closer top and bottom cards */
   justify-content: center;
-  align-items: center;
+  gap: 5px; /* Horizontal gap between cards remains small */
+  position: relative;
+  z-index: 3; /* Higher z-index to place iframes above the image */
+  margin-top: 0px; /* Controls overlap with image */
+  left: 8%;
+  width: max-content; /* Fits grid to content width */
+}
+
+/* Make iframe borders transparent and background transparent */
+.overtime-artist-cards iframe {
+  border: none; /* Removes borders */
+  outline: none; /* Removes any outlines */
+  background-color: transparent !important; /* Force transparent background */
+  box-shadow: none; /* Removes any shadows if present */
+  z-index: 3; /* Ensure iframes are above the image but transparent */
+}
+iframe {
+  border: none;
+}
+.hex-card {
+  border: none; /* Ensures iframe border is removed */
+}
+
+/* Center Square Layout (2x2 cards) */
+.overtime-artist-cards iframe:nth-child(1) {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.overtime-artist-cards iframe:nth-child(2) {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.overtime-artist-cards iframe:nth-child(3) {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.overtime-artist-cards iframe:nth-child(4) {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+/* Side Cards with upward shift */
+.overtime-artist-cards iframe:nth-child(5) {
+  grid-column: 1; /* Left side card */
+  grid-row: 2;
+  transform: translateY(-180px); /* Slightly reduced upward shift for balance */
+}
+
+.overtime-artist-cards iframe:nth-child(6) {
+  grid-column: 4; /* Right side card */
+  grid-row: 2;
+  transform: translateY(-180px); /* Slightly reduced upward shift for balance */
+}
+
+/* Image behind iframes */
+.overtime-artist-folder {
+  position: absolute; /* Make sure the image is positioned relative to the page */
+  top: 350%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* Higher z-index to place image above iframes */
+  pointer-events: none; /* Allow clicks to pass through the image */
+  overflow: hidden;
 }
 
 .overtime-artist-folder img {
-  width: 1296px;
-  height: 972px;
-  stroke-width: 1px;
-  stroke: #f20790;
+  width: 100%; /* Make the image cover the full width */
+  height: 100%; /* Make the image cover full height */
+  object-fit: cover; /* Ensure it covers the area without distortion */
+  z-index: 1; /* Ensure image stays above iframes */
+  position: absolute; /* Position the image absolutely within its container */
+  opacity: 0.9; /* Optional: Adjust opacity if you want a semi-transparent effect */
+  overflow: hidden;
 }
