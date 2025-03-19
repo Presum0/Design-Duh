@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 50px;
+  padding: 10px 30px;
   background-color: black; /* Navbar background color */
   position: fixed; /* Keeps navbar at the top */
   top: 0%;
@@ -43,6 +43,10 @@
 }
 .dynamic-island-landing {
   position: relative; /* Ensures the button can be positioned absolutely inside it */
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  right: 28%;
 }
 
 .union {
@@ -50,34 +54,25 @@
   width: 100%; /* Adjust as needed */
   height: auto; /* Maintains aspect ratio */
 }
+
 .navbar-center-text {
   position: absolute;
-  top: 50%;
+  top: 45%;
   left: 50%;
   transform: translate(-60%, -50%);
-  color: #000;
+  color: white;
   font-family: Poppins;
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
-  z-index: 1; /* Places text above the image but below the button */
+  z-index: 7; /* Places text above the image but below the button */
   pointer-events: none; /* Ensures the text doesn't interfere with button clicks */
 }
-.navbar-side-text {
-  position: absolute;
-  top: 50%;
-  left: calc(44% + 70px); /* Positions the side text beside the main text */
-  transform: translateY(-50%);
-  color: #000;
-  font-family: Poppins;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-  z-index: 1;
-  pointer-events: none;
+#navbar-text {
+  transition: all 0.3s ease-in-out;
 }
+
 .home-button-bg {
   display: flex;
   padding: 2px;
@@ -95,9 +90,9 @@
   );
   border: none; /* Removes default button border */
   position: absolute; /* Positions the button on top of the image */
-  top: 26px; /* Adjust as needed to position vertically */
-  left: 26px; /* Adjust as needed to position horizontally */
-  z-index: 2; /* Ensures the button is above the image */
+  top: 20px; /* Adjust as needed to position vertically */
+  left: 23px; /* Adjust as needed to position horizontally */
+  z-index: 8; /* Ensures the button is above the image */
 }
 .home-button {
   display: flex;
@@ -117,7 +112,7 @@
   position: absolute; /* Positions the button on top of the image */
   top: 5px; /* Adjust as needed to position vertically */
   left: 5px; /* Adjust as needed to position horizontally */
-  z-index: 2; /* Ensures the button is above the image */
+  z-index: 8; /* Ensures the button is above the image */
   overflow: hidden; /* Hides the overflow of the pseudo-element */
 }
 
@@ -152,54 +147,487 @@
     transform: rotate(360deg);
   }
 }
-.home-button img {
-  display: flex;
+.star-icon {
+  position: absolute;
   width: 28px;
   height: 28px;
-  justify-content: center;
-  align-items: center;
+  opacity: 0;
+
+  transition: opacity 0.5s ease, transform 0.8s ease;
 }
-/* Register button styles */
-.register {
-  width: 126px;
-  height: 45px;
-  background-color: white;
-  border-radius: 24px;
-  position: relative;
-  border: none;
-  z-index: 2;
-  cursor: pointer;
-  border-image: linear-gradient(90deg, #f20790 100%, #0d77fb 0%);
-  padding: 0;
-  font-family: Poppins, sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  color: #000;
-  transition: 0.3s;
-  right: 30px;
+.new-icon {
+  position: absolute;
+  width: 28px;
+  height: 28px;
 }
 
-/* Gradient border effect for the button */
+.star-icon.active {
+  opacity: 1;
+  /* Rotates 90 degrees */
+}
+
+.dynamic-island-landing .union {
+  transition: opacity 0.3s ease;
+}
+
+.dynamic-island-landing:hover .union {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.dynamic-island-landing .center-rectangle,
+.dynamic-island-landing .blackUnion,
+.dynamic-island-landing .center-circle {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+}
+
+.dynamic-island-landing:hover .center-rectangle,
+.dynamic-island-landing:hover .blackUnion,
+.dynamic-island-landing:hover .center-circle {
+  opacity: 1;
+  visibility: visible;
+}
+
+.center-rectangle {
+  display: flex;
+  width: 510px;
+  height: 52px;
+  padding: 0px 12px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--full-radius, 1000px);
+  background: #0d0d0d;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25),
+    0px 4px 16px 0px rgba(0, 0, 0, 0.24), 0px 4px 16px 0px rgba(0, 0, 0, 0.24),
+    0px 3px 6px 0px rgba(70, 70, 70, 0.5) inset;
+  position: absolute;
+  left: 320px;
+  top: 24px;
+  transform: translateX(-50%);
+  z-index: 6;
+}
+
+.center-circle {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background: #0d0d0d;
+  position: absolute;
+  top: 12px;
+  left: 16px;
+  z-index: 7;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25),
+    0px 4px 16px 0px rgba(0, 0, 0, 0.24), 0px 4px 16px 0px rgba(0, 0, 0, 0.24),
+    0px 3px 6px 0px rgba(70, 70, 70, 0.5) inset;
+  clip-path: inset(0 9px 0 0);
+}
+
+.center-circle::before {
+  content: "";
+  position: absolute;
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25),
+    0px 4px 16px 0px rgba(0, 0, 0, 0.24), 0px 4px 16px 0px rgba(0, 0, 0, 0.24),
+    0px 3px 6px 0px rgba(70, 70, 70, 0.5) inset;
+  clip-path: inset(0 10px 0 0);
+  z-index: -1;
+}
+/* Move the center-circle forward and change clip-path on hover */
+.dynamic-island-landing:hover .center-circle {
+  animation: moveCircleForward 0.3s forwards ease-in-out;
+  clip-path: inset(0 0 62px 0); /* Update clip-path on hover */
+}
+
+.dynamic-island-landing .center-circle {
+  animation: moveCircleBackward 0.3s forwards ease-in-out;
+  clip-path: inset(0 9px 0 0); /* Revert clip-path when not hovering */
+}
+
+@keyframes moveCircleForward {
+  0% {
+    left: 16px;
+  }
+  100% {
+    left: 255px; /* Move to the middle of the rectangle */
+  }
+}
+
+@keyframes moveCircleBackward {
+  0% {
+    left: 255px;
+  }
+  100% {
+    left: 16px; /* Move back to the initial position */
+  }
+}
+
+/* Move the home-button-bg with the center-circle */
+.dynamic-island-landing:hover .home-button-bg {
+  animation: moveHomeButtonBgForward 0.3s forwards ease-in-out;
+}
+
+.dynamic-island-landing .home-button-bg {
+  animation: moveHomeButtonBgBackward 0.3s forwards ease-in-out;
+}
+
+@keyframes moveHomeButtonBgForward {
+  0% {
+    left: 23px;
+  }
+  100% {
+    left: 262px; /* Move to the middle of the rectangle */
+  }
+}
+
+@keyframes moveHomeButtonBgBackward {
+  0% {
+    left: 262px;
+  }
+  100% {
+    left: 23px; /* Move back to the initial position */
+  }
+}
+
+/* Hide the text when the circle moves */
+.dynamic-island-landing:hover #navbar-text {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.dynamic-island-landing #navbar-text {
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+/* Dropsheet Styles */
+.dropsheet {
+  width: 720px;
+  height: 140px;
+  padding: 0px 16px;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: var(--Radius--3Xl, 32px);
+  background: #0d0d0d;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25),
+    0px 4px 16px 0px rgba(0, 0, 0, 0.24), 0px 4px 16px 0px rgba(0, 0, 0, 0.24),
+    0px 3px 6px 0px rgba(70, 70, 70, 0.5) inset;
+  position: absolute;
+  left: 50%;
+  top: 24px;
+  transform: translateX(-50%) translateY(-20px); /* Slide up effect */
+  z-index: 6;
+  opacity: 0;
+  pointer-events: none; /* Prevent hover before visible */
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+/* Show dropsheet smoothly */
+.dynamic-island-landing.show-dropsheet .dropsheet {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0); /* Slide down smoothly */
+  pointer-events: auto; /* Enable hover when visible */
+}
+
+/* Hide rectangle and circle smoothly */
+.dynamic-island-landing.show-dropsheet .center-rectangle,
+.dynamic-island-landing.show-dropsheet .center-circle,
+.dynamic-island-landing.show-dropsheet .home-button-bg {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+
+/* Smooth transition for center-circle and center-rectangle */
+.center-circle,
+.center-rectangle {
+  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out,
+    transform 0.5s ease-in-out;
+}
+.scale-rectangle {
+  width: 690px;
+  height: 20px;
+  position: absolute;
+  right: 30px;
+  top: 2px;
+  z-index: 8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Hide overflow for smooth edges */
+}
+
+.scale {
+  width: 690px;
+  height: 20px;
+  z-index: 9;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 50%,
+    black 50%,
+    transparent
+  );
+}
+.pointer {
+  width: 22.5px;
+  height: 50px;
+  fill: #b1b1b1;
+  stroke-width: 1.5px;
+  stroke: #1f1f1f;
+  position: absolute;
+  top: 10%; /* Vertically center the pointer */
+  left: 50%; /* Horizontally center the pointer */
+  transform: translate(-50%, -50%); /* Precisely center it */
+  z-index: 10; /* Ensure it appears above the scale */
+}
+/* Scroll Container for Buttons */
+/* Scroll Container */
+.scroll-container {
+  display: flex;
+  justify-content: center; /* Centers all buttons */
+  align-items: center;
+  gap: 58px; /* Ensures equal spacing */
+  top: 35px;
+  overflow-x: auto; /* Allows scrolling if needed */
+  padding: 10px;
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+  -ms-overflow-style: none; /* Hide scrollbar for IE */
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 8;
+}
+
+/* Hide scrollbar for Chrome, Safari, and Edge */
+.scroll-container::-webkit-scrollbar {
+  display: none;
+}
+/* Button Container */
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease-in-out;
+  position: relative;
+  /*height: 80px;*/
+}
+
+/* Default style for all buttons (Non-Selected) */
+.button-container button {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: #2e2e2e;
+  transition: all 0.3s ease-in-out;
+  opacity: 0.6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0.9); /* Slightly smaller */
+}
+
+/* Ensure non-selected buttons do not move on hover */
+.button-container:not(.selected):hover {
+  transform: none; /* No movement */
+  transform: none !important; /* Ensure no movement */
+  transform: scale(0.9) !important;
+}
+.button-container:not(.selected) {
+  margin-bottom: 40px; /* Move non-selected buttons slightly up */
+  transform: none !important; /* Ensure no movement */
+  transform: scale(0.9) !important;
+}
+
+/* Selected Button (Middle One) */
+/*
+.button-container-bg {
+  display: none; 
+  position: absolute; 
+  z-index: 8; 
+}
+
+.button-container-bg.selected {
+  display: flex; 
+  padding: 12px;
+  align-items: center;
+  justify-content: center; 
+  height: 58px;
+  width: 58px;
+  border-radius: 50%; 
+  background: linear-gradient(90deg, #f20790 0%, #007aff 100%);
+  box-shadow: -0.4px -0.2px 0px 0px rgba(255, 255, 255, 0.08) inset,
+    0.4px 0.4px 0px 0px rgba(255, 255, 255, 0.16) inset,
+    -2px -2px 3px 0px rgba(15, 15, 15, 0.24) inset,
+    1px 1px 3px 0px rgba(255, 255, 255, 0.24) inset;
+  border: none; 
+  cursor: pointer; 
+}*/
+
+.button-container.selected button {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(90deg, #f20790 0%, #007aff 100%);
+  box-shadow: -0.4px -0.2px 0px 0px rgba(255, 255, 255, 0.08) inset,
+    0.4px 0.4px 0px 0px rgba(255, 255, 255, 0.16) inset,
+    -2px -2px 3px 0px rgba(15, 15, 15, 0.24) inset,
+    1px 1px 3px 0px rgba(255, 255, 255, 0.24) inset;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  z-index: 9;
+  margin-bottom: 40px;
+  overflow: hidden;
+  opacity: 1;
+  transform: scale(1); /* Normal size */
+}
+
+/* Selected button animation */
+.button-container.selected button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 8;
+  border-radius: 50%;
+  background: conic-gradient(
+    transparent 0%,
+    rgba(255, 255, 255, 0.8) 15%,
+    transparent 30%
+  );
+  mask: radial-gradient(circle, transparent 63%, black 60% 100%);
+  animation: rotateLoading 3s linear infinite;
+}
+
+/* Ensure Logo Size is Same for All Buttons */
+.button-container button img {
+  width: 28px;
+  height: 28px;
+}
+
+/* Button Name (Hidden by Default) */
+.button-name {
+  display: none;
+  text-align: center;
+  font-family: Poppins, sans-serif;
+  font-weight: 500;
+  line-height: 150%; /* 18px */
+  margin-top: 20px; /* Space between button and text */
+  z-index: 9;
+  bottom: 12px; /* Adjust spacing */
+  white-space: nowrap; /* Prevent text from wrapping */
+  position: absolute;
+}
+
+/* Show name only for the selected button */
+.button-container.selected .button-name {
+  display: block;
+  font-size: 12px;
+  color: #fff;
+}
+
+/* Show name when hovering over non-selected buttons */
+.button-container:not(.selected):hover .button-name {
+  display: block;
+  font-size: 10px; /* Smaller text for non-selected buttons */
+  color: grey; /* Grey color */
+  bottom: -20px;
+}
+.register-button {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 28px;
+  width: 156px;
+  height: 52px;
+  right: 70px;
+}
+.register {
+  display: flex;
+  width: 156px;
+  height: 52px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 100px;
+  background: #fff;
+  box-shadow: 0px 0px 12px 0.95px rgba(236, 9, 146, 0.48);
+  backdrop-filter: blur(11.7px);
+  position: relative;
+  z-index: 1;
+  border: none;
+  font-size: 16px;
+
+  color: black;
+  overflow: hidden;
+}
+
+/* Style for Button Text */
+.register span {
+  text-align: right;
+  font-family: "Poppins";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 44px; /* 275% */
+  text-transform: capitalize;
+  background: linear-gradient(
+    90deg,
+    rgba(25, 25, 25, 0.92) -86.54%,
+    #ff009a -58.57%,
+    #007aff -26.21%,
+    rgba(25, 25, 25, 0.92) -3.31%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Text Glow Animation */
+
+/* Animated Gradient Border */
 .register::before {
   content: "";
   position: absolute;
-  top: -1px;
-  left: -1px;
-  right: -1px;
-  bottom: -1px;
+  inset: 0; /* Covers the whole button */
   border-radius: inherit;
-  padding: 1.5px;
-  background: linear-gradient(270deg, #f20790 15%, #fff, #0877fc 85%);
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  padding: 2.924px; /* Thickness of the moving border */
+  background: linear-gradient(
+    90deg,
+    rgba(255, 0, 154, 1),
+    rgba(8, 119, 252, 1),
+    rgba(255, 0, 154, 1)
+  );
+  background-size: 300% 300%;
+  animation: moveGradient 4s linear infinite;
+
+  /* Masking to keep the border effect only */
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: destination-out;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask-composite: exclude;
-  z-index: -1;
+  -webkit-mask-composite: exclude;
 }
 
-/* Hover effect for the button */
-.register:hover::before {
-  filter: brightness(1.2); /* Slight glow effect on hover */
+/* Moves the Gradient Clockwise */
+@keyframes moveGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
 }
 
 /* Centering the text inside the button */
@@ -212,23 +640,4 @@
 /* Optional: Space out the items in the navbar */
 .navbar > * {
   margin: 0 10px;
-}
-
-.center-rectangle {
-  display: flex;
-  width: 564px;
-  height: 52px;
-  padding: 0px 12px;
-  flex-direction: column;
-  justify-content: center; /* Center content vertically */
-  align-items: center;
-  border-radius: 1000px; /* Full rounded corners */
-  background: #303030;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 16px rgba(0, 0, 0, 0.24),
-    0px 3px 2.6px #464646 inset;
-  position: absolute; /* Absolute to center it easily */
-  left: 50%; /* Center horizontally */
-  top: -20px;
-  transform: translateX(-50%); /* Correct offset due to absolute positioning */
-  z-index: 5; /* Ensure it's above the navbar background but below other elements */
 }
