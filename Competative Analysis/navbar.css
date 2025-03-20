@@ -554,6 +554,7 @@
   height: 52px;
   right: 70px;
 }
+
 .register {
   display: flex;
   width: 156px;
@@ -562,72 +563,39 @@
   align-items: center;
   flex-shrink: 0;
   border-radius: 100px;
-  background: #fff;
-  box-shadow: 0px 0px 12px 0.95px rgba(236, 9, 146, 0.48);
-  backdrop-filter: blur(11.7px);
   position: relative;
   z-index: 1;
   border: none;
   font-size: 16px;
-
   color: black;
   overflow: hidden;
 }
 
-/* Style for Button Text */
-.register span {
-  text-align: right;
-  font-family: "Poppins";
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 44px; /* 275% */
-  text-transform: capitalize;
-  background: linear-gradient(
-    90deg,
-    rgba(25, 25, 25, 0.92) -86.54%,
-    #ff009a -58.57%,
-    #007aff -26.21%,
-    rgba(25, 25, 25, 0.92) -3.31%
-  );
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* Text Glow Animation */
-
-/* Animated Gradient Border */
+/* Static Border */
 .register::before {
   content: "";
   position: absolute;
   inset: 0; /* Covers the whole button */
   border-radius: inherit;
-  padding: 2.924px; /* Thickness of the moving border */
-  background: linear-gradient(
-    90deg,
-    rgba(255, 0, 154, 1),
-    rgba(8, 119, 252, 1),
-    rgba(255, 0, 154, 1)
-  );
-  background-size: 300% 300%;
-  animation: moveGradient 4s linear infinite;
+  padding: 3px; /* Border thickness */
+  background: linear-gradient(90deg, #ff009a, #007aff);
 
-  /* Masking to keep the border effect only */
+  /* Mask to keep only the border */
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask-composite: exclude;
   -webkit-mask-composite: exclude;
 }
 
-/* Moves the Gradient Clockwise */
-@keyframes moveGradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  100% {
-    background-position: 100% 50%;
-  }
+/* Button Text Styling */
+.register span {
+  position: relative;
+  font-family: "Poppins";
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: capitalize;
+  z-index: 2;
+  color: black;
 }
 
 /* Centering the text inside the button */
