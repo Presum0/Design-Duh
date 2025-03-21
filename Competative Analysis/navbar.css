@@ -655,6 +655,16 @@
   align-items: center;
   justify-content: center;
 }
+/* Hover Effect - Change Text Color to Gradient */
+.register:hover span {
+  background: linear-gradient(90deg, #f20790, #007aff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+/* Stop the Shine Animation on Hover */
+.register:hover span::after {
+  animation-play-state: paused;
+}
 
 /* Optional: Space out the items in the navbar */
 .navbar > * {
