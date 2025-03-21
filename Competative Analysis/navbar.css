@@ -165,7 +165,9 @@
   opacity: 1;
   /* Rotates 90 degrees */
 }
-
+.dynamic-island-landing {
+  left: 10px;
+}
 .dynamic-island-landing .union {
   transition: opacity 0.3s ease;
 }
@@ -544,58 +546,107 @@
   color: grey; /* Grey color */
   bottom: -20px;
 }
-.register-button {
-  position: absolute;
+/* Common Styles */
+/* Enable custom property animation */
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+/* Keyframes for smooth rotation */
+@keyframes rotate-gradient {
+  0% {
+    --angle: 0deg;
+  }
+  100% {
+    --angle: 360deg;
+  }
+}
+
+/* Register Button */
+.register {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 28px;
   width: 156px;
   height: 52px;
-  right: 70px;
-}
-
-.register {
-  display: flex;
-  width: 156px;
-  height: 52px;
-  justify-content: center;
-  align-items: center;
-  flex-shrink: 0;
-  border-radius: 100px;
-  position: relative;
-  z-index: 1;
-  border: none;
-  font-size: 16px;
-  color: black;
   overflow: hidden;
+  background: white;
+  box-shadow: 0px 0px 22px 0.95px rgba(236, 9, 146, 0.7);
+  backdrop-filter: blur(11px);
+  border: none;
+  left: -50px;
 }
 
-/* Static Border */
+/* Animated Rotating Border */
 .register::before {
   content: "";
   position: absolute;
-  inset: 0; /* Covers the whole button */
+  inset: 0;
   border-radius: inherit;
   padding: 3px; /* Border thickness */
-  background: linear-gradient(90deg, #ff009a, #007aff);
 
-  /* Mask to keep only the border */
+  /* Adjusted Gradient border animation */
+  background: conic-gradient(
+    from var(--angle),
+    #f20790 0deg 100deg,
+    /* Increase Pink */ #007aff 160deg 260deg,
+    /* Increase Blue */ #f20790 320deg 360deg /* Ensure Smooth Transition */
+  );
+
+  /* Mask to show only the border */
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask-composite: exclude;
   -webkit-mask-composite: exclude;
+
+  /* Apply rotation animation */
+  animation: rotate-gradient 6s linear infinite;
 }
 
-/* Button Text Styling */
+/* Black Text */
 .register span {
   position: relative;
-  font-family: "Poppins";
+  font-family: "Poppins", sans-serif;
   font-size: 16px;
   font-weight: 500;
   text-transform: capitalize;
-  z-index: 2;
-  color: black;
+  color: black; /* Keeps text fully black */
+  display: inline-block;
+  overflow: hidden;
+}
+
+/* Shine Effect Inside Text */
+.register span::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 0, 154, 0) 0%,
+    /* Transparent Start */ rgba(255, 0, 154, 0.8) 40%,
+    /* Soft Pink */ rgba(0, 122, 255, 1) 60%,
+
+    /* Soft Pink */ rgba(255, 0, 154, 0) 100% /* Transparent End */
+  );
+  mix-blend-mode: lighten; /* Ensures the shine only affects the text */
+  animation: textShine 4s linear infinite;
+}
+
+/* Animation for Shine Effect */
+@keyframes textShine {
+  0% {
+    left: -200%;
+  }
+  100% {
+    left: 200%;
+  }
 }
 
 /* Centering the text inside the button */
