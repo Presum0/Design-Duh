@@ -1,0 +1,160 @@
+.generating-animation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  gap: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes fluidGradient {
+  0% {
+    background-position: 10% 50%;
+  }
+  50% {
+    background-position: 25% 50%; /* Moves left up to 75% */
+  }
+  100% {
+    background-position: 35% 50%;
+  }
+}
+
+.gen-rectangle {
+  display: flex;
+  width: 333px;
+  height: 28px;
+  padding: 2px 24px;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  border-radius: 0px 50px 50px 0px;
+
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0) 12%,
+    rgba(0, 0, 0, 0) 22%,
+    /* Reduced transparent area */ #007aff 35%,
+    /* Blue starts earlier */ #007aff 40%,
+    /* Blue minimized */ #f20790 50%,
+    /* Pink starts earlier */ #f20790 100% /* Pink takes the majority */
+  );
+
+  background-size: 300% 100%;
+  animation: fluidGradient 4s ease-in-out infinite;
+}
+
+.generating-animation span {
+  color: #080404;
+  font-family: Poppins, sans-serif;
+  font-size: 14px;
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+.gen-circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  padding: 3.5px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #1c1c1c;
+  margin-left: 47%;
+}
+
+.square {
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  border-radius: 4px;
+  background: #ffffff;
+  box-shadow: 1px 1px 1px 0px #fff inset, 1px 1px 1px 0px rgba(0, 0, 0, 0.8);
+  z-index: 2;
+}
+
+/*  RED ANIMATION */
+/* Red Generating Animation */
+.red-generating-animation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100vh;
+  position: relative;
+  margin-bottom: 20px; /* Adjust spacing */
+}
+
+/* Red Animation Keyframes */
+@keyframes redFluidGradient {
+  0% {
+    background-position: 10% 50%;
+  }
+  50% {
+    background-position: 25% 50%;
+  }
+  100% {
+    background-position: 35% 50%;
+  }
+}
+
+/* Red Rectangle */
+.red-gen-rectangle {
+  display: flex;
+  width: 333px;
+  height: 28px;
+  padding: 2px 24px;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  border-radius: 0px 50px 50px 0px;
+
+  background: linear-gradient(
+    270deg,
+    #f50031 11.13%,
+    rgba(245, 0, 49, 0.7) 54.56%,
+    rgba(245, 0, 49, 0) 99.82%,
+    rgba(245, 0, 49, 0) 116.95%
+  );
+
+  background-size: 300% 100%;
+  animation: redFluidGradient 4s ease-in-out infinite;
+}
+
+/* Text inside Red Animation */
+.red-generating-animation span {
+  color: #ffffff;
+  font-family: Poppins, sans-serif;
+  font-size: 14px;
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+/* Red Circle */
+.red-gen-circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  padding: 3.5px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #1c1c1c;
+  margin-left: 47%;
+}
+
+/* Red Square */
+.red-square {
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  border-radius: 4px;
+  background: #ffffff;
+  box-shadow: 1px 1px 1px 0px #fff inset, 1px 1px 1px 0px rgba(0, 0, 0, 0.8);
+  z-index: 2;
+}

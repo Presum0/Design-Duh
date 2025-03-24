@@ -541,6 +541,16 @@
   }
 }
 
+/* Keyframes for Text Shine Effect */
+@keyframes textShine {
+  0% {
+    left: -150%;
+  }
+  100% {
+    left: 150%;
+  }
+}
+
 /* Register Button */
 .register {
   position: relative;
@@ -552,7 +562,6 @@
   height: 52px;
   overflow: hidden;
   background: white;
-
   backdrop-filter: blur(11px);
   border: none;
   left: -50px;
@@ -594,19 +603,19 @@
   animation: rotate-gradient 6s linear infinite;
 }
 
-/* Black Text */
+/* Initially Black Text with Shine Effect */
 .register span {
   position: relative;
   font-family: "Poppins", sans-serif;
   font-size: 16px;
   font-weight: 500;
   text-transform: capitalize;
-  color: black; /* Keeps text fully black */
+  color: black; /* Initially black text */
   display: inline-block;
   overflow: hidden;
 }
 
-/* Shine Effect Inside Text */
+/* Shine Effect Inside Text (Always Running) */
 .register span::after {
   content: "";
   position: absolute;
@@ -617,23 +626,23 @@
   background: linear-gradient(
     90deg,
     rgba(255, 0, 154, 0) 0%,
-    /* Transparent Start */ rgba(255, 0, 154, 0.8) 40%,
-    /* Soft Pink */ rgba(0, 122, 255, 1) 60%,
-
-    /* Soft Pink */ rgba(255, 0, 154, 0) 100% /* Transparent End */
+    rgba(255, 0, 154, 0.8) 40%,
+    rgba(0, 122, 255, 1) 60%,
+    rgba(255, 0, 154, 0) 100%
   );
-  mix-blend-mode: lighten; /* Ensures the shine only affects the text */
+  mix-blend-mode: lighten;
   animation: textShine 4s linear infinite;
 }
 
-/* Animation for Shine Effect */
-@keyframes textShine {
-  0% {
-    left: -200%;
-  }
-  100% {
-    left: 200%;
-  }
+/* On Hover, Text Color Changes to Gradient & Shine Stops */
+.register:hover span {
+  background: linear-gradient(90deg, #f20790, #007aff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.register:hover span::after {
+  animation: none; /* Stop shine effect */
 }
 
 /* Centering the text inside the button */
@@ -641,97 +650,4 @@
   display: flex;
   align-items: center;
   justify-content: center;
-}
-/* Hover Effect - Change Text Color to Gradient */
-.register:hover span {
-  background: linear-gradient(90deg, #f20790, #007aff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-/* Stop the Shine Animation on Hover */
-.register:hover span::after {
-  animation-play-state: paused;
-}
-
-/* Optional: Space out the items in the navbar */
-.navbar > * {
-  margin: 0 10px;
-}
-
-.generating-animation {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-@keyframes fluidGradient {
-  0% {
-    background-position: 10% 50%;
-  }
-  50% {
-    background-position: 25% 50%; /* Moves left up to 75% */
-  }
-  100% {
-    background-position: 35% 50%;
-  }
-}
-
-.gen-rectangle {
-  display: flex;
-  width: 333px;
-  height: 28px;
-  padding: 2px 24px;
-  align-items: center;
-  gap: 10px;
-  flex-shrink: 0;
-  border-radius: 0px 50px 50px 0px;
-
-  background: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0) 12%,
-    rgba(0, 0, 0, 0) 22%,
-    /* Reduced transparent area */ #007aff 35%,
-    /* Blue starts earlier */ #007aff 40%,
-    /* Blue minimized */ #f20790 50%,
-    /* Pink starts earlier */ #f20790 100% /* Pink takes the majority */
-  );
-
-  background-size: 300% 100%;
-  animation: fluidGradient 4s ease-in-out infinite;
-}
-
-.generating-animation span {
-  color: #080404;
-  font-family: Poppins, sans-serif;
-  font-size: 14px;
-  white-space: nowrap;
-  font-weight: 600;
-}
-
-.gen-circle {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 35px;
-  height: 35px;
-  padding: 3.5px;
-  flex-shrink: 0;
-  border-radius: 50%;
-  background: #1c1c1c;
-  margin-left: 47%;
-}
-
-.square {
-  width: 14px;
-  height: 14px;
-  position: absolute;
-  border-radius: 4px;
-  background: #ffffff;
-  box-shadow: 1px 1px 1px 0px #fff inset, 1px 1px 1px 0px rgba(0, 0, 0, 0.8);
-  z-index: 2;
 }
