@@ -8,6 +8,7 @@
   top: 0%;
   left: 0px;
   width: 90rem;
+  height: 10vh;
   z-index: 10;
   transition: background-color 0.3s ease;
 }
