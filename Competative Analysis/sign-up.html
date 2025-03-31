@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>SignUp</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.30.0/tabler-icons.min.css"
+    />
+    <link rel="stylesheet" href="sign-up.css" />
+  </head>
+  <body>
+    <main class="page-container">
+      <section class="form-modal-cover">
+        <section class="form-modal">
+          <div class="form-content">
+            <header class="form-header">
+              <img src="Signup-Vector.svg" />
+              <div class="centre-icon">
+                <img
+                  src="signup-logo.svg"
+                  alt="signup-logo"
+                  class="signup-logo"
+                />
+              </div>
+            </header>
+            <section class="welcome-section">
+              <h1 class="welcome-title">Welcome Onboard!</h1>
+              <p class="welcome-subtitle">
+                Your journey starts here—let's build something CRAZY!
+              </p>
+            </section>
+            <section class="form-section">
+              <form class="form-container">
+                <div class="input-row">
+                  <div class="input-wrapper">
+                    <input
+                      type="text"
+                      id="first-name"
+                      class="form-input"
+                      required
+                    />
+                    <label for="first-name" class="floating-label"
+                      >FIRST NAME</label
+                    >
+                  </div>
+                  <div class="input-wrapper">
+                    <input
+                      type="text"
+                      id="last-name"
+                      class="form-input"
+                      required
+                    />
+                    <label for="last-name" class="floating-label"
+                      >LAST NAME</label
+                    >
+                  </div>
+                </div>
+                <div class="stacked-inputs">
+                  <div class="input-wrapper top-input">
+                    <input type="name" id="email" class="form-input" required />
+                    <label for="email" class="floating-label">EMAIL</label>
+                  </div>
+                  <div class="input-wrapper bottom-input">
+                    <input
+                      type="password"
+                      id="password"
+                      class="form-input"
+                      required
+                    />
+                    <label for="password" class="floating-label"
+                      >PASSWORD</label
+                    >
+                    <img
+                      id="eyeIcon"
+                      src="signup-eye-icon.svg"
+                      class="eye-icon"
+                      alt="Show Password"
+                    />
+                  </div>
+
+                  <div class="password-requirements hidden">
+                    <div class="requirement">
+                      <p class="requirement-text-green">
+                        <img
+                          src="signup-check-logo.svg"
+                          class="requirement-icon"
+                          alt=""
+                        />
+                        Mix of uppercase & lowercase letter
+                      </p>
+                    </div>
+                    <ul>
+                      <li class="requirement-text">
+                        Contain at least 1 special character
+                      </li>
+                      <li class="requirement-text">
+                        Contain at least 1 number
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  class="submit-button"
+                  onclick="redirectToPage()"
+                >
+                  Generate OTP
+                </button>
+              </form>
+              <footer class="form-footer">
+                <p class="account-text">Already have an account ?</p>
+                <a href="signin.html" class="signin-link">Sign in</a>
+              </footer>
+            </section>
+          </div>
+        </section>
+      </section>
+    </main>
+    <script src="sign-up.js"></script>
+  </body>
+</html>

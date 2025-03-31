@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>SignUp</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.30.0/tabler-icons.min.css"
+    />
+    <link rel="stylesheet" href="signin.css" />
+  </head>
+  <body>
+    <main class="page-container">
+      <section class="form-modal-cover">
+        <section class="form-modal">
+          <div class="form-content">
+            <header class="form-header">
+              <img src="Signup-Vector.svg" />
+              <div class="centre-icon">
+                <img
+                  src="signup-logo.svg"
+                  alt="signup-logo"
+                  class="signup-logo"
+                />
+              </div>
+            </header>
+            <section class="welcome-section">
+              <h1 class="welcome-title">Hello Again!</h1>
+              <p class="welcome-subtitle">
+                Let’s pick up where you left off and create something CRAZY!
+              </p>
+            </section>
+            <section class="form-section">
+              <form class="form-container">
+                <div class="stacked-inputs">
+                  <div class="input-wrapper top-input">
+                    <input type="name" id="email" class="form-input" required />
+                    <label for="email" class="floating-label">EMAIL</label>
+                  </div>
+                  <div class="input-wrapper bottom-input">
+                    <input
+                      type="password"
+                      id="password"
+                      class="form-input"
+                      required
+                    />
+                    <label for="password" class="floating-label"
+                      >PASSWORD</label
+                    >
+                    <img
+                      id="eyeIcon"
+                      src="signup-eye-icon.svg"
+                      class="eye-icon hidden"
+                      alt="Show Password"
+                    />
+                  </div>
+                </div>
+                <button type="submit" class="submit-button">Login</button>
+                <button type="forgot" class="forgot-button">
+                  Forgot Passward ?
+                </button>
+              </form>
+              <div class="grey-line"></div>
+              <footer class="form-footer">
+                <p class="account-text">Already have an account ?</p>
+                <a href="signin.html" class="signin-link">Sign up</a>
+              </footer>
+            </section>
+          </div>
+        </section>
+      </section>
+    </main>
+    <script src="signin.js"></script>
+  </body>
+</html>

@@ -1,0 +1,401 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+.page-container {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(180deg, #7bb9f7 0%, #ecf5fe 55%), #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: stretch;
+  min-height: fit-content;
+}
+.form-modal-cover {
+  display: inline-flex;
+  padding: 0.75rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.625rem;
+  border-radius: 1.5rem;
+  border: 1px solid #fff;
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  z-index: 5;
+}
+.form-modal {
+  display: flex;
+  width: 32.5rem;
+  height: 34.625rem;
+  padding: 2.25rem 1.25rem var(--Radius--3Xl, 2rem) 1.25rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2.5rem;
+  border-radius: var(--Radius--Xl, 1rem);
+  border: 1.5px solid rgba(25, 25, 25, 0.08);
+  background: linear-gradient(
+      180deg,
+      rgba(123, 185, 247, 0.08) 0%,
+      rgba(123, 185, 247, 0) 34.89%
+    ),
+    linear-gradient(180deg, #fff 0%, #fcfcfc 100%);
+  box-shadow: 0px 0px 22px 0px rgba(77, 77, 77, 0.06);
+}
+
+.form-header img {
+  width: 46.875rem;
+  height: 31.25rem;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+  position: relative; /* Remove absolute positioning to keep it inside */
+  margin-top: -7.2rem;
+  display: flex;
+}
+.centre-icon {
+  height: 3rem;
+  width: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--Radius--Xl, 1rem);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 0, 154, 0.2) 0%,
+    rgba(8, 119, 252, 0.2) 100%
+  );
+
+  position: absolute;
+  top: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.signup-logo {
+  max-width: 100%; /* Prevents overflow and scales the image */
+  max-height: 100%;
+  object-fit: contain; /* Ensures the entire image fits within the container */
+  top: 3.6rem;
+}
+/* Welcome section */
+.welcome-section {
+  display: flex;
+  flex-direction: column;
+  font-family: Poppins, sans-serif;
+  align-items: center;
+  text-align: center;
+  gap: 4px;
+
+  position: absolute; /* Positions it relative to the page */
+  top: 5.8rem; /* Places it just below .centre-icon */
+  left: 50%;
+  transform: translateX(-50%); /* Ensures perfect centering */
+  width: 100%;
+}
+
+.welcome-title {
+  color: #191919;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.welcome-subtitle {
+  color: rgba(25, 25, 25, 0.75);
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  align-self: stretch;
+  position: relative;
+  margin-top: -15rem;
+}
+
+.input-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  width: 100%;
+}
+
+@media (max-width: 640px) {
+  .input-row {
+    flex-direction: column;
+  }
+}
+
+.input-wrapper {
+  display: flex;
+  padding: 1rem;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.625rem;
+  flex: 1 0 0;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(25, 25, 25, 0.2);
+  width: 100%;
+  position: relative;
+}
+
+/* Input Field */
+.form-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: Poppins;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 164%;
+  border-radius: 0.75rem;
+  color: var(--Text-Primary-TextColor, #191919);
+  padding: 0.5rem 0 0 0;
+}
+/* Gradient Border on Focus */
+.input-wrapper:has(.form-input:focus) {
+  border-radius: 0.75rem;
+  border: 1px solid transparent;
+  background: linear-gradient(white, white) padding-box,
+    linear-gradient(180deg, rgba(242, 7, 144, 1), rgba(0, 122, 255, 1))
+      border-box;
+}
+
+/* Floating Label */
+.floating-label {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.875rem;
+  color: rgba(25, 25, 25, 0.6);
+  transition: all 0.3s ease-in-out;
+  pointer-events: none;
+  font-family: Poppins;
+  font-weight: 500;
+  line-height: 164%;
+}
+
+/* Move label up when input is focused or has content */
+.form-input:focus + .floating-label,
+.form-input:valid + .floating-label {
+  top: 1.1rem;
+  font-size: 0.625rem;
+  line-height: 100%;
+  color: var(--Text-Secondary-TextColor, rgba(25, 25, 25, 0.6));
+}
+
+/* Placeholder should not be visible */
+.form-input::placeholder {
+  color: transparent;
+}
+
+.stacked-inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 30rem;
+}
+
+.top-input {
+  border-radius: 0.75rem 0.75rem 0rem 0rem;
+}
+
+.bottom-input {
+  border-radius: 0rem 0rem 0.75rem 0.75rem;
+  justify-content: space-between;
+}
+/* Preserve Original Border Radius for Stacked Inputs */
+.top-input:has(.form-input:focus) {
+  border-radius: 0.75rem 0.75rem 0rem 0rem;
+}
+
+.bottom-input:has(.form-input:focus) {
+  border-radius: 0rem 0rem 0.75rem 0.75rem;
+}
+
+.submit-button {
+  display: flex;
+  width: 30rem;
+  padding: 0.75rem 0.5rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  border-radius: 2rem;
+  border: 1.5px solid rgba(25, 25, 25, 0.06);
+  background: linear-gradient(180deg, #e5e5e5 12.59%, #c7c7c7 125.93%);
+  box-shadow: 0px 2px 8px 0px rgba(255, 255, 255, 0.8) inset;
+
+  /* ✅ Text Styling */
+  color: rgba(25, 25, 25, 0.24);
+  font-family: Poppins, sans-serif;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.active-button {
+  display: flex;
+  width: 30rem;
+  padding: 0.75rem 0.5rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  border-radius: 2rem;
+  border: transparent;
+  background: var(
+    --Gradient-Gradient-with-Noise,
+    linear-gradient(90deg, #ff009a 0%, #0877fc 100%)
+  );
+  box-shadow: 2px 2px 12px 0px rgba(255, 255, 255, 0.35) inset;
+  color: #fff;
+  font-family: Poppins;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  cursor: pointer; /* Makes it clear the button is clickable */
+  transition: all 0.3s ease-in-out;
+}
+/* Form footer */
+.form-footer {
+  display: flex;
+  padding: 0.25rem 0.5rem;
+  justify-content: center;
+  align-items: baseline;
+  gap: 0.5rem;
+  align-self: stretch;
+  margin-top: 2.2rem;
+}
+
+.account-text {
+  color: rgba(25, 25, 25, 0.8);
+  font-family: Poppins;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 100%; /* 1rem */
+}
+
+.signin-link {
+  font-family: Poppins;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal; /* ✅ Adjusted to prevent text clipping */
+  background: var(
+    --Gradient-Gradient-with-Noise,
+    linear-gradient(90deg, #ff009a 0%, #0877fc 100%)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.eye-icon {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  display: flex;
+  width: 1.25rem;
+  height: 1.25rem;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 1/1;
+}
+.signup-eye-slash {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+.hidden {
+  display: none; /* Can be used for toggle */
+}
+
+.requirement-text-green {
+  display: flex;
+  align-items: center; /* Ensures vertical alignment */
+  gap: 0.5rem; /* Adds spacing between the icon and text */
+  color: #25ab21;
+  font-family: Poppins;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; /* 1.3125rem */
+  margin-top: 0.5rem;
+}
+
+.requirement-text {
+  color: rgba(25, 25, 25, 0.8);
+  font-family: Poppins;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; /* 1.3125rem */
+}
+.requirement-icon {
+  display: flex;
+  width: 1.25rem;
+  height: 1.25rem;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 1/1;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+ul {
+  list-style-type: none;
+}
+
+ul li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: Poppins, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgba(25, 25, 25, 0.8);
+  padding-left: 0.4rem;
+}
+
+ul li::before {
+  content: "•"; /* Custom bullet */
+  color: rgba(25, 25, 25, 0.8);
+
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.hidden {
+  display: none;
+}
+
+/* Ensure form container expands */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  align-self: stretch;
+  min-height: fit-content;
+}
+
+.form-section {
+  min-height: fit-content;
+}
