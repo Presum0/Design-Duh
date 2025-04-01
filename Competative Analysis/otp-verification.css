@@ -136,6 +136,7 @@
   color: var(--Primary-Blue-Color, #007aff);
   text-align: center;
   font-family: Poppins;
+  text-decoration: none;
   font-size: 0.875rem;
   font-style: normal;
   font-weight: 600;
