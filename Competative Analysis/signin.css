@@ -52,7 +52,7 @@
   object-fit: contain;
   display: block;
   position: relative; /* Remove absolute positioning to keep it inside */
-  margin-top: -7.2rem;
+  margin-top: -6.8rem;
   display: flex;
 }
 .centre-icon {
@@ -69,7 +69,7 @@
   );
 
   position: absolute;
-  top: 2.5rem;
+  top: 2rem;
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
@@ -79,7 +79,7 @@
   max-width: 100%; /* Prevents overflow and scales the image */
   max-height: 100%;
   object-fit: contain; /* Ensures the entire image fits within the container */
-  top: 3.6rem;
+  top: 3.4rem;
 }
 /* Welcome section */
 .welcome-section {
