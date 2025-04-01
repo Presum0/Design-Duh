@@ -4,7 +4,7 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
-.page-container {
+.signin-page-container {
   width: 100%;
   height: 100vh;
   background: linear-gradient(180deg, #7bb9f7 0%, #ecf5fe 55%), #fff;
@@ -14,7 +14,7 @@
   align-self: stretch;
   min-height: fit-content;
 }
-.form-modal-cover {
+.signin-form-modal-cover {
   display: inline-flex;
   padding: 0.75rem;
   flex-direction: column;
@@ -26,7 +26,7 @@
   backdrop-filter: blur(10px);
   z-index: 5;
 }
-.form-modal {
+.signin-form-modal {
   display: flex;
   width: 32.5rem;
   height: 34.25rem;
@@ -45,7 +45,7 @@
   box-shadow: 0px 0px 22px 0px rgba(77, 77, 77, 0.06);
 }
 
-.form-header img {
+.signin-form-header img {
   width: 46.875rem;
   height: 31.25rem;
   max-width: 100%;
@@ -55,7 +55,7 @@
   margin-top: -6.8rem;
   display: flex;
 }
-.centre-icon {
+.signin-centre-icon {
   height: 3rem;
   width: 3rem;
   display: flex;
@@ -75,14 +75,14 @@
   z-index: 10;
 }
 
-.signup-logo {
+.signin-signup-logo {
   max-width: 100%; /* Prevents overflow and scales the image */
   max-height: 100%;
   object-fit: contain; /* Ensures the entire image fits within the container */
   top: 3.4rem;
 }
 /* Welcome section */
-.welcome-section {
+.signin-welcome-section {
   display: flex;
   flex-direction: column;
   font-family: Poppins, sans-serif;
@@ -97,7 +97,7 @@
   width: 100%;
 }
 
-.welcome-title {
+.signin-welcome-title {
   color: #191919;
   font-size: 1.5rem;
   font-style: normal;
@@ -105,14 +105,14 @@
   line-height: normal;
 }
 
-.welcome-subtitle {
+.signin-welcome-subtitle {
   color: rgba(25, 25, 25, 0.75);
   font-size: 0.875rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
 }
-.form-container {
+.signin-form-container {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -122,7 +122,7 @@
   margin-top: -15rem;
 }
 
-.input-row {
+.signin-input-row {
   display: flex;
   align-items: flex-start;
   gap: 10px;
@@ -135,7 +135,7 @@
   }
 }
 
-.input-wrapper {
+.signin-input-wrapper {
   display: flex;
   padding: 1rem;
   justify-content: flex-start;
@@ -149,7 +149,7 @@
 }
 
 /* Input Field */
-.form-input {
+.signin-form-input {
   width: 100%;
   border: none;
   outline: none;
@@ -163,7 +163,7 @@
   padding: 0.5rem 0 0 0;
 }
 /* Gradient Border on Focus */
-.input-wrapper:has(.form-input:focus) {
+.signin-input-wrapper:has(.form-input:focus) {
   border-radius: 0.75rem;
   border: 1px solid transparent;
   background: linear-gradient(white, white) padding-box,
@@ -172,7 +172,7 @@
 }
 
 /* Floating Label */
-.floating-label {
+.signin-floating-label {
   position: absolute;
   left: 1rem;
   top: 50%;
@@ -187,8 +187,8 @@
 }
 
 /* Move label up when input is focused or has content */
-.form-input:focus + .floating-label,
-.form-input:valid + .floating-label {
+.signin-form-input:focus + .signin-floating-label,
+.signin-form-input:valid + .signin-floating-label {
   top: 1.1rem;
   font-size: 0.625rem;
   line-height: 100%;
@@ -196,11 +196,11 @@
 }
 
 /* Placeholder should not be visible */
-.form-input::placeholder {
+.signin-form-input::placeholder {
   color: transparent;
 }
 
-.stacked-inputs {
+.signin-stacked-inputs {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -208,24 +208,24 @@
   max-width: 30rem;
 }
 
-.top-input {
+.signin-top-input {
   border-radius: 0.75rem 0.75rem 0rem 0rem;
 }
 
-.bottom-input {
+.signin-bottom-input {
   border-radius: 0rem 0rem 0.75rem 0.75rem;
   justify-content: space-between;
 }
 /* Preserve Original Border Radius for Stacked Inputs */
-.top-input:has(.form-input:focus) {
+.signin-top-input:has(.form-input:focus) {
   border-radius: 0.75rem 0.75rem 0rem 0rem;
 }
 
-.bottom-input:has(.form-input:focus) {
+.signin-bottom-input:has(.form-input:focus) {
   border-radius: 0rem 0rem 0.75rem 0.75rem;
 }
 
-.submit-button {
+.signin-submit-button {
   display: flex;
   width: 30rem;
   padding: 0.75rem 0.5rem;
@@ -245,7 +245,7 @@
   font-weight: 500;
   line-height: normal;
 }
-.active-button {
+.signin-active-button {
   display: flex;
   width: 30rem;
   padding: 0.75rem 0.5rem;
@@ -269,7 +269,7 @@
   transition: all 0.3s ease-in-out;
 }
 /* Form footer */
-.form-footer {
+.signin-form-footer {
   display: flex;
   padding: 0.25rem 0.5rem;
   justify-content: center;
@@ -279,7 +279,7 @@
   margin-top: 2.2rem;
 }
 
-.account-text {
+.signin-account-text {
   color: rgba(25, 25, 25, 0.8);
   font-family: Poppins;
   font-size: 1rem;
@@ -288,7 +288,7 @@
   line-height: 100%; /* 1rem */
 }
 
-.eye-icon {
+.signin-eye-icon {
   position: absolute;
   right: 1rem;
   top: 50%;
@@ -301,7 +301,7 @@
   align-items: center;
   aspect-ratio: 1/1;
 }
-.signup-eye-slash {
+.signin-signup-eye-slash {
   position: absolute;
   right: 1rem;
   top: 50%;
@@ -310,70 +310,16 @@
   width: 1.25rem;
   height: 1.25rem;
 }
-.hidden {
+.signin-hidden {
   display: none;
 }
 
-.requirement-text-green {
-  display: flex;
-  align-items: center; /* Ensures vertical alignment */
-  gap: 0.5rem; /* Adds spacing between the icon and text */
-  color: #25ab21;
-  font-family: Poppins;
-  font-size: 0.875rem;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 150%; /* 1.3125rem */
-  margin-top: 0.5rem;
-}
-
-.requirement-text {
-  color: rgba(25, 25, 25, 0.8);
-  font-family: Poppins;
-  font-size: 0.875rem;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 150%; /* 1.3125rem */
-}
-.requirement-icon {
-  display: flex;
-  width: 1.25rem;
-  height: 1.25rem;
-  justify-content: center;
-  align-items: center;
-  aspect-ratio: 1/1;
-  display: inline-block;
-  vertical-align: middle;
-}
-
-ul {
-  list-style-type: none;
-}
-
-ul li {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-family: Poppins, sans-serif;
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: rgba(25, 25, 25, 0.8);
-  padding-left: 0.4rem;
-}
-
-ul li::before {
-  content: "•"; /* Custom bullet */
-  color: rgba(25, 25, 25, 0.8);
-
-  font-size: 1.2rem;
-  font-weight: bold;
-}
-.hidden {
+.signin-hidden {
   display: none;
 }
 
 /* Ensure form container expands */
-.form-container {
+.signin-form-container {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -382,11 +328,11 @@ ul li::before {
   min-height: fit-content;
 }
 
-.form-section {
+.signin-form-section {
   min-height: fit-content;
 }
 
-.forgot-button {
+.signin-forgot-button {
   color: #191919;
   font-family: Poppins;
   font-size: 1rem;
@@ -398,7 +344,7 @@ ul li::before {
   margin-left: 10rem;
 }
 
-.grey-line {
+.signin-grey-line {
   width: 30rem;
   height: 0.0625rem;
   background: linear-gradient(
@@ -411,7 +357,7 @@ ul li::before {
   margin-top: 2rem;
   align-items: center;
 }
-.signin-link {
+.signin-signin-link {
   font-family: Poppins;
   font-size: 1rem;
   font-style: normal;
