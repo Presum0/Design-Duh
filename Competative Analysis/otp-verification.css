@@ -4,7 +4,7 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
-.page-container {
+.otp-page-container {
   width: 100%;
   height: 100vh;
   background: linear-gradient(180deg, #7bb9f7 0%, #ecf5fe 55%), #fff;
@@ -14,7 +14,7 @@
   align-self: stretch;
   min-height: fit-content;
 }
-.form-modal-cover {
+.otp-form-modal-cover {
   display: inline-flex;
   padding: 0.75rem;
   flex-direction: column;
@@ -26,7 +26,7 @@
   backdrop-filter: blur(10px);
   z-index: 5;
 }
-.form-modal {
+.otp-form-modal {
   display: flex;
   width: 32.5rem;
   height: 26.25rem;
@@ -48,7 +48,7 @@
   text-align: center; /* Centers text properly */
 }
 
-.form-header img {
+.otp-form-header img {
   width: 46.875rem;
   height: 31.25rem;
   max-width: 100%;
@@ -58,7 +58,7 @@
   margin-top: -7.2rem;
   display: flex;
 }
-.centre-icon {
+.otp-centre-icon {
   height: 3rem;
   width: 3rem;
   display: flex;
@@ -78,14 +78,14 @@
   z-index: 10;
 }
 
-.signup-logo {
+.otp-signup-logo {
   max-width: 100%; /* Prevents overflow and scales the image */
   max-height: 100%;
   object-fit: contain; /* Ensures the entire image fits within the container */
   top: 3.6rem;
 }
 /* Welcome section */
-.welcome-section {
+.otp-welcome-section {
   display: flex;
   flex-direction: column;
   font-family: Poppins, sans-serif;
@@ -102,7 +102,7 @@
   word-wrap: break-word;
 }
 
-.welcome-title {
+.otp-welcome-title {
   color: #191919;
   font-size: 1.5rem;
   font-style: normal;
@@ -110,29 +110,30 @@
   line-height: normal;
 }
 
-.welcome-subtitle {
+.otp-welcome-subtitle {
   color: rgba(25, 25, 25, 0.75);
   font-size: 0.875rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
 }
-.welcome-title,
-.welcome-subtitle {
+.otp-welcome-title,
+.otp-welcome-subtitle {
   text-align: center;
   max-width: 90%;
   overflow-wrap: break-word;
 }
-.form-container {
+.otp-form-container {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center; /* Center the inputs properly */
   gap: 1rem;
-  align-self: stretch;
   position: relative;
+  margin-left: -1.9rem;
   margin-top: -15rem;
 }
-.change-email {
+
+.otp-change-email {
   color: var(--Primary-Blue-Color, #007aff);
   text-align: center;
   font-family: Poppins;
@@ -145,35 +146,80 @@
 .otp-input-section {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   max-width: 100%;
   gap: 8px;
   padding: 1rem;
+  position: absolute;
+  z-index: 10;
+  margin-left: -1rem;
 }
 
 .otp-group {
   display: flex;
   justify-content: center;
 }
-
 .otp-field {
-  width: 3rem;
+  width: 4.698rem;
   height: 3rem;
   text-align: center;
   font-size: 1.5rem;
-  margin-top: -15rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   border: 1px solid rgba(25, 25, 25, 0.2);
-  border-radius: 0.75rem; /* Ensure proper rounded corners */
-  background: #fff; /* Make sure background is visible */
-  outline: none; /* Removes default focus styles */
+  border-radius: 0.75rem;
+  background: #fff;
+  outline: none;
+  margin-top: -15rem;
+  display: block;
+  position: relative;
+  z-index: 10;
+}
+
+.otp-group input:nth-child(2) {
+  border-radius: 0;
+}
+/* Remove right corner border-radius of first and fourth box */
+.otp-group input:nth-child(1),
+.otp-group input:nth-child(4) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+/* Remove left corner border-radius of third and sixth box */
+.otp-group input:nth-child(3),
+.otp-group input:nth-child(6) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 .otp-field:focus {
-  border-color: #007aff; /* Highlight when active */
-  box-shadow: 0 0 5px rgba(0, 122, 255, 0.5);
+  outline: none;
+  border: double 1px transparent;
+  border-radius: 0.75rem;
+  background-image: linear-gradient(white, white),
+    linear-gradient(180deg, rgba(242, 7, 144, 1), rgba(0, 122, 255, 1));
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+/* Keep the connected borders working */
+.otp-field:focus + .otp-field {
+  border-left: none;
+}
+
+.otp-group input:nth-child(2):focus {
+  border-radius: 0;
+}
+
+.otp-group input:nth-child(1):focus,
+.otp-group input:nth-child(4):focus {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.otp-group input:nth-child(3):focus,
+.otp-group input:nth-child(6):focus {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 .otp-separator {
@@ -184,7 +230,8 @@
   margin-top: -14rem;
 }
 
-.submit-button {
+.otp-submit-button,
+.otp-active-button {
   display: flex;
   width: 30rem;
   padding: 0.75rem 0.5rem;
@@ -192,44 +239,36 @@
   align-items: center;
   gap: 0.625rem;
   border-radius: 2rem;
-  border: 1.5px solid rgba(25, 25, 25, 0.06);
-  background: linear-gradient(180deg, #e5e5e5 12.59%, #c7c7c7 125.93%);
-  box-shadow: 0px 2px 8px 0px rgba(255, 255, 255, 0.8) inset;
-
-  /* ✅ Text Styling */
-  color: rgba(25, 25, 25, 0.24);
   font-family: Poppins, sans-serif;
   font-size: 1.25rem;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
-  margin-top: 4rem;
-}
-.active-button {
-  display: flex;
-  width: 30rem;
-  padding: 0.75rem 0.5rem;
-  justify-content: center;
-  align-items: center;
-  gap: 0.625rem;
-  border-radius: 2rem;
-  border: transparent;
-  background: var(
-    --Gradient-Gradient-with-Noise,
-    linear-gradient(90deg, #ff009a 0%, #0877fc 100%)
-  );
-  box-shadow: 2px 2px 12px 0px rgba(255, 255, 255, 0.35) inset;
-  color: #fff;
-  font-family: Poppins;
-  font-size: 1.25rem;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-  cursor: pointer; /* Makes it clear the button is clickable */
+  margin-top: 6rem;
+  margin-left: 1.8rem;
+  position: relative;
+  box-sizing: border-box;
+  border: 1.5px solid;
   transition: all 0.3s ease-in-out;
 }
+
+.otp-submit-button {
+  border-color: rgba(25, 25, 25, 0.06);
+  background: linear-gradient(180deg, #e5e5e5 12.59%, #c7c7c7 125.93%);
+  box-shadow: 0px 2px 8px 0px rgba(255, 255, 255, 0.8) inset;
+  color: rgba(25, 25, 25, 0.24);
+}
+
+.otp-active-button {
+  border-color: none;
+  background: linear-gradient(90deg, #ff009a 0%, #0877fc 100%);
+  box-shadow: 2px 2px 12px 0px rgba(255, 255, 255, 0.35) inset;
+  color: #fff;
+  cursor: pointer;
+}
+
 /* Form footer */
-.form-footer {
+.otp-form-footer {
   display: flex;
   padding: 0.25rem 0.5rem;
   justify-content: center;
@@ -239,7 +278,7 @@
   margin-top: 2rem;
 }
 
-.account-text {
+.otp-account-text {
   color: rgba(25, 25, 25, 0.75);
   text-align: center;
   font-family: Poppins;
@@ -247,4 +286,29 @@
   font-style: normal;
   font-weight: 400;
   line-height: 100%; /* 0.875rem */
+}
+.otp-resend {
+  color: rgba(25, 25, 25, 0.75);
+  font-family: Poppins;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 100%; /* 1rem */
+}
+.otp-timer {
+  color: rgba(25, 25, 25, 0.75);
+  font-family: Poppins;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.otp-resend {
+  color: #007aff;
+  font-family: Poppins;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+.otp-resend:hover {
+  text-decoration: underline;
 }

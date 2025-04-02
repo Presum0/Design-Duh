@@ -52,7 +52,7 @@
   object-fit: contain;
   display: block;
   position: relative; /* Remove absolute positioning to keep it inside */
-  margin-top: -7.2rem;
+  margin-top: -5rem;
   display: flex;
 }
 .centre-icon {

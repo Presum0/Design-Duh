@@ -18,26 +18,26 @@
     <link rel="stylesheet" href="otp-verification.css" />
   </head>
   <body>
-    <main class="page-container">
-      <section class="form-modal-cover">
-        <section class="form-modal">
-          <div class="form-content">
-            <header class="form-header">
+    <main class="otp-page-container">
+      <section class="otp-form-modal-cover">
+        <section class="otp-form-modal">
+          <div class="otp-form-content">
+            <header class="otp-form-header">
               <img src="Signup-Vector.svg" />
-              <div class="centre-icon">
+              <div class="otp-centre-icon">
                 <img
                   src="signup-logo.svg"
                   alt="signup-logo"
-                  class="signup-logo"
+                  class="otp-signup-logo"
                 />
               </div>
             </header>
-            <section class="welcome-section">
-              <h1 class="welcome-title">OTP verification</h1>
-              <p class="welcome-subtitle">
+            <section class="otp-welcome-section">
+              <h1 class="otp-welcome-title">OTP verification</h1>
+              <p class="otp-welcome-subtitle">
                 Please enter the 6 digit verification code we have sent to your
                 email,
-                <a href="#" class="change-email">Change email</a>
+                <a href="#" class="otp-change-email">Change email</a>
               </p>
             </section>
             <section class="otp-input-section">
@@ -83,19 +83,25 @@
                 />
               </div>
             </section>
-            <section class="form-section">
-              <form class="form-container">
-                <button type="submit" class="submit-button">Verify</button>
+            <section class="otp-form-section">
+              <form class="otp-form-container">
+                <button type="submit" class="otp-submit-button">Verify</button>
               </form>
-              <div class="grey-line"></div>
-              <footer class="form-footer">
-                <p class="account-text">Didn’t receive the OTP?</p>
+              <div class="otp-grey-line"></div>
+              <footer class="otp-form-footer">
+                <p class="otp-account-text">Didn’t receive the OTP?</p>
+                <p id="otp-timer" class="otp-timer">
+                  Resend in (<span id="countdown">30</span>s)
+                </p>
+                <p id="otp-resend" class="otp-resend" style="display: none">
+                  Resend OTP
+                </p>
               </footer>
             </section>
           </div>
         </section>
       </section>
     </main>
-    <script src="signin.js"></script>
+    <script src="otp-verification.js"></script>
   </body>
 </html>
