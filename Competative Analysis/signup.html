@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile Page</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    body {
+      display: flex;
+      min-height: 100vh;
+      background-color: #1e1e1e;
+    }
+
+    .sidebar {
+      width: 4.375vw;
+      background-color: #131313;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0.9375vw 0;
+      position: fixed; /* Fixed position */
+      top: 0;
+      left: 0;
+      bottom: 0;
+      z-index: 100;
+    }
+
+    .sidebar-logo {
+      margin-bottom: 1.5625vw;
+    }
+
+    .sidebar-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 1.25vw;
+      width: 100%;
+      padding: 0.625vw 0;
+      cursor: pointer;
+      font-size: 0.75vw;
+      color: #aaa;
+      text-decoration: none;
+    }
+
+    .sidebar-item.active {
+      background-color: #2a2a2a;
+      color: white;
+    }
+
+    .sidebar-icon {
+      margin-bottom: 0.3125vw;
+    }
+
+    .badge {
+      background-color: #ff5252;
+      color: white;
+      border-radius: 50%;
+      width: 1.125vw;
+      height: 1.125vw;
+      font-size: 0.6875vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: -0.3125vw;
+      right: -0.3125vw;
+    }
+
+    .content-area {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      margin-left: 3.375vw;
+      margin-right: none;
+      
+    }
+
+    .top-bar {
+      height: 3.75vw;
+      background-color: #131313;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 0.9375vw;
+      position: fixed; /* Fixed position */
+      top: 0;
+      left: 4.375vw; /* Match sidebar width */
+      right: 0;
+      z-index: 100;
+    }
+
+    .app-name {
+      color: white;
+      font-size: 1.125vw;
+      font-weight: 600;
+    }
+
+    .top-bar-center {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .profile-settings {
+      display: flex;
+      align-items: center;
+      background-color: #2a2a2a;
+      border-radius: 3.125vw;
+      padding: 0.3125vw 0.9375vw 0.3125vw 0.3125vw;
+      color: white;
+    }
+
+    .settings-icon {
+      width: 2.125vw;
+      height: 2.125vw;
+      background-color: #8257e6;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 0.5vw;
+    }
+
+    .register-btn {
+      background-color: white;
+      color: #333;
+      border: none;
+      border-radius: 1.25vw;
+      padding: 0.5vw 1.25vw;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .main-content {
+      flex: 1;
+      background-color: #ffffff;
+      padding: 1.25vw;
+      overflow-y: auto;
+      margin-top: 2.75vw; /* Match top-bar height */      height: 100vh; /* Full viewport height */
+    }
+
+    .container {
+      max-width: 120.25vw;
+      
+      background-color: rgb(255, 252, 252);
+      border-radius: 0.5vw;
+      box-shadow: 0 0.125vw 0.625vw rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      position: relative;
+      margin-bottom: 1.25vw;
+      border-top-left-radius: 1.5rem 1.5rem 0rem 0rem;
+      border-top-right-radius: 1.5rem 1.5rem 0rem 0rem;
+    }
+
+    .profile-content {
+      padding-left: 12.5vw;
+      padding-right: 12.5vw;
+    }
+
+    .profile-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 1.875vw;
+    }
+
+    .profile-pic {
+      width: 6.25vw;
+      height: 6.25vw;
+      border-radius: 50%;
+      border: 0.1875vw solid white;
+      background-color: #f0f0f0;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 0.9375vw;
+      margin-top: 10.5vw;
+      margin-right: 61.63vw;
+      
+      z-index: 10;
+
+    }
+
+    .profile-pic img {
+      width: 100%;
+      height: auto;
+    }
+
+    .profile-name {
+      text-align: center;
+    }
+
+    .profile-name h1 {
+      font-size: 1.375vw;
+      font-weight: 600;
+      margin-bottom: 0.3125vw;
+      margin-right: 58.56vw;
+      
+
+    }
+
+    .profile-name p {
+      color: #666;
+      font-size: 0.875vw;
+      margin-right: 60.56vw;
+      
+    }
+
+    
+
+    
+
+    .section {
+      margin-bottom: 1.875vw;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25vw;
+      font-size: 1.125vw;
+      font-weight: 600;
+    }
+
+    .section-title svg {
+      margin-right: 0.5vw;
+    }
+
+    .form-group {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 0.9375vw;
+      gap: 1.25vw;
+    }
+
+    .form-field {
+      flex: 1;
+      min-width: 15.625vw;
+      position: relative;
+    }
+
+    .form-field label {
+      display: block;
+      font-size: 0.875vw;
+      margin-bottom: 0.3125vw;
+      color: #555;
+    }
+
+    .form-field label .required {
+      color: #ff3860;
+    }
+
+    .form-field input, .form-field textarea {
+      width: 100%;
+      padding: 0.625vw 0.75vw;
+      border: 0.0625vw solid #ddd;
+      border-radius: 0.75vw;
+      font-size: 0.875vw;
+      
+      margin-right: 42.25vw;
+    }
+
+    .form-field textarea {
+      resize: vertical;
+      min-height: 5vw;
+    }
+
+    .form-field.with-icon {
+      position: relative;
+    }
+
+    .form-field.with-icon .icon {
+      position: absolute;
+      left: 0.75vw;
+      top: 0.5vw;
+      color: #777;
+      margin-right: 51.94vw;
+    }
+
+    .form-field.with-icon input {
+      padding-left: 2.1875vw;
+    }
+
+    .username-field {
+      position: relative;
+    }
+
+    .username-field .at-symbol {
+      position: absolute;
+      left: 0.75vw;
+      top: 0.625vw;
+      color: #777;
+    }
+
+    .grid-icon{
+      position: absolute;
+      margin-top: 3.0vw;
+      margin-left: 2vw;
+      z-index: -1;
+      width: 83.5vw;
+height: 14.375vw;
+flex-shrink: 0;
+    }
+
+    .username-field input {
+      padding-left: 1.875vw;
+    }
+
+    .character-count {
+      text-align: right;
+      font-size: 0.75vw;
+      color: #777;
+      margin-top: 0.3125vw;
+    }
+
+    .action-link {
+      display: inline-flex;
+      align-items: center;
+      color: #1a73e8;
+      font-size: 0.875vw;
+      margin-top: 0.3125vw;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .action-link svg {
+      margin-right: 0.3125vw;
+    }
+
+    
+
+    
+
+    .save-button {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 0.9375vw;
+    }
+
+    .save-button button {
+      background-color: white;
+      color: #f06292;
+      border: 0.0625vw solid #f06292;
+      border-radius: 1.25vw;
+      padding: 0.375vw 1.25vw;
+      font-size: 0.875vw;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .save-button button:hover {
+      background-color: #f06292;
+      color: white;
+    }
+
+    .danger-button {
+      display: inline-block;
+      background-color: white;
+      color: #e53935;
+      border: 0.0625vw solid #e53935;
+      border-radius: 0.25vw;
+      padding: 0.5vw 1vw;
+      font-size: 0.875vw;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .danger-button:hover {
+      background-color: #e53935;
+      color: white;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <div class="sidebar-logo">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+      </svg>
+    </div>
+    
+    <a class="sidebar-item active">
+      <div class="sidebar-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        </svg>
+      </div>
+      Chats
+    </a>
+    
+    <a class="sidebar-item">
+      <div class="sidebar-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+        </svg>
+      </div>
+      Starred
+    </a>
+    
+    <a class="sidebar-item" style="position: relative;">
+      <div class="badge">2</div>
+      <div class="sidebar-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M22 17H2a3 3 0 0 0 3-3V9a7 7 0 0 1 14 0v5a3 3 0 0 0 3 3zm-8.27 4a2 2 0 0 1-3.46 0"></path>
+        </svg>
+      </div>
+      Alerts
+    </a>
+    
+    <a class="sidebar-item">
+      <div class="sidebar-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2v2"></path>
+        </svg>
+      </div>
+      Archive
+    </a>
+  </div>
+  
+  <div class="content-area">
+    <div class="top-bar">
+      <div class="app-name">Loco-ai</div>
+      
+      <div class="top-bar-center">
+        <img src="grid.svg" alt="" class="grid-icon">
+        <div class="profile-settings">
+          <div class="settings-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+              <circle cx="12" cy="12" r="3"></circle>
+              <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+            </svg>
+          </div>
+          Profile Settings
+        </div>
+      </div>
+      
+      <button class="register-btn">Register</button>
+    </div>
+    
+    <div class="main-content">
+      <div class="container">
+        <div class="profile-content">
+          
+          <div class="profile-info">
+            <div class="profile-pic">
+              <img src="pfp.svg" alt="profile picture" />
+            </div>
+            <div class="profile-name">
+              <h1>Chaitanya Sai</h1>
+              <p>@chaitanya_sai</p>
+            </div>
+          </div>
+          
+          <div class="section">
+            <div class="hr-with-text">
+              <span class="text"></span>
+                <div class="section-title">
+              
+                <img src="UserSquare.svg" alt="">
+                  Profile Information
+                </div>
+          </div>
+            
+            <div class="form-group">
+              <div class="form-field">
+                <label>First Name <span class="required">*</span></label>
+                <input type="text" value="Chaitanya" />
+              </div>
+              <div class="form-field">
+                <label>Last Name <span class="required">*</span></label>
+                <input type="text" value="Sai" />
+                <div class="edit-button"></div>
+                <div class="edit-line"></div>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <div class="form-field">
+                <label>Username <span class="required">*</span></label>
+                <div class="username-field">
+                  <span class="at-symbol">@</span>
+                  <input type="text" value="chaitanya_sai9" />
+                </div>
+              </div>
+              <div class="form-field">
+                <label>Pronouns</label>
+                <input type="text" value="He/him" />
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <div class="form-field" style="flex: 100%;">
+                <label>Short Bio</label>
+                <textarea placeholder="Here's where you can share more about yourself: your history, work experience, accomplishments, interests, dreams, and more."></textarea>
+                <div class="character-count">0/150</div>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <div class="form-field" style="flex: 100%;">
+                <label>LinkedIn Profile</label>
+                <div class="form-field with-icon">
+                  <div class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                      <path d="M7.125 10.5H16.125C16.4234 10.5 16.7095 10.6185 16.9205 10.8295C17.1315 11.0405 17.25 11.3266 17.25 11.625C17.25 11.9234 17.1315 12.2095 16.9205 12.4205C16.7095 12.6315 16.4234 12.75 16.125 12.75H7.125C6.82663 12.75 6.54048 12.6315 6.3295 12.4205C6.11853 12.2095 6 11.9234 6 11.625C6 11.3266 6.11853 11.0405 6.3295 10.8295C6.54048 10.6185 6.82663 10.5 7.125 10.5ZM9.375 15H5.625C4.72989 15 3.87145 14.6444 3.23851 14.0115C2.60558 13.3786 2.25 12.5201 2.25 11.625C2.25 10.7299 2.60558 9.87145 3.23851 9.23851C3.87145 8.60558 4.72989 8.25 5.625 8.25H9.375C9.67337 8.25 9.95952 8.13147 10.1705 7.9205C10.3815 7.70952 10.5 7.42337 10.5 7.125C10.5 6.82663 10.3815 6.54048 10.1705 6.3295C9.95952 6.11853 9.67337 6 9.375 6H5.625C4.13316 6 2.70242 6.59263 1.64752 7.64752C0.592632 8.70242 0 10.1332 0 11.625C0 13.1168 0.592632 14.5476 1.64752 15.6025C2.70242 16.6574 4.13316 17.25 5.625 17.25H9.375C9.67337 17.25 9.95952 17.1315 10.1705 16.9205C10.3815 16.7095 10.5 16.4234 10.5 16.125C10.5 15.8266 10.3815 15.5405 10.1705 15.3295C9.95952 15.1185 9.67337 15 9.375 15ZM17.625 6H13.875C13.5766 6 13.2905 6.11853 13.0795 6.3295C12.8685 6.54048 12.75 6.82663 12.75 7.125C12.75 7.42337 12.8685 7.70952 13.0795 7.9205C13.2905 8.13147 13.5766 8.25 13.875 8.25H17.625C18.5201 8.25 19.3785 8.60558 20.0115 9.23851C20.6444 9.87145 21 10.7299 21 11.625C21 12.5201 20.6444 13.3786 20.0115 14.0115C19.3785 14.6444 18.5201 15 17.625 15H13.875C13.5766 15 13.2905 15.1185 13.0795 15.3295C12.8685 15.5405 12.75 15.8266 12.75 16.125C12.75 16.4234 12.8685 16.7095 13.0795 16.9205C13.2905 17.1315 13.5766 17.25 13.875 17.25H17.625C19.1168 17.25 20.5476 16.6574 21.6025 15.6025C22.6574 14.5476 23.25 13.1168 23.25 11.625C23.25 10.1332 22.6574 8.70242 21.6025 7.64752C20.5476 6.59263 19.1168 6 17.625 6Z" fill="#343330"/>
+                    </svg>
+                  </div>
+                  <input type="text" placeholder="Share your LinkedIn URL here" />
+                </div>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <div class="form-field" style="flex: 100%;">
+                <label>Portfolio</label>
+                <div class="form-field with-icon">
+                  <div class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                      <path d="M7.125 10.5H16.125C16.4234 10.5 16.7095 10.6185 16.9205 10.8295C17.1315 11.0405 17.25 11.3266 17.25 11.625C17.25 11.9234 17.1315 12.2095 16.9205 12.4205C16.7095 12.6315 16.4234 12.75 16.125 12.75H7.125C6.82663 12.75 6.54048 12.6315 6.3295 12.4205C6.11853 12.2095 6 11.9234 6 11.625C6 11.3266 6.11853 11.0405 6.3295 10.8295C6.54048 10.6185 6.82663 10.5 7.125 10.5ZM9.375 15H5.625C4.72989 15 3.87145 14.6444 3.23851 14.0115C2.60558 13.3786 2.25 12.5201 2.25 11.625C2.25 10.7299 2.60558 9.87145 3.23851 9.23851C3.87145 8.60558 4.72989 8.25 5.625 8.25H9.375C9.67337 8.25 9.95952 8.13147 10.1705 7.9205C10.3815 7.70952 10.5 7.42337 10.5 7.125C10.5 6.82663 10.3815 6.54048 10.1705 6.3295C9.95952 6.11853 9.67337 6 9.375 6H5.625C4.13316 6 2.70242 6.59263 1.64752 7.64752C0.592632 8.70242 0 10.1332 0 11.625C0 13.1168 0.592632 14.5476 1.64752 15.6025C2.70242 16.6574 4.13316 17.25 5.625 17.25H9.375C9.67337 17.25 9.95952 17.1315 10.1705 16.9205C10.3815 16.7095 10.5 16.4234 10.5 16.125C10.5 15.8266 10.3815 15.5405 10.1705 15.3295C9.95952 15.1185 9.67337 15 9.375 15ZM17.625 6H13.875C13.5766 6 13.2905 6.11853 13.0795 6.3295C12.8685 6.54048 12.75 6.82663 12.75 7.125C12.75 7.42337 12.8685 7.70952 13.0795 7.9205C13.2905 8.13147 13.5766 8.25 13.875 8.25H17.625C18.5201 8.25 19.3785 8.60558 20.0115 9.23851C20.6444 9.87145 21 10.7299 21 11.625C21 12.5201 20.6444 13.3786 20.0115 14.0115C19.3785 14.6444 18.5201 15 17.625 15H13.875C13.5766 15 13.2905 15.1185 13.0795 15.3295C12.8685 15.5405 12.75 15.8266 12.75 16.125C12.75 16.4234 12.8685 16.7095 13.0795 16.9205C13.2905 17.1315 13.5766 17.25 13.875 17.25H17.625C19.1168 17.25 20.5476 16.6574 21.6025 15.6025C22.6574 14.5476 23.25 13.1168 23.25 11.625C23.25 10.1332 22.6574 8.70242 21.6025 7.64752C20.5476 6.59263 19.1168 6 17.625 6Z" fill="#343330"/>
+                    </svg>
+                  </div>
+                  <input type="text" placeholder="Show us your best work — add your portfolio link" />
+                </div>
+              </div>
+            </div>
+            
+            <div class="save-button">
+              <button>Save</button>
+            </div>
+          </div>
+
+          <div class="section">
+            <div class="section-title">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+              Connection Details
+            </div>
+
+            <div class="form-group">
+              <div class="form-field">
+                <label>Email <span class="required">*</span></label>
+                <input type="email" value="chaitanyasai0000@gmail.com" />
+                <a class="action-link">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34"></path>
+                    <polygon points="18 2 22 6 12 16 8 16 8 12 18 2"></polygon>
+                  </svg>
+                  Change your email
+                </a>
+              </div>
+              <div class="form-field">
+                <label>Phone Number</label>
+                <input type="tel" placeholder="+91 000-0000-000" />
+              </div>
+            </div>
+
+            <div class="save-button">
+              <button>Save</button>
+            </div>
+          </div>
+
+          <div class="section">
+            <div class="section-title">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+              Password Change
+            </div>
+
+            <div class="form-group">
+              <div class="form-field" style="flex: 100%;">
+                <label>Current Password <span class="required">*</span></label>
+                <input type="password" placeholder="Enter current password" />
+                <a class="action-link">Forgot password?</a>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="form-field">
+                <label>New Password <span class="required">*</span></label>
+                <input type="password" placeholder="Enter new password" />
+              </div>
+              <div class="form-field">
+                <label>Confirm New Password <span class="required">*</span></label>
+                <input type="password" placeholder="Confirm new password" />
+              </div>
+            </div>
+
+            <div class="save-button">
+              <button>Save</button>
+            </div>
+          </div>
+
+          <div class="section">
+            <div class="section-title">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="3 6 5 6 21 6"></polyline>
+                <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+              </svg>
+              Account Removal
+            </div>
+
+            <p style="margin-bottom: 0.9375vw;">Permanently delete your account and all of your chat.</p>
+            
+            <button class="danger-button">Deactivate account</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
