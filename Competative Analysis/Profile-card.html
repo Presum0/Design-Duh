@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile Card</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* style.css */
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: linear-gradient(180deg, #7bb9f7 0%, #ecf5fe 55%), #fff;
+      }
+      .profile-outer-border {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1vw;
+        border-radius: 2vw;
+        border: 0.1vw solid #fff;
+        background: rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(10px);
+        width: 37.78vw; /* 544px / 1440px * 100 */
+        height: 31.46vw; /* 453px / 1440px * 100 */
+        box-sizing: border-box;
+      }
+
+      .profile-card {
+        width: 100%;
+        height: 100%;
+        padding: 2.08vw; /* 1.5rem ≈ 24px → 24 / 1440 * 100 */
+        border-radius: var(--Radius--Xl, 1.11vw); /* 16px → 16 / 1440 * 100 */
+        border: 0.104vw solid rgba(25, 25, 25, 0.08); /* 1.5px → 1.5 / 1440 * 100 */
+        background: linear-gradient(
+            180deg,
+            rgba(123, 185, 247, 0.08) 0%,
+            rgba(123, 185, 247, 0) 34.89%
+          ),
+          linear-gradient(180deg, #fff 0%, #fcfcfc 100%);
+        box-shadow: 0vw 0vw 1.53vw 0vw rgba(77, 77, 77, 0.06); /* 22px shadow → 22 / 1440 * 100 */
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        box-sizing: border-box;
+      }
+
+      .profile-email {
+        color: var(--Text-Secondary-TextColor, rgba(25, 25, 25, 0.6));
+        text-align: center;
+        font-family: Poppins;
+        font-size: 0.97vw; /* 14px → (14 / 1440) * 100 */
+        font-style: normal;
+        font-weight: 500;
+        line-height: 125%; /* Can be left as-is, it's relative */
+        letter-spacing: 0.01vw; /* 0.14px → (0.14 / 1440) * 100 */
+        margin-top: -0.5vw; /* 1px → (1 / 1440) * 100 */
+      }
+
+      .profile-avatar-container {
+        position: relative;
+        width: 6.94vw; /* 100px → (100 / 1440) * 100 */
+        height: 6.94vw; /* 100px → same as width */
+        margin: 1.04vw auto; /* 1rem ≈ 16px → (16 / 1440) * 100 */
+      }
+
+      .profile-avatar {
+        width: 100%;
+        height: 100%;
+        border-radius: 1.11vw; /* 16px → (16 / 1440) * 100 */
+        border: 0.28vw solid #fff; /* 4px → (4 / 1440) * 100 */
+        object-fit: cover;
+        background: lightgray 50% / cover no-repeat;
+        display: block;
+        margin-top: -0.83vw; /* -12px → (-12 / 1440) * 100 */
+      }
+
+      .profile-edit {
+        position: absolute;
+        display: flex;
+        padding: 0.28vw; /* 4px → (4 / 1440) * 100 */
+        align-items: center;
+        cursor: pointer;
+        right: -0.69vw; /* -10px → (-10 / 1440) * 100 */
+        bottom: 0.14vw; /* 2px → (2 / 1440) * 100 */
+        border-radius: 6.94vw; /* 100px → (100 / 1440) * 100 */
+        border: 0.14vw solid #fff; /* 2px → (2 / 1440) * 100 */
+        background: #f6f6f6;
+      }
+      .profile-edit-icon {
+        width: 1.11vw; /* 16px → (16 / 1440) * 100 */
+        height: 1.11vw;
+      }
+
+      .profile-h2 {
+        color: var(--Text-Primary-TextColor, #191919);
+        text-align: center;
+        font-family: Poppins;
+        font-size: 1.25vw; /* 18px → (18 / 1440) * 100 */
+        font-style: normal;
+        font-weight: 600;
+        line-height: 1.56vw; /* 22.5px → (22.5 / 1440) * 100 */
+        letter-spacing: 0.0125vw; /* 0.18px → (0.18 / 1440) * 100 */
+        margin-top: -0.69vw; /* -10px → (-10 / 1440) * 100 */
+      }
+
+      .profile-username {
+        color: var(--Text-Secondary-TextColor, rgba(25, 25, 25, 0.6));
+        text-align: center;
+        font-family: Poppins;
+        font-size: 0.97vw; /* 14px → (14 / 1440) * 100 */
+        font-style: normal;
+        font-weight: 500;
+        line-height: 1vw; /* 14px → (14 / 1440) * 100 */
+        letter-spacing: 0.0097vw; /* 0.14px → (0.14 / 1440) * 100 */
+        margin-top: -0.35vw; /* -5px → (-5 / 1440) * 100 */
+      }
+      .profile-description {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+
+        color: rgba(25, 25, 25, 0.8);
+        text-align: center;
+        font-family: Poppins;
+        font-size: 0.85vw; /* 12px → (12 / 1440) * 100 */
+        font-style: normal;
+        font-weight: 400;
+        line-height: 2.08vw; /* 18px → (18 / 1440) * 100 */
+        letter-spacing: 0.0083vw; /* 0.12px → (0.12 / 1440) * 100 */
+
+        margin-top: 0px;
+        margin-left: -0.69vw; /* -10px → (-10 / 1440) * 100 */
+        width: 33.33vw; /* 480px → (480 / 1440) * 100 */
+      }
+
+      .profile-customise-button {
+        position: relative;
+        display: flex;
+        padding: 0.83vw 1.67vw; /* 12px 24px → (12 / 1440) * 100  (24 / 1440) * 100 */
+        justify-content: center;
+        align-items: center;
+        gap: 0.69vw; /* 10px → (10 / 1440) * 100 */
+        border-radius: 2.22vw; /* 32px → (32 / 1440) * 100 */
+        font-family: "Poppins", sans-serif;
+        font-size: 1.11vw; /* 16px → (16 / 1440) * 100 */
+        font-weight: 500;
+        width: 16.94vw; /* 230px → (230 / 1440) * 100 */
+        background: transparent;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-image: linear-gradient(90deg, #ff009a 0%, #0877fc 100%);
+        margin-bottom: 0.69vw; /* 1rem → (16 / 1440) * 100 */
+        margin-left: 7vw; /* 120px → (120 / 1440) * 100 */
+        cursor: pointer;
+        z-index: 1;
+        border: none;
+      }
+
+      .profile-customise-button::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 2.22vw; /* 32px → (32 / 1440) * 100 */
+        padding: 0.1vw; /* 1.5px → (1.5 / 1440) * 100 */
+        background: linear-gradient(90deg, #ff009a 0%, #0877fc 100%);
+        -webkit-mask: linear-gradient(#fff 0 0) content-box,
+          linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        z-index: -1;
+      }
+
+      .profile-actions {
+        display: flex;
+        justify-content: space-between;
+        gap: 0.44vw; /* Decreased gap value for less space between buttons */
+        flex-wrap: wrap;
+        margin-top: 0.5vw;
+      }
+
+      .profile-actions button {
+        flex: 1 0 0;
+        padding: 1.11vw 1.67vw; /* Keep the padding proportional */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: -0.14vw; /* Keep the negative gap as is */
+        cursor: pointer;
+        font-family: Poppins;
+        font-size: 1.11vw; /* Keep the font size proportional */
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+      }
+
+      .profile-invite {
+        border-radius: 69.44vw 1.67vw 1.67vw 69.44vw; /* Same border-radius */
+        border: 0.07vw solid rgba(0, 0, 0, 0.08); /* Same border style */
+        background: linear-gradient(180deg, #fff 0%, #f5f5f5 100%);
+        box-shadow: 0px 0.42vw 0.42vw -0.21vw rgba(70, 70, 70, 0.04),
+          0px 1.11vw 1.11vw -0.56vw rgba(70, 70, 70, 0.04),
+          0px 0.35vw 0.35vw 0px #fff inset,
+          0px -0.28vw 0.21vw 0px rgba(250, 250, 250, 0.65) inset,
+          0px -0.69vw 1.25vw 0px rgba(91, 91, 91, 0.08) inset;
+        color: var(--Text-Primary-TextColor, #191919);
+      }
+      .profile-gift-icon {
+        width: 1.67vw;
+        height: 1.67vw;
+        aspect-ratio: 1/1;
+        margin-right: 0.5vw;
+      }
+
+      .profile-signout {
+        border-radius: 1.67vw 69.44vw 69.44vw 1.67vw; /* Same border-radius */
+        border: 0.07vw solid rgba(0, 0, 0, 0.08); /* Same border style */
+        background: linear-gradient(180deg, #fff 0%, #f5f5f5 100%);
+        box-shadow: 0px 0.42vw 0.42vw -0.21vw rgba(70, 70, 70, 0.04),
+          0px 1.11vw 1.11vw -0.56vw rgba(70, 70, 70, 0.04),
+          0px 0.35vw 0.35vw 0px #fff inset,
+          0px -0.28vw 0.21vw 0px rgba(250, 250, 250, 0.65) inset,
+          0px -0.69vw 1.25vw 0px rgba(91, 91, 91, 0.08) inset;
+        color: #f50031;
+      }
+      .profile-signout-icon {
+        width: 1.67vw;
+        height: 1.67vw;
+        aspect-ratio: 1/1;
+        margin-right: 0.5vw;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="profile-outer-border">
+      <div class="profile-card">
+        <p class="profile-email">chaitanyasai@gmail.com</p>
+        <div class="profile-avatar-container">
+          <img src="Gift-icon.svg" alt="User Avatar" class="profile-avatar" />
+          <button class="profile-edit">
+            <!-- Replace with your own SVG -->
+            <img src="Pencil-icon.svg" alt="Edit" class="profile-edit-icon" />
+          </button>
+        </div>
+        <h2 class="profile-h2">Hi, G chaitanya!</h2>
+        <p class="profile-username">@chaitanya_sai</p>
+        <p class="profile-description">
+          Creative and curious, always learning and growing. Love working with
+          others and finding simple solutions to challenges. Ready to make an
+          impact!
+        </p>
+        <button class="profile-customise-button">Customise your profile</button>
+        <div class="profile-actions">
+          <button class="profile-invite">
+            <img src="Gift-icon.svg" alt="Invite" class="profile-gift-icon" />
+            Invite Friends
+          </button>
+          <button class="profile-signout">
+            <img
+              src="signout-icon.svg"
+              alt="Sign Out"
+              class="profile-signout-icon"
+            />
+            Sign Out
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

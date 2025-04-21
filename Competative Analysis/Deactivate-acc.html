@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deactivate Account</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.30.0/tabler-icons.min.css"
+    />
+    <link rel="stylesheet" href="Deactivate-acc.css" />
+  </head>
+  <body>
+    <main class="deactivate-page-container">
+      <section class="deactivate-form-modal-cover">
+        <section class="deactivate-form-modal">
+          <div class="deactivate-form-content">
+            <header class="deactivate-form-header">
+              <img
+                src="error-Vector.svg"
+                alt="Deactivate Vector"
+                class="deactivate-bgrid"
+              />
+              <div class="deactivate-centre-icon">
+                <img
+                  src="deactivate-logo.svg"
+                  alt="deactivate-logo"
+                  class="deactivate-logo"
+                />
+              </div>
+            </header>
+            <section class="deactivate-welcome-section">
+              <h1 class="deactivate-welcome-title">Deactivate Account</h1>
+              <p class="deactivate-welcome-subtitle">
+                We’re sorry to see you go. Deactivating your account will
+                permanently erase your chats, profile, prompts, and responses.
+              </p>
+            </section>
+            <div class="deactivate-label-container">
+              <label for="deactivate-text" class="deactivate-label">
+                To confirm, type “deactivate my account” below:
+              </label>
+            </div>
+
+            <div class="deactivate-input-wrapper">
+              <input
+                type="text"
+                id="deactivate-text"
+                class="deactivate-text"
+                required
+              />
+            </div>
+            <div class="deactivate-button-group">
+              <button class="cancel-btn">Cancel</button>
+              <button
+                class="deactivate-btn confirm-btn"
+                id="deactivateBtn"
+                disabled
+              >
+                Deactivate
+              </button>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <!-- ✅ JavaScript goes here -->
+    <script>
+      const input = document.getElementById("deactivate-text");
+      const deactivateBtn = document.getElementById("deactivateBtn");
+
+      input.addEventListener("input", function () {
+        const value = input.value.trim().toLowerCase();
+        if (value === "deactivate my account") {
+          deactivateBtn.classList.add("active");
+          deactivateBtn.disabled = false;
+        } else {
+          deactivateBtn.classList.remove("active");
+          deactivateBtn.disabled = true;
+        }
+      });
+    </script>
+  </body>
+</html>

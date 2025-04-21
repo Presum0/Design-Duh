@@ -23,7 +23,11 @@
         <section class="otp-form-modal">
           <div class="otp-form-content">
             <header class="otp-form-header">
-              <img src="Signup-Vector.svg" />
+              <img
+                src="./Signup-Vector.svg"
+                alt="Signup Vector"
+                className="otp-bgrid"
+              />
               <div class="otp-centre-icon">
                 <img
                   src="signup-logo.svg"
@@ -91,11 +95,15 @@
               <footer class="otp-form-footer">
                 <p class="otp-account-text">Didn’t receive the OTP?</p>
                 <p id="otp-timer" class="otp-timer">
-                  Resend in (<span id="countdown">30</span>s)
+                  Resend in <span id="countdown">30</span>s
                 </p>
-                <p id="otp-resend" class="otp-resend" style="display: none">
+                <button
+                  id="otp-resend"
+                  class="otp-resend-btn"
+                  style="display: none"
+                >
                   Resend OTP
-                </p>
+                </button>
               </footer>
             </section>
           </div>

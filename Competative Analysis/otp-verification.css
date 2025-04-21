@@ -16,55 +16,62 @@
 }
 .otp-form-modal-cover {
   display: inline-flex;
-  padding: 0.75rem;
+  padding: 0.75vw;
   flex-direction: column;
   align-items: flex-start;
-  gap: 0.625rem;
-  border-radius: 1.5rem;
-  border: 1px solid #fff;
+  gap: 0.625vw;
+  border-radius: 1.5vw;
+  border: 0.1vw solid #fff;
   background: rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(1vw);
   z-index: 5;
 }
 .otp-form-modal {
   display: flex;
-  width: 32.5rem;
-  height: 26.25rem;
-  padding: 2.25rem 1.25rem var(--Radius--3Xl, 2rem) 1.25rem;
+  width: 32.5vw;
+  height: 26.25vw;
+  padding: 2.25vw 1.25vw var(--Radius--3Xl, 2vw) 1.25vw;
   flex-direction: column;
   align-items: flex-start;
-  gap: 2.5rem;
-  border-radius: var(--Radius--Xl, 1rem);
-  border: 1.5px solid rgba(25, 25, 25, 0.08);
+  gap: 2.5vw;
+  border-radius: var(--Radius--Xl, 1vw);
+  border: 0.15vw solid rgba(25, 25, 25, 0.08);
   background: linear-gradient(
       180deg,
       rgba(123, 185, 247, 0.08) 0%,
       rgba(123, 185, 247, 0) 34.89%
     ),
     linear-gradient(180deg, #fff 0%, #fcfcfc 100%);
-  box-shadow: 0px 0px 22px 0px rgba(77, 77, 77, 0.06);
+  box-shadow: 0vw 0vw 2.2vw 0vw rgba(77, 77, 77, 0.06);
   overflow: visible;
   word-wrap: break-word; /* Wraps text properly */
   text-align: center; /* Centers text properly */
 }
 
 .otp-form-header img {
-  width: 46.875rem;
-  height: 31.25rem;
+  width: 46.875vw;
+  height: 31.25vw;
   max-width: 100%;
   object-fit: contain;
   display: block;
   position: relative; /* Remove absolute positioning to keep it inside */
-  margin-top: -7.2rem;
+  margin-top: -7.2vw;
   display: flex;
 }
+.otp-bgrid {
+  position: absolute;
+  top: -7.2vw;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
 .otp-centre-icon {
-  height: 3rem;
-  width: 3rem;
+  height: 3vw;
+  width: 3vw;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: var(--Radius--Xl, 1rem);
+  border-radius: var(--Radius--Xl, 1vw);
   background: linear-gradient(
     90deg,
     rgba(255, 0, 154, 0.2) 0%,
@@ -72,7 +79,7 @@
   );
 
   position: absolute;
-  top: 2.5rem;
+  top: 2.5vw;
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
@@ -82,7 +89,7 @@
   max-width: 100%; /* Prevents overflow and scales the image */
   max-height: 100%;
   object-fit: contain; /* Ensures the entire image fits within the container */
-  top: 3.6rem;
+  top: 3.6vw;
 }
 /* Welcome section */
 .otp-welcome-section {
@@ -91,10 +98,10 @@
   font-family: Poppins, sans-serif;
   align-items: center;
   text-align: center;
-  gap: 4px;
+  gap: 0.4vw;
 
   position: absolute; /* Positions it relative to the page */
-  top: 5.8rem; /* Places it just below .centre-icon */
+  top: 5.8vw; /* Places it just below .centre-icon */
   left: 50%;
   transform: translateX(-50%); /* Ensures perfect centering */
   width: 100%;
@@ -104,7 +111,7 @@
 
 .otp-welcome-title {
   color: #191919;
-  font-size: 1.5rem;
+  font-size: 1.5vw;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
@@ -112,7 +119,7 @@
 
 .otp-welcome-subtitle {
   color: rgba(25, 25, 25, 0.75);
-  font-size: 0.875rem;
+  font-size: 0.875vw;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -127,10 +134,10 @@
   display: flex;
   flex-direction: column;
   align-items: center; /* Center the inputs properly */
-  gap: 1rem;
+  gap: 1vw;
   position: relative;
-  margin-left: -1.9rem;
-  margin-top: -15rem;
+  margin-left: -1.9vw;
+  margin-top: -15vw;
 }
 
 .otp-change-email {
@@ -138,7 +145,7 @@
   text-align: center;
   font-family: Poppins;
   text-decoration: none;
-  font-size: 0.875rem;
+  font-size: 0.875vw;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
@@ -148,11 +155,11 @@
   justify-content: center;
   flex-wrap: nowrap;
   max-width: 100%;
-  gap: 8px;
-  padding: 1rem;
+  gap: 0.8vw;
+  padding: 1vw;
   position: absolute;
   z-index: 10;
-  margin-left: -1rem;
+  margin-left: -1vw;
 }
 
 .otp-group {
@@ -160,15 +167,15 @@
   justify-content: center;
 }
 .otp-field {
-  width: 4.698rem;
-  height: 3rem;
+  width: 4.698vw;
+  height: 3vw;
   text-align: center;
-  font-size: 1.5rem;
-  border: 1px solid rgba(25, 25, 25, 0.2);
-  border-radius: 0.75rem;
+  font-size: 1.5vw;
+  border: 0.1vw solid rgba(25, 25, 25, 0.2);
+  border-radius: 0.75vw;
   background: #fff;
   outline: none;
-  margin-top: -15rem;
+  margin-top: -15vw;
   display: block;
   position: relative;
   z-index: 10;
@@ -193,8 +200,8 @@
 
 .otp-field:focus {
   outline: none;
-  border: double 1px transparent;
-  border-radius: 0.75rem;
+  border: double 0.1vw transparent;
+  border-radius: 0.75vw;
   background-image: linear-gradient(white, white),
     linear-gradient(180deg, rgba(242, 7, 144, 1), rgba(0, 122, 255, 1));
   background-origin: border-box;
@@ -225,44 +232,44 @@
 .otp-separator {
   color: #000;
   font-family: "Poppins", sans-serif;
-  font-size: 14px;
+  font-size: 1.4vw;
   font-weight: 500;
-  margin-top: -14rem;
+  margin-top: -14vw;
 }
 
 .otp-submit-button,
 .otp-active-button {
   display: flex;
-  width: 30rem;
-  padding: 0.75rem 0.5rem;
+  width: 30vw;
+  padding: 0.75vw 0.5vw;
   justify-content: center;
   align-items: center;
-  gap: 0.625rem;
-  border-radius: 2rem;
+  gap: 0.625vw;
+  border-radius: 2vw;
   font-family: Poppins, sans-serif;
-  font-size: 1.25rem;
+  font-size: 1.25vw;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
-  margin-top: 6rem;
-  margin-left: 1.8rem;
+  margin-top: 6vw;
+  margin-left: 1.8vw;
   position: relative;
   box-sizing: border-box;
-  border: 1.5px solid;
+  border: 0.15vw solid;
   transition: all 0.3s ease-in-out;
 }
 
 .otp-submit-button {
   border-color: rgba(25, 25, 25, 0.06);
   background: linear-gradient(180deg, #e5e5e5 12.59%, #c7c7c7 125.93%);
-  box-shadow: 0px 2px 8px 0px rgba(255, 255, 255, 0.8) inset;
+  box-shadow: 0vw 0.2vw 0.8vw 0vw rgba(255, 255, 255, 0.8) inset;
   color: rgba(25, 25, 25, 0.24);
 }
 
 .otp-active-button {
   border-color: none;
   background: linear-gradient(90deg, #ff009a 0%, #0877fc 100%);
-  box-shadow: 2px 2px 12px 0px rgba(255, 255, 255, 0.35) inset;
+  box-shadow: 0.2vw 0.2vw 1.2vw 0vw rgba(255, 255, 255, 0.35) inset;
   color: #fff;
   cursor: pointer;
 }
@@ -270,42 +277,43 @@
 /* Form footer */
 .otp-form-footer {
   display: flex;
-  padding: 0.25rem 0.5rem;
+  padding: 0.25vw 0.5vw;
   justify-content: center;
   align-items: baseline;
-  gap: 0.5rem;
+  gap: 0.5vw;
   align-self: stretch;
-  margin-top: 2rem;
+  margin-top: 2vw;
 }
 
 .otp-account-text {
   color: rgba(25, 25, 25, 0.75);
   text-align: center;
   font-family: Poppins;
-  font-size: 0.875rem;
+  font-size: 0.875vw;
   font-style: normal;
   font-weight: 400;
-  line-height: 100%; /* 0.875rem */
+  line-height: 100%; /* 0.875vw */
 }
 .otp-resend {
   color: rgba(25, 25, 25, 0.75);
   font-family: Poppins;
-  font-size: 1rem;
+  font-size: 1vw;
   font-style: normal;
   font-weight: 500;
-  line-height: 100%; /* 1rem */
+  line-height: 100%; /* 1vw */
 }
 .otp-timer {
   color: rgba(25, 25, 25, 0.75);
   font-family: Poppins;
-  font-size: 1rem;
+  font-size: 1vw;
   font-weight: 500;
 }
-
-.otp-resend {
+.otp-resend-btn {
   color: #007aff;
+  background: none;
+  border: none;
   font-family: Poppins;
-  font-size: 1rem;
+  font-size: 1vw;
   font-weight: 500;
   cursor: pointer;
 }
