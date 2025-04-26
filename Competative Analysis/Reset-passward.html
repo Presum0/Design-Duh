@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reset Password</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background: linear-gradient(180deg, #7bb9f7 0%, #ecf5fe 55%), #fff;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2vw;
+      }
+      .reset-container-border {
+        display: inline-flex;
+        padding: 1vw;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2vw;
+        border-radius: 2vw;
+        border: 0.1vw solid #fff;
+        background: rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(
+          0.7vw
+        ); /* Approx 10px in vw assuming 1440px width screen */
+        z-index: 5;
+        width: 37vw;
+        height: 23.5vw;
+      }
+      .reset-container {
+        background: white;
+        border-radius: 1.042vw;
+        padding: 0px 0vw 2.17vw 0vw; /*padding 20 20 36 32  gradient color on top*/
+        height: max-content;
+        width: 100%;
+        box-shadow: 0vw 0vw 1.49vw 0vw rgba(77, 77, 77, 0.06);
+        text-align: center;
+      }
+      .reset-header {
+        background: linear-gradient(
+          180deg,
+          rgba(123, 185, 247, 0.1),
+          rgba(255, 255, 255, 0)
+        );
+      }
+      .reset-header img {
+        max-width: 96%;
+        object-fit: contain;
+        display: block;
+        position: relative; /* Remove absolute positioning to keep it inside */
+        margin-top: -0.01vw;
+        margin-left: 1vw;
+        display: flex;
+        border-radius: 0.625vw;
+      }
+      .reset-centre-icon {
+        height: 3.2vw;
+        width: 3.2vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: var(--Radius--Xl, 1.08vw);
+        background: linear-gradient(
+          90deg,
+          rgba(255, 0, 154, 0.2) 0%,
+          rgba(8, 119, 252, 0.2) 100%
+        );
+
+        position: absolute;
+        top: 3.5vw;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+      }
+
+      .reset-logo {
+        height: 3vw;
+        width: 3vw;
+        object-fit: contain; /* Ensures the entire image fits within the container */
+        top: 0;
+        left: -0.5vw;
+      }
+
+      .reset-h1 {
+        color: #191919;
+        text-align: center;
+        font-family: Poppins;
+        font-size: 1.25vw;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        margin-top: -17.2vw;
+      }
+
+      .reset-upper-text,
+      .reset-lower-text {
+        color: rgba(25, 25, 25, 0.75);
+        text-align: center;
+        font-family: Poppins;
+        font-size: 0.95vw;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        margin-top: 1.1vw;
+        margin-bottom: 1vw;
+        margin-left: 1.36vw;
+        margin-right: 1.36vw;
+      }
+
+      .reset-email {
+        color: #191919;
+        font-family: Poppins;
+        font-size: 0.95vw;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+      }
+
+      .reset-resend {
+        color: rgba(25, 25, 25, 0.75);
+        text-align: center;
+        font-family: Poppins;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 100%; /* 14px */
+        margin-top: 1.1vw;
+      }
+
+      .reset-resend a {
+        color: var(--Primary-Blue-Color, #007aff);
+        text-align: center;
+        font-family: Poppins;
+        font-size: 0.95vw;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        text-decoration: none;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="reset-container-border">
+      <div class="reset-container">
+        <header class="reset-header">
+          <img src="blue-grid.svg" />
+          <div class="reset-centre-icon">
+            <img src="signup-logo.svg" alt="reset-logo" class="reset-logo" />
+          </div>
+        </header>
+        <h1 class="reset-h1">Reset Password</h1>
+        <p class="reset-upper-text">
+          We've sent a password reset link to your email,<br /><span
+            class="reset-email"
+            >chaitanyasai@gmail.com</span
+          >
+        </p>
+        <p class="reset-lower-text">
+          Please check your inbox (and spam folder, just in case) and follow the
+          instructions to set a new password.
+        </p>
+        <p class="reset-resend">
+          Didn’t receive the email? <a href="#">Resend link</a>
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
