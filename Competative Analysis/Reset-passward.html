@@ -137,15 +137,21 @@
         color: rgba(25, 25, 25, 0.75);
         text-align: center;
         font-family: Poppins;
-        font-size: 14px;
+        font-size: 0.95vw;
         font-style: normal;
         font-weight: 400;
         line-height: 100%; /* 14px */
         margin-top: 1.1vw;
       }
 
-      .reset-resend a {
-        color: var(--Primary-Blue-Color, #007aff);
+      .reset-resend-button {
+        background: var(
+          --Gradient-Gradient-with-Noise,
+          linear-gradient(90deg, #ff009a 0%, #0877fc 100%)
+        );
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
         text-align: center;
         font-family: Poppins;
         font-size: 0.95vw;
@@ -154,6 +160,27 @@
         line-height: normal;
         text-decoration: none;
         cursor: pointer;
+        border: none;
+        background-color: transparent;
+        padding: 0;
+        margin-left: 0.3vw;
+      }
+
+      .reset-resend-button:hover {
+        cursor: pointer;
+      }
+      .reset-resend-button:disabled {
+        display: none;
+      }
+
+      #countdown {
+        font-family: Poppins, sans-serif;
+        font-size: 0.95vw;
+        color: rgba(25, 25, 25, 0.75);
+      }
+
+      .countdown-text {
+        display: inline;
       }
     </style>
   </head>
@@ -178,9 +205,71 @@
           instructions to set a new password.
         </p>
         <p class="reset-resend">
-          Didn’t receive the email? <a href="#">Resend link</a>
+          Didn't receive the email?
+          <span class="countdown-text"
+            >Request a new link in <span id="countdown">(00:60)</span></span
+          >
+          <button
+            id="otp-resend"
+            onclick="startCountdown()"
+            class="reset-resend-button"
+            style="cursor: pointer; display: inline"
+          >
+            Resend link
+          </button>
         </p>
       </div>
     </div>
+    <script>
+      let countdown = 3;
+      let timer = null;
+      const resendButton = document.getElementById("otp-resend");
+      const countdownSpan = document.getElementById("countdown");
+      const countdownText = document.querySelector(".countdown-text");
+
+      function startCountdown() {
+        countdown = 3;
+        updateDisplay();
+
+        // Show countdown text and hide resend button
+        countdownText.style.display = "inline";
+        resendButton.style.display = "none";
+
+        if (timer) clearInterval(timer);
+
+        timer = setInterval(() => {
+          countdown--;
+          updateDisplay();
+
+          if (countdown <= 0) {
+            clearInterval(timer);
+            showResendButton();
+          }
+        }, 1000);
+      }
+
+      function updateDisplay() {
+        countdownSpan.textContent = `(00:${String(countdown).padStart(
+          2,
+          "0"
+        )})`;
+      }
+
+      function showResendButton() {
+        countdownText.style.display = "none";
+        resendButton.style.display = "inline";
+      }
+
+      window.onload = function () {
+        resendButton.addEventListener("click", function (e) {
+          e.preventDefault();
+          startCountdown();
+        });
+
+        // Initialize with countdown visible and button hidden
+        resendButton.style.display = "none";
+        startCountdown();
+      };
+    </script>
   </body>
 </html>
