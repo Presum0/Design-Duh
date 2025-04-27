@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forgot Passward</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background: linear-gradient(180deg, #7bb9f7 0%, #ecf5fe 55%), #fff;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .forgot-container-border {
+        display: inline-flex;
+        height: 659px;
+        width: 622.68px;
+        padding: 12px 12px 0px 12px;
+        align-items: flex-start;
+        gap: 10px;
+        border-radius: 24px;
+        border: 1px solid #fff;
+        background: rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(10px);
+        position: relative; /* 👈 Important! Make parent relative */
+        overflow: visible; /* 👈 Important! Allow child to overflow */
+      }
+
+      .forgot-container {
+        display: flex;
+        height: 635px;
+        width: 598.6px;
+
+        flex-direction: column;
+        align-items: center;
+        gap: 86.368px;
+        border-radius: 16px;
+        background: #fff;
+        box-shadow: 0px 0px 5.889px 0px rgba(0, 0, 0, 0.16);
+        position: relative; /* optional */
+      }
+
+      .forgot-banner {
+        width: 598.686px;
+        height: 99.127px;
+        border-top-left-radius: 16px;
+        border-top-right-radius: 16px;
+        flex-shrink: 0;
+        border-bottom: 0.491px solid #a9c4ff;
+        background: linear-gradient(
+            174deg,
+            rgba(255, 255, 255, 0.75) 4.48%,
+            rgba(240, 243, 255, 0.75) 143.82%
+          ),
+          #fff;
+        position: relative;
+      }
+
+      .forgot-banner-star {
+        position: absolute;
+        top: 12px; /* move it above */
+        right: 10px; /* move it outside the right */
+        width: 100px; /* adjust size as you like */
+        height: auto;
+        z-index: 10;
+        background: lightgray -3.926px 0px / 102.632% 100% no-repeat;
+      }
+      .forgot-logo {
+        height: 82.4px;
+        width: 82.4px;
+        display: flex;
+        padding: 11.777px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 3.926px;
+        position: absolute;
+        left: 39.258px;
+        top: 57.906px;
+        border-radius: 15.703px;
+        border: 1.963px solid #eaf0ff;
+        background: #fff;
+        box-shadow: 0px 0px 7.852px 0px rgba(169, 196, 255, 0.3);
+      }
+      .forgot-logo-image {
+        display: flex;
+        width: 68px;
+        height: 68px;
+        padding: 4.444px;
+        align-items: center;
+        margin-left: -6px;
+      }
+      .forgot-h1 {
+        color: #191919;
+        font-family: Poppins;
+        font-size: 23.555px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 100%; /* 23.555px */
+        top: 185.49px;
+      }
+      .forgot-divider {
+        width: 520px; /* Clean number, better for symmetry */
+        height: 1px; /* Slightly sharper line */
+        background-color: rgba(25, 25, 25, 0.08);
+        border: none; /* Remove default hr border */
+        margin-top: -70px; /* Adjust spacing */
+      }
+
+      .forgot-greeting-text {
+        padding: 31.41px 39.26px 31.41px 39.26px;
+        margin-top: -90px;
+      }
+      .forgot-greeting {
+        color: var(--Text-Primary-TextColor, #191919);
+        font-family: Poppins;
+        font-size: 15.703px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+      }
+      .forgot-message {
+        color: var(--Text-Primary-TextColor, #191919);
+        font-family: Poppins;
+        font-size: 13.74px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        margin-top: 20px;
+      }
+      .forgot-reset-button {
+        display: flex;
+        padding: 11.777px;
+        justify-content: center;
+        align-items: center;
+        gap: 9.815px;
+        align-self: stretch;
+        border-radius: 11.777px;
+        background: #191919;
+        width: 520px;
+        height: 47.5px;
+        margin-left: 39.26px;
+        margin-top: -85px;
+        color: #fff;
+        font-family: Poppins;
+        font-size: 15.703px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+      }
+      .forgot-expiry-note {
+        display: flex; /* 👈 important: make it flex container */
+        align-items: center; /* 👈 vertically center image and text */
+        gap: 6px; /* 👈 small space between image and text */
+        color: var(--Text-Teritary-Text-Color, rgba(25, 25, 25, 0.5));
+        font-family: Poppins;
+        font-size: 11.777px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        margin-top: -70px;
+      }
+
+      .forgot-info-icon {
+        width: 15.703px;
+        height: 15.703px;
+      }
+      .forgot-timer {
+        color: var(--Text-Primary-TextColor, #191919);
+        font-family: Poppins;
+        font-size: 13.74px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        letter-spacing: 0.687px;
+      }
+      .forgot-closing {
+        color: var(--Text-Primary-TextColor, #191919);
+        font-family: Poppins;
+        font-size: 13.74px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        margin-top: -50px;
+        margin-left: -390px;
+      }
+      .forgot-teamname {
+        color: rgba(25, 25, 25, 0.8);
+        font-family: Poppins;
+        font-size: 13.74px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+      }
+      .forgot-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+
+        color: rgba(25, 25, 25, 0.6);
+        font-family: Poppins;
+        font-size: 13.74px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        gap: 368px;
+        margin-top: -70px;
+        margin-left: -43px;
+      }
+      .forgot-social-icons {
+        width: 23.555px;
+        height: 23.555px;
+        display: flex;
+        gap: 23px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="forgot-container-border">
+      <div class="forgot-container">
+        <div class="forgot-banner">
+          <img src="forgot-Vector.svg" alt="vector" class="forgot-vector" />
+        </div>
+        <!-- Other content of forgot-container here -->
+        <img
+          src="forgot-banner-star.svg"
+          alt="star"
+          class="forgot-banner-star"
+        />
+        <div class="forgot-logo">
+          <img src="forgot-logo.svg" alt="logo" class="forgot-logo-image" />
+        </div>
+        <h1 class="forgot-h1">Forgot Your Password? Let’s Reset It</h1>
+        <hr class="forgot-divider" />
+        <div class="forgot-greeting-text">
+          <p class="forgot-greeting">Hello Saismita,</p>
+          <p class="forgot-message">
+            No worries, it happens! Click the button below to reset your
+            password and regain access to your account.
+          </p>
+        </div>
+        <button class="forgot-reset-button">Reset My Password</button>
+        <p class="forgot-expiry-note">
+          <img src="Info-logo.svg" alt="info-icon" class="forgot-info-icon" />
+          For security reasons, this link will expire in
+          <span class="forgot-timer">4:12 secs</span>
+        </p>
+        <p class="forgot-closing">
+          See you inside!<br /><strong class="forgot-teamname"
+            >Team Design Duh!</strong
+          >
+        </p>
+        <hr class="forgot-divider" />
+        <div class="forgot-footer">
+          <p>Need Help ?</p>
+          <div class="forgot-social-icons">
+            <img src="InstagramLogo.svg" alt="Camera" />
+            <img src="LinkedinLogo.svg" alt="LinkedIn" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
