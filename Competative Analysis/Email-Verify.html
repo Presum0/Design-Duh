@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Forgot Passward</title>
+    <title>Email Verify</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
       rel="stylesheet"
@@ -27,10 +27,10 @@
         justify-content: center;
         align-items: center;
       }
-      .forgot-container-border {
+      .email-container-border {
         display: inline-flex;
-        height: 44.8vw;
-        width: 42.3vw;
+        height: 51.6vw;
+        width: 43.1vw;
         padding: 0.81vw 0.81vw 0vw 0.81vw;
         align-items: flex-start;
         gap: 0.68vw;
@@ -38,16 +38,13 @@
         border: 0.06vw solid #fff;
         background: rgba(255, 255, 255, 0.3);
         backdrop-filter: blur(0.68vw);
-        position: relative; /* 👈 Important! Make parent relative */
         overflow: visible; /* 👈 Important! Allow child to overflow */
-        margin-top: 15vw;
       }
 
-      .forgot-container {
+      .email-container {
         display: flex;
-        height: 43.1vw;
-        width: 40.7vw;
-
+        height: 50vw;
+        width: 41.4vw;
         flex-direction: column;
         align-items: center;
         gap: 5.87vw;
@@ -57,8 +54,8 @@
         position: relative; /* optional */
       }
 
-      .forgot-banner {
-        width: 40.7vw;
+      .email-banner {
+        width: 41.4vw;
         height: 6.74vw;
         border-top-left-radius: 1.08vw;
         border-top-right-radius: 1.08vw;
@@ -73,13 +70,13 @@
         position: relative;
         overflow: hidden;
       }
-      .forgot-vector {
+      .email-vector {
         width: 100%;
         height: auto;
         position: absolute;
       }
 
-      .forgot-banner-star {
+      .email-banner-star {
         position: absolute;
         top: -1.5vw; /* move it above */
         right: -1.12vw; /* move it outside the right */
@@ -87,7 +84,7 @@
         height: 10.4vw;
         z-index: 10;
       }
-      .forgot-logo {
+      .email-logo {
         height: 5.6vw;
         width: 5.6vw;
         display: flex;
@@ -104,7 +101,7 @@
         background: #fff;
         box-shadow: 0vw 0vw 0.53vw 0vw rgba(169, 196, 255, 0.3);
       }
-      .forgot-logo-image {
+      .email-logo-image {
         display: flex;
         width: 4.62vw;
         height: 4.62vw;
@@ -112,7 +109,7 @@
         align-items: center;
         margin-left: -0.4vw;
       }
-      .forgot-h1 {
+      .email-h1 {
         color: #191919;
         font-family: Poppins;
         font-size: 1.6vw;
@@ -120,38 +117,89 @@
         font-weight: 500;
         line-height: 100%; /* 23.555px */
         top: 12.6vw;
-        margin-left: -6.4vw;
+        margin-left: -8vw;
       }
-      .forgot-divider {
-        width: 35.3vw; /* Clean number, better for symmetry */
+      .email-divider {
+        width: 36vw; /* Clean number, better for symmetry */
         height: 0.06vw; /* Slightly sharper line */
         background-color: rgba(25, 25, 25, 0.08);
         border: none; /* Remove default hr border */
         margin-top: -4.76vw; /* Adjust spacing */
       }
 
-      .forgot-greeting-text {
+      .email-greeting-text {
         padding: 2.13vw 2.67vw 2.13vw 2.67vw;
         margin-top: -6.122vw;
+        margin-left: -8.5vw;
       }
-      .forgot-greeting {
+      .email-greeting {
         color: var(--Text-Primary-TextColor, #191919);
         font-family: Poppins;
-        font-size: 1.06vw;
+        font-size: 0.95vw;
         font-style: normal;
         font-weight: 500;
         line-height: normal;
       }
-      .forgot-message {
+      .email-input-code {
+        margin-top: 1vw;
         color: var(--Text-Primary-TextColor, #191919);
         font-family: Poppins;
-        font-size: 0.93vw;
+        font-size: 0.95vw;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+      }
+      .email-otp-input {
+        width: 35.3vw;
+        height: 3.53vw;
+        display: flex;
+        padding: 0.54vw 2.72vw;
+        justify-content: center;
+        align-items: center;
+        gap: 0.68vw;
+        align-self: stretch;
+        border-radius: 0.81vw;
+        background: rgba(0, 0, 0, 0.04);
+        margin-top: -7vw; /* Adjust as needed to match layout */
+        margin-left: 2.5vw;
+      }
+
+      .email-otp-input input {
+        width: 100%;
+        border: none;
+        background: transparent;
+        outline: none;
+        color: var(--Text-Primary-TextColor, #191919);
+        font-family: Poppins;
+        font-size: 1.63vw;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        letter-spacing: 0.52vw;
+        text-align: center;
+      }
+
+      .email-message {
+        color: var(--Text-Primary-TextColor, #191919);
+        font-family: Poppins;
+        font-size: 0.95vw;
         font-style: normal;
         font-weight: 400;
         line-height: normal;
         margin-top: 1.36vw;
+        gap: 1vw;
       }
-      .forgot-reset-button {
+      .email-verification-text {
+        color: var(--Text-Primary-TextColor, #191919);
+        font-family: Poppins;
+        font-size: 0.95vw;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        margin-top: -4vw;
+        margin-left: -5vw;
+      }
+      .email-verify-button {
         display: flex;
         padding: 0.8vw;
         justify-content: center;
@@ -163,15 +211,16 @@
         width: 35.3vw;
         height: 3.23vw;
         margin-left: 2.67vw;
-        margin-top: -5.78vw;
+        margin-top: -4.78vw;
         color: #fff;
         font-family: Poppins;
         font-size: 1.06vw;
         font-style: normal;
         font-weight: 500;
         line-height: normal;
+        cursor: pointer;
       }
-      .forgot-expiry-note {
+      .email-expiry-note {
         display: flex; /* 👈 important: make it flex container */
         align-items: center; /* 👈 vertically center image and text */
         gap: 0.4vw; /* 👈 small space between image and text */
@@ -184,11 +233,11 @@
         margin-top: -4.76vw;
       }
 
-      .forgot-info-icon {
+      .email-info-icon {
         width: 1.06vw;
         height: 1.06vw;
       }
-      .forgot-timer {
+      .email-timer {
         color: var(--Text-Primary-TextColor, #191919);
         font-family: Poppins;
         font-size: 0.93vw;
@@ -197,7 +246,7 @@
         line-height: normal;
         letter-spacing: 0.04vw;
       }
-      .forgot-closing {
+      .email-closing {
         color: var(--Text-Primary-TextColor, #191919);
         font-family: Poppins;
         font-size: 0.93vw;
@@ -207,7 +256,7 @@
         margin-top: -3.4vw;
         margin-left: -26.5vw;
       }
-      .forgot-teamname {
+      .email-teamname {
         color: rgba(25, 25, 25, 0.8);
         font-family: Poppins;
         font-size: 0.93vw;
@@ -215,7 +264,7 @@
         font-weight: 600;
         line-height: normal;
       }
-      .forgot-footer {
+      .email-footer {
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
@@ -230,10 +279,10 @@
         margin-top: -4.76vw;
         margin-left: -2.92vw;
       }
-      .forgot-footer p {
+      .email-footer p {
         cursor: pointer;
       }
-      .forgot-social-icons {
+      .email-social-icons {
         width: 1.6vw;
         height: 1.6vw;
         display: flex;
@@ -243,53 +292,60 @@
     </style>
   </head>
   <body>
-    <div class="forgot-container-border">
-      <div class="forgot-container">
-        <div class="forgot-banner">
+    <div class="email-container-border">
+      <div class="email-container">
+        <div class="email-banner">
           <img
             src="emailtemplate-Vector.svg"
             alt="vector"
-            class="forgot-vector"
+            class="email-vector"
           />
           <img
             src="emailtemplate-banner-star.png"
             alt="star"
-            class="forgot-banner-star"
+            class="email-banner-star"
           />
         </div>
-        <!-- Other content of forgot-container here -->
+        <!-- Other content of email-container here -->
 
-        <div class="forgot-logo">
+        <div class="email-logo">
           <img
             src="emailtemplate-logo.svg"
             alt="logo"
-            class="forgot-logo-image"
+            class="email-logo-image"
           />
         </div>
-        <h1 class="forgot-h1">Forgot Your Password? Let’s Reset It</h1>
-        <hr class="forgot-divider" />
-        <div class="forgot-greeting-text">
-          <p class="forgot-greeting">Hello User,</p>
-          <p class="forgot-message">
-            No worries, it happens! Click the button below to reset your
-            password and regain access to your account.
+        <h1 class="email-h1">One step away from going Loco!🚀</h1>
+        <hr class="email-divider" />
+        <div class="email-greeting-text">
+          <p class="email-greeting">Hello User,</p>
+          <p class="email-message">
+            Welcome to Loco Ai! We’re excited to have you on board.
           </p>
+          <p class="email-input-code">This is your verification code:</p>
         </div>
-        <button class="forgot-reset-button">Reset My Password</button>
-        <p class="forgot-expiry-note">
-          <img src="Info-logo.svg" alt="info-icon" class="forgot-info-icon" />
+        <div class="email-otp-input">
+          <input type="text" maxlength="6" placeholder="" />
+        </div>
+
+        <p class="email-expiry-note">
+          <img src="Info-logo.svg" alt="info-icon" class="email-info-icon" />
           For security reasons, this link will expire in
-          <span class="forgot-timer">1:00 secs</span>
+          <span class="email-timer">1:00 secs</span>
         </p>
-        <p class="forgot-closing">
-          See you inside!<br /><strong class="forgot-teamname"
+        <p class="email-verification-text">
+          If the code does not work, you can use this login verfication link:
+        </p>
+        <button class="email-verify-button">Verify Email</button>
+        <p class="email-closing">
+          See you inside!<br /><strong class="email-teamname"
             >Team Design Duh!</strong
           >
         </p>
-        <hr class="forgot-divider" />
-        <div class="forgot-footer">
+        <hr class="email-divider" />
+        <div class="email-footer">
           <p>Need Help ?</p>
-          <div class="forgot-social-icons">
+          <div class="email-social-icons">
             <img src="InstagramLogo.svg" alt="Camera" />
             <img src="LinkedinLogo.svg" alt="LinkedIn" />
           </div>
@@ -298,7 +354,7 @@
     </div>
     <script>
       let countdown = 60; // 60 seconds
-      const timerSpan = document.querySelector(".forgot-timer"); // Target the timer span
+      const timerSpan = document.querySelector(".email-timer"); // Target the timer span
 
       function startCountdown() {
         const timer = setInterval(() => {

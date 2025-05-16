@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Device Detected</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background: linear-gradient(180deg, #7bb9f7 0%, #ecf5fe 55%), #fff;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .new-device-container-border {
+        display: inline-flex;
+        height: 59.6vw;
+        width: 43.1vw;
+        padding: 0.81vw;
+        border-radius: 1.63vw;
+        border: 0.06vw solid #fff;
+        background: rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(0.68vw);
+        position: relative;
+        margin-top: 10vw;
+      }
+
+      .new-device-container {
+        display: flex;
+        height: 58vw;
+        width: 41.4vw;
+        flex-direction: column;
+        align-items: center;
+        gap: 5.87vw;
+        border-radius: 1.08vw;
+        background: #fff;
+        box-shadow: 0vw 0vw 0.4vw rgba(0, 0, 0, 0.16);
+      }
+
+      .new-device-banner {
+        width: 100%;
+        height: 6.87vw;
+        border-top-left-radius: 1.08vw;
+        border-top-right-radius: 1.08vw;
+        border-bottom: 0.03vw solid #a9c4ff;
+        background: linear-gradient(
+            174deg,
+            rgba(255, 255, 255, 0.75) 4.48%,
+            rgba(240, 243, 255, 0.75) 143.82%
+          ),
+          #fff;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .new-device-vector {
+        width: 100%;
+        height: auto;
+        position: absolute;
+      }
+
+      .new-device-banner-star {
+        position: absolute;
+        top: -1.5vw;
+        right: -1.12vw;
+        width: 10.1vw;
+        height: 10.4vw;
+        z-index: 10;
+      }
+
+      .new-device-logo {
+        height: 5.6vw;
+        width: 5.6vw;
+        padding: 0.8vw;
+        position: absolute;
+        left: 2.67vw;
+        top: 3.93vw;
+        border-radius: 1.06vw;
+        border: 0.133vw solid #eaf0ff;
+        background: #fff;
+        box-shadow: 0 0 0.53vw rgba(169, 196, 255, 0.3);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .new-device-logo-image {
+        width: 4.62vw;
+        height: 4.62vw;
+        padding: 0.3vw;
+      }
+
+      .new-device-h1 {
+        color: #191919;
+        font-family: Poppins, sans-serif;
+        font-size: 1.6vw;
+        font-weight: 500;
+        margin-top: -1vw;
+        margin-left: 2vw;
+        text-align: left;
+      }
+      .new-device-h1 {
+        text-align: center;
+        transform: translateX(1.5vw); /* Shift slightly to the right */
+      }
+
+      .new-device-divider {
+        width: 36vw;
+        height: 0.06vw;
+        background-color: rgba(25, 25, 25, 0.08);
+        border: none;
+        margin-top: -4.76vw;
+      }
+
+      .new-device-greeting-text {
+        padding: 2.13vw 2.67vw;
+        margin-top: -6.122vw;
+        width: 100%;
+      }
+
+      .new-device-greeting,
+      .new-device-message1,
+      .new-device-message2 {
+        color: #191919;
+        font-family: Poppins, sans-serif;
+        font-size: 0.95vw;
+        font-weight: 400;
+        word-break: break-word;
+        white-space: normal;
+        width: 100%;
+        margin-top: 0.5vw;
+      }
+      .new-device-message2 {
+        margin-top: 20px;
+      }
+      .new-device-greeting {
+        font-weight: 500;
+      }
+
+      .new-device-h1 {
+        font-size: 1.6vw;
+        font-weight: 500;
+        margin-left: -8vw;
+      }
+
+      .new-device-verify-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 0.8vw;
+        background: #191919;
+        width: 36vw;
+        height: 3.23vw;
+        margin-left: 0vw;
+        margin-top: -6vw;
+        color: #fff;
+        font-family: Poppins, sans-serif;
+        font-size: 1.06vw;
+        font-weight: 500;
+        cursor: pointer;
+      }
+
+      .new-device-closing {
+        color: #191919;
+        font-family: Poppins, sans-serif;
+        font-size: 0.93vw;
+        font-weight: 400;
+        margin-top: -3.4vw;
+        margin-left: -26.5vw;
+        margin-bottom: 0.8vw;
+      }
+
+      .new-device-teamname {
+        color: rgba(25, 25, 25, 0.8);
+        font-weight: 600;
+      }
+      .new-device-info-box {
+        border: 0.2px solid rgba(25, 25, 25, 0.5);
+
+        border-radius: 8px;
+        margin-top: 20px;
+        background: rgba(25, 25, 25, 0.02);
+      }
+
+      .new-device-info-item {
+        padding: 12px 16px;
+        border-bottom: 0.5px solid rgba(25, 25, 25, 0.2);
+      }
+
+      .new-device-info-item:last-child {
+        border-bottom: none;
+      }
+
+      .new-device-info-item strong {
+        display: block;
+        font-size: 14px;
+        color: #191919;
+        font-weight: 600;
+      }
+      .new-device-info-item input {
+        font-size: 14px;
+        color: var(--Text-Primary-TextColor, #191919);
+
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        border: none;
+        outline: none;
+        width: 100%;
+        font-family: inherit;
+        background: transparent;
+        margin-top: 0.5vw;
+      }
+
+      .new-device-footer {
+        display: flex;
+        justify-content: space-between;
+        font-family: Poppins, sans-serif;
+        font-size: 0.93vw;
+        font-weight: 500;
+        color: rgba(25, 25, 25, 0.6);
+        gap: 25vw;
+        margin-top: -5vw;
+        margin-left: 0vw;
+      }
+
+      .new-device-footer p {
+        cursor: pointer;
+      }
+
+      .new-device-social-icons {
+        display: flex;
+        gap: 1.56vw;
+        cursor: pointer;
+      }
+
+      .new-device-social-icons img {
+        width: 1.6vw;
+        height: 1.6vw;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="new-device-container-border">
+      <div class="new-device-container">
+        <div class="new-device-banner">
+          <img
+            src="emailtemplate-Vector.svg"
+            alt="vector"
+            class="new-device-vector"
+          />
+          <img
+            src="emailtemplate-banner-star.png"
+            alt="star"
+            class="new-device-banner-star"
+          />
+        </div>
+        <!-- Other content of new-device-container here -->
+
+        <div class="new-device-logo">
+          <img
+            src="emailtemplate-logo.svg"
+            alt="logo"
+            class="new-device-logo-image"
+          />
+        </div>
+        <h1 class="new-device-h1">Was This You? New Sign-In Detected 🚨</h1>
+        <hr class="new-device-divider" />
+        <div class="new-device-greeting-text">
+          <p class="new-device-greeting">Hello User,</p>
+          <p class="new-device-message1">
+            We notices a new sign-in to your Loco-ai account from a new device:
+          </p>
+          <div class="new-device-info-box">
+            <div class="new-device-info-item">
+              <strong>Location</strong>
+              <input type="text" value="" />
+            </div>
+            <div class="new-device-info-item">
+              <strong>Device</strong>
+              <input type="text" value="" />
+            </div>
+            <div class="new-device-info-item">
+              <strong>Time</strong>
+              <input type="text" value="" />
+            </div>
+          </div>
+          <p class="new-device-message2">
+            If this was you, no action is needed. If you don’t recognize this,
+            please secure your account immediately
+          </p>
+        </div>
+
+        <button class="new-device-verify-button">Secure My Account</button>
+        <p class="new-device-closing">
+          Stay safe,<br /><strong class="new-device-teamname"
+            >Team Design Duh!</strong
+          >
+        </p>
+        <hr class="new-device-divider" />
+        <div class="new-device-footer">
+          <p>Need Help ?</p>
+          <div class="new-device-social-icons">
+            <img src="InstagramLogo.svg" alt="Camera" />
+            <img src="LinkedinLogo.svg" alt="LinkedIn" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

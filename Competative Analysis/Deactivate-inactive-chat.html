@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Forgot Passward</title>
+    <title>Deactivate Inactive Chat</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
       rel="stylesheet"
@@ -27,10 +27,10 @@
         justify-content: center;
         align-items: center;
       }
-      .forgot-container-border {
+      .inactive-chat-container-border {
         display: inline-flex;
-        height: 44.8vw;
-        width: 42.3vw;
+        height: 48.6vw;
+        width: 43.1vw;
         padding: 0.81vw 0.81vw 0vw 0.81vw;
         align-items: flex-start;
         gap: 0.68vw;
@@ -40,13 +40,13 @@
         backdrop-filter: blur(0.68vw);
         position: relative; /* 👈 Important! Make parent relative */
         overflow: visible; /* 👈 Important! Allow child to overflow */
-        margin-top: 15vw;
+        margin-top: 11vw;
       }
 
-      .forgot-container {
+      .inactive-chat-container {
         display: flex;
-        height: 43.1vw;
-        width: 40.7vw;
+        height: 46.8vw;
+        width: 41.4vw;
 
         flex-direction: column;
         align-items: center;
@@ -57,9 +57,9 @@
         position: relative; /* optional */
       }
 
-      .forgot-banner {
-        width: 40.7vw;
-        height: 6.74vw;
+      .inactive-chat-banner {
+        width: 41.4vw;
+        height: 6.87vw;
         border-top-left-radius: 1.08vw;
         border-top-right-radius: 1.08vw;
         flex-shrink: 0;
@@ -73,13 +73,13 @@
         position: relative;
         overflow: hidden;
       }
-      .forgot-vector {
+      .inactive-chat-vector {
         width: 100%;
         height: auto;
         position: absolute;
       }
 
-      .forgot-banner-star {
+      .inactive-chat-banner-star {
         position: absolute;
         top: -1.5vw; /* move it above */
         right: -1.12vw; /* move it outside the right */
@@ -87,7 +87,7 @@
         height: 10.4vw;
         z-index: 10;
       }
-      .forgot-logo {
+      .inactive-chat-logo {
         height: 5.6vw;
         width: 5.6vw;
         display: flex;
@@ -104,7 +104,7 @@
         background: #fff;
         box-shadow: 0vw 0vw 0.53vw 0vw rgba(169, 196, 255, 0.3);
       }
-      .forgot-logo-image {
+      .inactive-chat-logo-image {
         display: flex;
         width: 4.62vw;
         height: 4.62vw;
@@ -112,7 +112,7 @@
         align-items: center;
         margin-left: -0.4vw;
       }
-      .forgot-h1 {
+      .inactive-chat-h1 {
         color: #191919;
         font-family: Poppins;
         font-size: 1.6vw;
@@ -120,94 +120,130 @@
         font-weight: 500;
         line-height: 100%; /* 23.555px */
         top: 12.6vw;
-        margin-left: -6.4vw;
+        margin-left: -12vw;
       }
-      .forgot-divider {
-        width: 35.3vw; /* Clean number, better for symmetry */
+      .inactive-chat-divider {
+        width: 36vw; /* Clean number, better for symmetry */
         height: 0.06vw; /* Slightly sharper line */
         background-color: rgba(25, 25, 25, 0.08);
         border: none; /* Remove default hr border */
         margin-top: -4.76vw; /* Adjust spacing */
       }
 
-      .forgot-greeting-text {
-        padding: 2.13vw 2.67vw 2.13vw 2.67vw;
+      .inactive-chat-greeting-text {
+        padding: 2.13vw 2.67vw;
         margin-top: -6.122vw;
+        margin-left: 0vw;
+        width: 100%;
       }
-      .forgot-greeting {
+
+      .inactive-chat-greeting {
         color: var(--Text-Primary-TextColor, #191919);
         font-family: Poppins;
-        font-size: 1.06vw;
+        font-size: 1vw;
         font-style: normal;
         font-weight: 500;
         line-height: normal;
       }
-      .forgot-message {
+      .inactive-chat-input-code {
+        margin-top: 1vw;
         color: var(--Text-Primary-TextColor, #191919);
         font-family: Poppins;
-        font-size: 0.93vw;
+        font-size: 0.95vw;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+      }
+      .inactive-chat-otp-input {
+        width: 35.3vw;
+        height: 3.53vw;
+        display: flex;
+        padding: 0.54vw 2.72vw;
+        justify-content: center;
+        align-items: center;
+        gap: 0.68vw;
+        align-self: stretch;
+        border-radius: 0.81vw;
+        background: rgba(0, 0, 0, 0.04);
+        margin-top: -7vw; /* Adjust as needed to match layout */
+        margin-left: 2.5vw;
+      }
+
+      .inactive-chat-otp-input input {
+        width: 100%;
+        border: none;
+        background: transparent;
+        outline: none;
+        color: var(--Text-Primary-TextColor, #191919);
+        font-family: Poppins;
+        font-size: 1.63vw;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        letter-spacing: 0.52vw;
+        text-align: center;
+      }
+
+      .inactive-chat-message1,.inactive-chat-message2 {
+        color: var(--Text-Primary-TextColor, #191919);
+        font-family: Poppins;
+        font-size: 0.95vw;
         font-style: normal;
         font-weight: 400;
         line-height: normal;
         margin-top: 1.36vw;
+       word-break: break-word; /* 👈 ensures long lines break */
+        white-space: normal; /* 👈 prevents text from staying in one line */
+        width: 100%; /* 👈 ensures it fits container width */
       }
-      .forgot-reset-button {
-        display: flex;
-        padding: 0.8vw;
-        justify-content: center;
-        align-items: center;
-        gap: 0.66vw;
-        align-self: stretch;
-        border-radius: 0.8vw;
-        background: #191919;
-        width: 35.3vw;
-        height: 3.23vw;
-        margin-left: 2.67vw;
-        margin-top: -5.78vw;
-        color: #fff;
-        font-family: Poppins;
-        font-size: 1.06vw;
-        font-style: normal;
-        font-weight: 500;
-        line-height: normal;
-      }
-      .forgot-expiry-note {
-        display: flex; /* 👈 important: make it flex container */
-        align-items: center; /* 👈 vertically center image and text */
-        gap: 0.4vw; /* 👈 small space between image and text */
-        color: var(--Text-Teritary-Text-Color, rgba(25, 25, 25, 0.5));
-        font-family: Poppins;
-        font-size: 0.8vw;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-        margin-top: -4.76vw;
-      }
-
-      .forgot-info-icon {
-        width: 1.06vw;
-        height: 1.06vw;
-      }
-      .forgot-timer {
+      .inactive-chat-highlight{
         color: var(--Text-Primary-TextColor, #191919);
         font-family: Poppins;
-        font-size: 0.93vw;
+        font-size: 0.95vw;
         font-style: normal;
         font-weight: 600;
         line-height: normal;
-        letter-spacing: 0.04vw;
       }
-      .forgot-closing {
+      .inactive-chat-bullets{
+        color: var(--Text-Primary-TextColor, #191919);
+        font-family: Poppins;
+        font-size: 0.95vw;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        margin-top: 0.1vw;
+        gap:1vw;
+        word-break: break-word; /* 👈 ensures long lines break */
+        white-space: normal; /* 👈 prevents text from staying in one line */
+        width: 100%; /* 👈 ensures it fits container width */
+      }
+      .inactive-chat-bullets {
+        list-style: none; /* remove default bullet style if using icons */
+        padding-left: 0;
+        margin-top: 1vw;
+      }
+      
+      .bullets li {
+       
+        font-size: 0.95vw;
+        color: #191919;
+        font-family: Poppins;
+      }
+      
+
+     
+      .inactive-chat-closing {
         color: var(--Text-Primary-TextColor, #191919);
         font-family: Poppins;
         font-size: 0.93vw;
         font-style: normal;
         font-weight: 400;
         line-height: normal;
-        margin-top: -3.4vw;
-        margin-left: -26.5vw;
+        margin-top: -5.4vw;
+        margin-left: -27.7vw;
+        margin-bottom: 0.8vw;
       }
-      .forgot-teamname {
+      .inactive-chat-teamname {
         color: rgba(25, 25, 25, 0.8);
         font-family: Poppins;
         font-size: 0.93vw;
@@ -215,7 +251,7 @@
         font-weight: 600;
         line-height: normal;
       }
-      .forgot-footer {
+      .inactive-chat-footer {
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
@@ -230,10 +266,10 @@
         margin-top: -4.76vw;
         margin-left: -2.92vw;
       }
-      .forgot-footer p {
+      .inactive-chat-footer p {
         cursor: pointer;
       }
-      .forgot-social-icons {
+      .inactive-chat-social-icons {
         width: 1.6vw;
         height: 1.6vw;
         display: flex;
@@ -243,83 +279,54 @@
     </style>
   </head>
   <body>
-    <div class="forgot-container-border">
-      <div class="forgot-container">
-        <div class="forgot-banner">
-          <img
-            src="emailtemplate-Vector.svg"
-            alt="vector"
-            class="forgot-vector"
-          />
+    <div class="inactive-chat-container-border">
+      <div class="inactive-chat-container">
+        <div class="inactive-chat-banner">
+          <img src="emailtemplate-Vector.svg" alt="vector" class="inactive-chat-vector" />
           <img
             src="emailtemplate-banner-star.png"
             alt="star"
-            class="forgot-banner-star"
+            class="inactive-chat-banner-star"
           />
         </div>
-        <!-- Other content of forgot-container here -->
+        <!-- Other content of inactive-chat-container here -->
 
-        <div class="forgot-logo">
-          <img
-            src="emailtemplate-logo.svg"
-            alt="logo"
-            class="forgot-logo-image"
-          />
+        <div class="inactive-chat-logo">
+          <img src="emailtemplate-logo.svg" alt="logo" class="inactive-chat-logo-image" />
         </div>
-        <h1 class="forgot-h1">Forgot Your Password? Let’s Reset It</h1>
-        <hr class="forgot-divider" />
-        <div class="forgot-greeting-text">
-          <p class="forgot-greeting">Hello User,</p>
-          <p class="forgot-message">
-            No worries, it happens! Click the button below to reset your
-            password and regain access to your account.
+        <h1 class="inactive-chat-h1">We Deleted Your Inactive Chat</h1>
+        <hr class="inactive-chat-divider" />
+        <div class="inactive-chat-greeting-text">
+          <p class="inactive-chat-greeting">Hello User,</p>
+          <p class="inactive-chat-message1">
+            We noticed that your chat <span class="inactive-chat-highlight">“AI in Product Design”</span>  has been inactive for over 3 months, 
+            so we’ve deleted it as part of our data management policy.
+            <ul class="inactive-chat-bullets">Here’s how it works:
+                <li>🔶 We automatically delete chats inactive for 3 months</li>
+                <li>🔶 You'll get a 7-day notice to export messages</li>
+              
+              </ul>
+            
           </p>
+          <p class="inactive-chat-message2">Want to keep your chats safe next time? Stay active or export them before the deadline!</p>
         </div>
-        <button class="forgot-reset-button">Reset My Password</button>
-        <p class="forgot-expiry-note">
-          <img src="Info-logo.svg" alt="info-icon" class="forgot-info-icon" />
-          For security reasons, this link will expire in
-          <span class="forgot-timer">1:00 secs</span>
-        </p>
-        <p class="forgot-closing">
-          See you inside!<br /><strong class="forgot-teamname"
+
+      
+        <p class="inactive-chat-closing">
+          See you inside!<br /><strong class="inactive-chat-teamname"
             >Team Design Duh!</strong
           >
         </p>
-        <hr class="forgot-divider" />
-        <div class="forgot-footer">
+        <hr class="inactive-chat-divider" />
+        <div class="inactive-chat-footer">
           <p>Need Help ?</p>
-          <div class="forgot-social-icons">
+          <div class="inactive-chat-social-icons">
             <img src="InstagramLogo.svg" alt="Camera" />
             <img src="LinkedinLogo.svg" alt="LinkedIn" />
           </div>
         </div>
       </div>
     </div>
-    <script>
-      let countdown = 60; // 60 seconds
-      const timerSpan = document.querySelector(".forgot-timer"); // Target the timer span
-
-      function startCountdown() {
-        const timer = setInterval(() => {
-          const minutes = Math.floor(countdown / 60);
-          const seconds = countdown % 60;
-          timerSpan.textContent = `${minutes}:${seconds
-            .toString()
-            .padStart(2, "0")} secs`;
-
-          countdown--;
-
-          if (countdown < 0) {
-            clearInterval(timer);
-            timerSpan.textContent = "Expired"; // What you want to show after timeout
-          }
-        }, 1000);
-      }
-
-      window.onload = function () {
-        startCountdown();
-      };
-    </script>
+   
   </body>
 </html>

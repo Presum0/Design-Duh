@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Friends Invite 1</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+          }
+          
+          body {
+            font-family: "Inter", sans-serif;
+            background: linear-gradient(180deg, #7bb9f7 0%, #ecf5fe 55%), #fff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+          
+          .friends-invite1-container-border {
+            display: inline-flex;
+            height: 51.4vw;
+            width: 43.1vw;
+            padding: 0.81vw;
+            border-radius: 1.63vw;
+            border: 0.06vw solid #fff;
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(0.68vw);
+            position: fixed;
+            margin-top: 7vw;
+          }
+          
+          .friends-invite1-container {
+            display: flex;
+            height: 50.6vw;
+            width: 41.4vw;
+            flex-direction: column;
+            align-items: center;
+            gap: 5.87vw;
+            border-radius: 1.08vw;
+            background: #fff;
+            box-shadow: 0vw 0vw 0.4vw rgba(0, 0, 0, 0.16);
+          }
+          
+          .friends-invite1-banner {
+            width: 100%;
+            height: 6.87vw;
+            border-top-left-radius: 1.08vw;
+            border-top-right-radius: 1.08vw;
+            border-bottom: 0.03vw solid #a9c4ff;
+            background: linear-gradient(174deg, rgba(255, 255, 255, 0.75) 4.48%, rgba(240, 243, 255, 0.75) 143.82%), #fff;
+            position: relative;
+            overflow: hidden;
+          }
+          
+          .friends-invite1-vector {
+            width: 100%;
+            height: auto;
+            position: absolute;
+          }
+          
+          .friends-invite1-banner-star {
+            position: absolute;
+            top: -1.5vw;
+            right: -1.12vw;
+            width: 10.1vw;
+            height: 10.4vw;
+            z-index: 10;
+          }
+          
+          .friends-invite1-logo {
+            height: 5.6vw;
+            width: 5.6vw;
+            padding: 0.8vw;
+            position: absolute;
+            left: 2.67vw;
+            top: 3.93vw;
+            border-radius: 1.06vw;
+            border: 0.133vw solid #eaf0ff;
+            background: #fff;
+            box-shadow: 0 0 0.53vw rgba(169, 196, 255, 0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+          
+          .friends-invite1-logo-image {
+            width: 4.62vw;
+            height: 4.62vw;
+            padding: 0.3vw;
+          }
+          
+          .friends-invite1-h1 {
+            color: #191919;
+            font-family: Poppins, sans-serif;
+            font-size: 1.6vw;
+            font-weight: 500;
+            margin-top: 12.6vw;
+            margin-left: -8vw;
+          }
+          
+          .friends-invite1-divider {
+            width: 36vw;
+            height: 0.06vw;
+            background-color: rgba(25, 25, 25, 0.08);
+            border: none;
+            margin-top: -4.76vw;
+          }
+          
+          .friends-invite1-greeting-text {
+            padding: 2.13vw 2.67vw;
+            margin-top: -6.122vw;
+            width: 100%;
+          }
+          
+          .friends-invite1-greeting,
+          .friends-invite1-message1,
+          .friends-invite1-message2,
+          .friends-invite1-bullets {
+            color: #191919;
+            font-family: Poppins, sans-serif;
+            font-size: 0.95vw;
+            font-weight: 400;
+            word-break: break-word;
+            white-space: normal;
+            width: 100%;
+            margin-top: 0.5vw;
+          }
+          
+          .friends-invite1-greeting {
+            font-weight: 500;
+          }
+          
+          .friends-invite1-h1 {
+            font-size: 1.6vw;
+            font-weight: 500;
+            margin-left: -8vw;
+          }
+          
+          .friends-invite1-verify-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 0.8vw;
+            background: #191919;
+            width: 35.3vw;
+            height: 3.23vw;
+            margin-left: 2.67vw;
+            margin-top: -6vw;
+            color: #fff;
+            font-family: Poppins, sans-serif;
+            font-size: 1.06vw;
+            font-weight: 500;
+            cursor: pointer;
+          }
+          
+          .friends-invite1-closing {
+            color: #191919;
+            font-family: Poppins, sans-serif;
+            font-size: 0.93vw;
+            font-weight: 400;
+            margin-top: -3.4vw;
+            margin-left: -26.5vw;
+            margin-bottom: 0.8vw;
+          }
+          
+          .friends-invite1-teamname {
+            color: rgba(25, 25, 25, 0.8);
+            font-weight: 600;
+          }
+          
+          .friends-invite1-footer {
+            display: flex;
+            justify-content: space-between;
+            font-family: Poppins, sans-serif;
+            font-size: 0.93vw;
+            font-weight: 500;
+            color: rgba(25, 25, 25, 0.6);
+            gap: 25vw;
+            margin-top: -4.76vw;
+            margin-left: -2.92vw;
+          }
+          
+          .friends-invite1-footer p {
+            cursor: pointer;
+          }
+          
+          .friends-invite1-social-icons {
+            display: flex;
+            gap: 1.56vw;
+            cursor: pointer;
+          }
+          
+          .friends-invite1-social-icons img {
+            width: 1.6vw;
+            height: 1.6vw;
+          }
+          
+    </style>
+  </head>
+  <body>
+    <div class="friends-invite1-container-border">
+      <div class="friends-invite1-container">
+        <div class="friends-invite1-banner">
+          <img src="emailtemplate-Vector.svg" alt="vector" class="friends-invite1-vector" />
+          <img
+            src="emailtemplate-banner-star.png"
+            alt="star"
+            class="friends-invite1-banner-star"
+          />
+        </div>
+        <!-- Other content of friends-invite1-container here -->
+
+        <div class="friends-invite1-logo">
+          <img src="emailtemplate-logo.svg" alt="logo" class="friends-invite1-logo-image" />
+        </div>
+        <h1 class="friends-invite1-h1">🚀 You’ve Been Invited to Join Loco!</h1>
+        <hr class="friends-invite1-divider" />
+        <div class="friends-invite1-greeting-text">
+          <p class="friends-invite1-greeting">Hello User,</p>
+          <p class="friends-invite1-message1">
+            Your friend Praharsha thinks you’ll love Loco Ai and has sent you an
+            exclusive invite! <p class="friends-invite1-bullets">
+                <br />🔶 Connect with friends <br />🔶 Explore
+                Loco Ai (Conversational Ai tool built for designers)<br />
+                🔶 Have fun together!<br />
+            </p>
+            
+          </p>
+          <p class="friends-invite1-message2">Ready to jump in?</p>
+        </div>
+
+        <button class="friends-invite1-verify-button">Accept Invite</button>
+        <p class="friends-invite1-closing">
+          See you inside!<br /><strong class="friends-invite1-teamname"
+            >Team Design Duh!</strong
+          >
+        </p>
+        <hr class="friends-invite1-divider" />
+        <div class="friends-invite1-footer">
+          <p>Need Help ?</p>
+          <div class="friends-invite1-social-icons">
+            <img src="InstagramLogo.svg" alt="Camera" />
+            <img src="LinkedinLogo.svg" alt="LinkedIn" />
+          </div>
+        </div>
+      </div>
+    </div>
+   
+  </body>
+</html>

@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loco 2.0 Intro</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background: linear-gradient(180deg, #7bb9f7 0%, #ecf5fe 55%), #fff;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .loco2intro-container-border {
+        display: inline-flex;
+        height: 61.7vw;
+        width: 43.1vw;
+        padding: 0.81vw 0.81vw 0vw 0.81vw;
+        align-items: flex-start;
+        gap: 0.68vw;
+        border-radius: 1.63vw;
+        border: 0.06vw solid #fff;
+        background: rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(0.68vw);
+        position: relative; /* 👈 Important! Make parent relative */
+        overflow: visible; /* 👈 Important! Allow child to overflow */
+        margin-top: 10vw;
+      }
+
+      .loco2intro-container {
+        display: flex;
+        height: 59.9vw;
+        width: 41.4vw;
+        flex-direction: column;
+        align-items: center;
+        gap: 5.87vw;
+        border-radius: 1.08vw;
+        background: #fff;
+        box-shadow: 0vw 0vw 0.4vw 0vw rgba(0, 0, 0, 0.16);
+        position: relative; /* optional */
+      }
+
+      .loco2intro-banner {
+        width: 41.4vw;
+        height: 6.87vw;
+        border-top-left-radius: 1.08vw;
+        border-top-right-radius: 1.08vw;
+        flex-shrink: 0;
+        border-bottom: 0.03vw solid #a9c4ff;
+        background: linear-gradient(
+            174deg,
+            rgba(255, 255, 255, 0.75) 4.48%,
+            rgba(240, 243, 255, 0.75) 143.82%
+          ),
+          #fff;
+        position: relative;
+        overflow: hidden;
+      }
+      .loco2intro-vector {
+        width: 100%;
+        height: auto;
+        position: absolute;
+      }
+
+      .loco2intro-banner-star {
+        position: absolute;
+        top: -1.5vw; /* move it above */
+        right: -1.12vw; /* move it outside the right */
+        width: 10.1vw; /* adjust size as you like */
+        height: 10.4vw;
+        z-index: 10;
+      }
+      .loco2intro-logo {
+        height: 5.6vw;
+        width: 5.6vw;
+        display: flex;
+        padding: 0.8vw;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 0.26vw;
+        position: absolute;
+        left: 2.67vw;
+        top: 3.93vw;
+        border-radius: 1.06vw;
+        border: 0.133vw solid #eaf0ff;
+        background: #fff;
+        box-shadow: 0vw 0vw 0.53vw 0vw rgba(169, 196, 255, 0.3);
+      }
+      .loco2intro-logo-image {
+        display: flex;
+        width: 4.62vw;
+        height: 4.62vw;
+        padding: 0.3vw;
+        align-items: center;
+        margin-left: -0.4vw;
+      }
+      .loco2intro-h1 {
+        color: var(--Text-Primary-TextColor, #191919);
+        font-family: Poppins;
+        font-size: 1.63vw;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 125%;
+        margin-left: -2vw;
+        word-break: break-word;
+        white-space: normal;
+        width: calc(100% - 8vw); /* subtracting margin-left to fit container */
+        text-align: left; /* 👈 ensures left-aligned text */
+      }
+      
+      .loco2intro-divider {
+        width: 36vw; /* Clean number, better for symmetry */
+        height: 0.06vw; /* Slightly sharper line */
+        background-color: rgba(25, 25, 25, 0.08);
+        border: none; /* Remove default hr border */
+        margin-top: -4.76vw; /* Adjust spacing */
+      }
+
+      .loco2intro-greeting-text {
+        padding: 2.13vw 2.67vw;
+        margin-top: -6.122vw;
+        margin-left: 0vw;
+        width: 100%;
+      }
+
+      .loco2intro-greeting {
+        color: var(--Text-Primary-TextColor, #191919);
+        font-family: Poppins;
+        font-size: 1vw;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+      }
+      .loco2intro-input-code {
+        margin-top: 1vw;
+        color: var(--Text-Primary-TextColor, #191919);
+        font-family: Poppins;
+        font-size: 0.95vw;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+      }
+      .loco2intro-otp-input {
+        width: 35.3vw;
+        height: 3.53vw;
+        display: flex;
+        padding: 0.54vw 2.72vw;
+        justify-content: center;
+        align-items: center;
+        gap: 0.68vw;
+        align-self: stretch;
+        border-radius: 0.81vw;
+        background: rgba(0, 0, 0, 0.04);
+        margin-top: -7vw; /* Adjust as needed to match layout */
+        margin-left: 2.5vw;
+      }
+
+      .loco2intro-otp-input input {
+        width: 100%;
+        border: none;
+        background: transparent;
+        outline: none;
+        color: var(--Text-Primary-TextColor, #191919);
+        font-family: Poppins;
+        font-size: 1.63vw;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        letter-spacing: 0.52vw;
+        text-align: center;
+      }
+
+      .loco2intro-message1,.loco2intro-message2 {
+        color: var(--Text-Primary-TextColor, #191919);
+        font-family: Poppins;
+        font-size: 0.95vw;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        margin-top: 1.36vw;
+        word-break: break-word; /* 👈 ensures long lines break */
+        white-space: normal; /* 👈 prevents text from staying in one line */
+        width: 100%; /* 👈 ensures it fits container width */
+      }
+      .loco2intro-highlight{
+        color: var(--Text-Primary-TextColor, #191919);
+        font-family: Poppins;
+        font-size: 0.95vw;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+      }
+      .loco2intro-bullets{
+        color: var(--Text-Primary-TextColor, #191919);
+        font-family: Poppins;
+        font-size: 0.95vw;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        margin-top: 0.1vw;
+        gap:2vw;
+        word-break: break-word; /* 👈 ensures long lines break */
+        white-space: normal; /* 👈 prevents text from staying in one line */
+        width: 100%; /* 👈 ensures it fits container width */
+      }
+      .loco2intro-bullets {
+        list-style: none;
+        margin-top: 1.5vw; /* Space above ul */
+        margin-bottom: 1.5vw; /* Space below ul */
+      }
+      
+      .loco2intro-bullets li {
+        margin-bottom: 0.8vw; /* Space between each li */
+        margin-top: 1.5vw; /* Space above ul */
+        font-size: 0.95vw;
+        color: #191919;
+        font-family: Poppins;
+      }
+      
+      .loco2intro--button {
+        display: flex;
+        padding: 0.8vw;
+        justify-content: center;
+        align-items: center;
+        gap: 0.66vw;
+        align-self: stretch;
+        border-radius: 0.8vw;
+        background: #191919;
+        width: 35.3vw;
+        height: 3.23vw;
+        margin-left: 2.67vw;
+        margin-top: -5.78vw;
+        color: #fff;
+        font-family: Poppins;
+        font-size: 1.06vw;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        cursor: pointer;
+      }
+      .loco2intro-thanks-message {
+        color: var(--Text-Primary-TextColor, #191919);
+        font-family: Poppins;
+        font-size: 0.95vw;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        word-break: break-word;
+        white-space: normal;
+        margin-top: -3.4vw;
+        padding: 0 2.67vw; /* 👈 Matches .loco2intro-greeting-text horizontal padding */
+      }
+      
+      .loco2intro-closing {
+        color: var(--Text-Primary-TextColor, #191919);
+        font-family: Poppins;
+        font-size: 0.93vw;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        margin-top: -4.4vw;
+        margin-left: -27.7vw;
+        margin-bottom: 0.8vw;
+      }
+      .loco2intro-teamname {
+        color: rgba(25, 25, 25, 0.8);
+        font-family: Poppins;
+        font-size: 0.93vw;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+      }
+      .loco2intro-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+
+        color: rgba(25, 25, 25, 0.6);
+        font-family: Poppins;
+        font-size: 0.93vw;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        gap: 25vw;
+        margin-top: -4.76vw;
+        margin-left: -2.92vw;
+      }
+      .loco2intro-footer p {
+        cursor: pointer;
+      }
+      .loco2intro-social-icons {
+        width: 1.6vw;
+        height: 1.6vw;
+        display: flex;
+        gap: 1.56vw;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="loco2intro-container-border">
+      <div class="loco2intro-container">
+        <div class="loco2intro-banner">
+          <img src="emailtemplate-Vector.svg" alt="vector" class="loco2intro-vector" />
+          <img
+            src="emailtemplate-banner-star.png"
+            alt="star"
+            class="loco2intro-banner-star"
+          />
+        </div>
+        <!-- Other content of loco2intro-container here -->
+
+        <div class="loco2intro-logo">
+          <img src="emailtemplate-logo.svg" alt="logo" class="loco2intro-logo-image" />
+        </div>
+        <h1 class="loco2intro-h1">Introducing Loco AI 2.0 – Bigger, Better, Smarter! 🚀</h1>
+        <hr class="loco2intro-divider" />
+        <div class="loco2intro-greeting-text">
+          <p class="loco2intro-greeting">Hello User,</p>
+          <p class="loco2intro-message1">
+            The wait is over! Loco AI 2.0 is now live, bringing you a faster, smarter, and more powerful experience.
+            <ul class="loco2intro-bullets">✨ What’s New?
+                <li>🔶 Friends’ Profiles: Now you can find your friends on Loco AI and connect!</li>
+                <li>🔶 User persona generator: Now you can generate crazy user personas!</li>
+              
+              </ul>
+            
+          </p>
+          <p class="loco2intro-message2">Ready to explore the next level?</p>
+        </div>
+        <button class="loco2intro--button">Try Loco AI 2.0</button>
+      <p class="loco2intro-thanks-message">Thanks for being part of this journey – we can’t wait for you to experience the best of Loco AI 2.0!</p>
+        <p class="loco2intro-closing">
+          See you inside!<br /><strong class="loco2intro-teamname"
+            >Team Design Duh!</strong
+          >
+        </p>
+        <hr class="loco2intro-divider" />
+        <div class="loco2intro-footer">
+          <p>Need Help ?</p>
+          <div class="loco2intro-social-icons">
+            <img src="InstagramLogo.svg" alt="Camera" />
+            <img src="LinkedinLogo.svg" alt="LinkedIn" />
+          </div>
+        </div>
+      </div>
+    </div>
+   
+  </body>
+</html>
